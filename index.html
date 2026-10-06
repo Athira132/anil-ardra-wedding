@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Anil &amp; Ardra | Wedding Invitation</title>
+    <meta name="title" content="Anil &amp; Ardra | Wedding Invitation" />
+    <meta name="description" content="Anil &amp; Ardra's wedding invitation." />
+    <meta name="theme-color" content="#FAF8F5" />
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anil-ardra-wedding.vercel.app/" />
+    <meta property="og:title" content="Anil &amp; Ardra | Wedding Invitation" />
+    <meta property="og:description" content="Anil &amp; Ardra's wedding invitation. Together with their families, they invite you to celebrate their wedding." />
+    <meta property="og:image" content="/images/couple-hero.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Anil &amp; Ardra | Wedding Invitation" />
+    <meta property="twitter:description" content="Anil &amp; Ardra's wedding invitation." />
+    <meta property="twitter:image" content="/images/couple-hero.jpg" />
+
+    <!-- Favicon: Custom Monogram A&A -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Pinyon+Script&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Floating Petals Canvas -->
+    <canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+    <!-- Background Subtle Textures & Botanical Ambient Elements -->
+    <div class="paper-texture-overlay" aria-hidden="true"></div>
+    <div class="ambient-glow glow-top" aria-hidden="true"></div>
+    <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+    <!-- Minimal Floating Navigation -->
+    <header class="floating-nav-container" id="nav-header">
+      <nav class="floating-nav" aria-label="Wedding Invitation Navigation">
+        <a href="#hero" class="nav-brand" aria-label="Anil & Ardra Home">
+          <span class="nav-monogram">A&amp;A</span>
+          <span class="nav-names">ANIL &amp; ARDRA</span>
+        </a>
+
+        <div class="nav-links" id="nav-links">
+          <a href="#hero" class="nav-link active">Home</a>
+          <a href="#story" class="nav-link">Our Story</a>
+          <a href="#wedding" class="nav-link">Wedding</a>
+          <a href="#gallery" class="nav-link">Gallery</a>
+          <a href="#location" class="nav-link">Location</a>
+        </div>
+
+        <div class="nav-actions">
+          <!-- Audio Playback Toggle Button -->
+          <button
+            id="music-toggle"
+            class="music-btn"
+            type="button"
+            aria-label="Play soft wedding ambient music"
+            title="Ambient Music"
+          >
+            <span class="music-icon" id="music-icon">
+              <!-- Sound Off SVG -->
+              <svg class="icon-sound-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+              <!-- Sound On SVG -->
+              <svg class="icon-sound-on hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </span>
+            <span class="music-label">Music</span>
+          </button>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button
+            id="mobile-nav-toggle"
+            class="mobile-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-links"
+            aria-label="Toggle menu"
+          >
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- ========================================
+           1. OPENING / HERO SECTION
+           ======================================== -->
+      <section id="hero" class="hero-section" aria-label="Invitation Opening">
+        <!-- Botanical Framing: Kerala Banana Leaves (Left & Right) with Parallax -->
+        <div class="botanical-frame leaf-frame-left" data-parallax="-0.08" aria-hidden="true">
+          <img src="/images/banana-leaf-art.jpg" alt="" class="banana-leaf-img leaf-left" />
+        </div>
+        <div class="botanical-frame leaf-frame-right" data-parallax="-0.08" aria-hidden="true">
+          <img src="/images/banana-leaf-art.jpg" alt="" class="banana-leaf-img leaf-right" />
+        </div>
+
+        <!-- Decorative Kerala Peacock (Perched Gracefully) -->
+        <div class="hero-peacock-wrapper" data-parallax="0.04" aria-hidden="true">
+          <img src="/images/peacock-art.jpg" alt="Artistic hand-painted peacock" class="hero-peacock-img" />
+        </div>
+
+        <!-- Delicate Lotus Accent at Top -->
+        <div class="hero-lotus-top" aria-hidden="true">
+          <img src="/images/lotus-art.svg" alt="" class="hero-lotus-img" />
+        </div>
+
+        <div class="hero-content container">
+          <!-- Romantic Top Accent Script -->
+          <p class="hero-script reveal-fade-down">With joyful hearts</p>
+
+          <!-- Couple's Names: Large, High-Contrast Serif -->
+          <div class="hero-names-wrapper reveal-scale">
+            <h1 class="hero-title">
+              <span class="couple-name name-first">ANIL</span>
+              <span class="couple-ampersand">&amp;</span>
+              <span class="couple-name name-second">ARDRA</span>
+            </h1>
+          </div>
+
+          <!-- Kerala Traditional Ornamental Divider -->
+          <div class="ornamental-divider reveal-fade-up">
+            <span class="divider-line"></span>
+            <span class="divider-lotus-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M16 4 C14 10, 8 16, 8 20 C8 24.4, 11.6 28, 16 28 C20.4 28, 24 24.4, 24 20 C24 16, 18 10, 16 4 Z" fill="#F7D6D0" fill-opacity="0.35"/>
+                <path d="M16 10 C15 14, 11 18, 11 21 C11 23.8, 13.2 26, 16 26 C18.8 26, 21 23.8, 21 21 C21 18, 17 14, 16 10 Z" fill="#E8A598" fill-opacity="0.5"/>
+                <path d="M16 16 C15.5 18, 13.5 20, 13.5 22 C13.5 23.4, 14.6 24.5, 16 24.5 C17.4 24.5, 18.5 23.4, 18.5 22 C18.5 20, 16.5 18, 16 16 Z" fill="#B89758"/>
+              </svg>
+            </span>
+            <span class="divider-line"></span>
+          </div>
+
+          <!-- Invitation Supporting Text -->
+          <p class="hero-invitation-text reveal-fade-up">
+            Together with their families,<br />
+            they invite you to celebrate their wedding
+          </p>
+
+          <!-- EDITABLE PLACEHOLDERS FOR DATE & VENUE -->
+          <div class="hero-placeholders reveal-fade-up">
+            <div class="placeholder-badge date-badge" title="Click to view details">
+              <span class="placeholder-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </span>
+              <!-- EDITABLE: Replace date below -->
+              <span class="placeholder-text editable-field" data-field="date">Wedding Date</span>
+            </div>
+
+            <span class="placeholder-separator" aria-hidden="true">•</span>
+
+            <div class="placeholder-badge venue-badge" title="Click to view venue">
+              <span class="placeholder-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+              <!-- EDITABLE: Replace venue below -->
+              <span class="placeholder-text editable-field" data-field="venue">Wedding Venue</span>
+            </div>
+          </div>
+
+          <!-- Subtle Animated Scroll To Discover -->
+          <div class="hero-scroll-cue reveal-fade-up">
+            <a href="#story" class="scroll-link" aria-label="Scroll to discover our story">
+              <span class="scroll-label">Scroll to discover</span>
+              <div class="scroll-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 10l5 5 5-5"></path>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           2. COUPLE PHOTO SECTION ("Our Story")
+           ======================================== -->
+      <section id="story" class="story-section section-padding" aria-label="Our Story">
+        <div class="container">
+          <div class="section-header text-center reveal-fade-up">
+            <span class="section-subtitle">A Union of Two Hearts</span>
+            <h2 class="section-title">Our Story</h2>
+            <div class="header-flourish" aria-hidden="true">
+              <svg viewBox="0 0 100 20" width="80" height="16" fill="none" stroke="#B89758" stroke-width="1">
+                <path d="M10 10 Q 30 18, 50 10 T 90 10" />
+                <circle cx="50" cy="10" r="2.5" fill="#B89758"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="story-layout">
+            <!-- Editorial Asymmetric Photo Composition -->
+            <div class="story-photos reveal-fade-right">
+              <!-- PRIMARY COUPLE PHOTO -->
+              <div class="photo-frame primary-frame">
+                <div class="frame-border-gold"></div>
+                <div class="frame-inner">
+                  <!-- EDITABLE IMAGE: heroCoupleImage / couple-story-1.jpg -->
+                  <img
+                    src="/images/couple-story-1.jpg"
+                    alt="Anil and Ardra together in traditional Kerala attire"
+                    class="story-img main-couple-img"
+                    loading="lazy"
+                  />
+                </div>
+                <!-- Botanical Corner Embellishment -->
+                <div class="frame-botanical-accent corner-top-left" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="#607B6A" stroke-width="1">
+                    <path d="M5 35 Q 20 20, 35 5" />
+                    <path d="M15 25 C 22 18, 30 20, 35 5" fill="#9FBAA5" fill-opacity="0.3"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- SECONDARY COUPLE PHOTO (Candid Smile) -->
+              <div class="photo-frame secondary-frame">
+                <div class="frame-border-gold"></div>
+                <div class="frame-inner">
+                  <!-- EDITABLE IMAGE: couple-story-2.jpg -->
+                  <img
+                    src="/images/couple-story-2.jpg"
+                    alt="Anil and Ardra candid moment"
+                    class="story-img candid-couple-img"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="lotus-petal-badge" aria-hidden="true">
+                  <img src="/images/lotus-art.svg" alt="" class="badge-lotus-img" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Story Narrative -->
+            <div class="story-content reveal-fade-left">
+              <div class="story-quote-card">
+                <p class="story-script-intro">Every love story is sacred,</p>
+                <h3 class="story-lead">Two lives intertwined with family, friendship, and eternal grace</h3>
+                
+                <p class="story-paragraph">
+                  Under the calm Kerala skies, where whispering coconut groves meet age-old traditions,
+                  two paths gently converged into one harmonious journey. With the heartfelt blessings
+                  of our parents and families, we take our next steps into a shared tomorrow filled with
+                  laughter, companionship, and boundless love.
+                </p>
+
+                <p class="story-paragraph">
+                  As we prepare to exchange sacred vows and begin this new chapter, we hold dear the warmth
+                  and affection of every friend and family member who has illuminated our lives.
+                </p>
+
+                <div class="story-signature">
+                  <span class="signature-text">With gratitude &amp; reverence,</span>
+                  <span class="signature-names">Anil &amp; Ardra</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           3. WEDDING DETAILS SECTION
+           ======================================== -->
+      <section id="wedding" class="wedding-details-section section-padding" aria-label="Wedding Day Details">
+        <!-- Floating Banana Leaf Background Accent (Parallax) -->
+        <div class="section-bg-botanical leaf-accent-right" data-parallax="0.05" aria-hidden="true">
+          <img src="/images/banana-leaf-art.jpg" alt="" class="bg-banana-leaf" />
+        </div>
+
+        <div class="container">
+          <div class="section-header text-center reveal-fade-up">
+            <span class="section-subtitle">Join Our Auspicious Occasion</span>
+            <h2 class="section-title">WEDDING DAY</h2>
+            <p class="section-desc">
+              We look forward to celebrating the beginning of our forever in your gracious company.
+            </p>
+          </div>
+
+          <div class="details-cards-grid">
+            <!-- 1. DATE CARD -->
+            <div class="detail-card reveal-fade-up" style="--delay: 0.1s;">
+              <div class="card-inner">
+                <div class="card-icon-wrapper">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                    <circle cx="12" cy="15" r="1.5" fill="currentColor"></circle>
+                  </svg>
+                </div>
+                <h3 class="card-category">DATE</h3>
+                <!-- EDITABLE: Replace Date values below -->
+                <p class="card-highlight editable-field" data-field="wedding-date">Sunday, Nov 29, 2026</p>
+                <p class="card-subtext editable-field" data-field="wedding-malayalam-date">Vrischikam 14, 1202 ME</p>
+                <div class="card-badge">Auspicious Muhurtham</div>
+              </div>
+            </div>
+
+            <!-- DECORATIVE LOTUS CONNECTOR -->
+            <div class="details-connector reveal-scale" aria-hidden="true" style="--delay: 0.2s;">
+              <img src="/images/lotus-art.svg" alt="" class="connector-lotus-img" />
+            </div>
+
+            <!-- 2. TIME CARD -->
+            <div class="detail-card reveal-fade-up" style="--delay: 0.3s;">
+              <div class="card-inner">
+                <div class="card-icon-wrapper">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <h3 class="card-category">TIME</h3>
+                <!-- EDITABLE: Replace Time values below -->
+                <p class="card-highlight editable-field" data-field="wedding-time">09:30 AM – 10:30 AM</p>
+                <p class="card-subtext">Followed by Traditional Sadya Feast</p>
+                <div class="card-badge">Ceremony &amp; Reception</div>
+              </div>
+            </div>
+
+            <!-- DECORATIVE LOTUS CONNECTOR -->
+            <div class="details-connector reveal-scale" aria-hidden="true" style="--delay: 0.4s;">
+              <img src="/images/lotus-art.svg" alt="" class="connector-lotus-img" />
+            </div>
+
+            <!-- 3. VENUE CARD -->
+            <div class="detail-card reveal-fade-up" style="--delay: 0.5s;">
+              <div class="card-inner">
+                <div class="card-icon-wrapper">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <h3 class="card-category">VENUE</h3>
+                <!-- EDITABLE: Replace Venue values below -->
+                <p class="card-highlight editable-field" data-field="wedding-venue-name">The Heritage Palace Convention Center</p>
+                <p class="card-subtext editable-field" data-field="wedding-venue-city">Kovalam Beach Road, Trivandrum, Kerala</p>
+                <a href="#location" class="card-link">View Directions &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendar Add Button -->
+          <div class="calendar-action-wrapper text-center reveal-fade-up">
+            <button id="add-to-calendar-btn" class="btn btn-outline" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <line x1="12" y1="14" x2="12" y2="18"></line>
+                <line x1="10" y1="16" x2="14" y2="16"></line>
+              </svg>
+              <span>Add to Calendar</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           4. CEREMONY / INVITATION MESSAGE
+           ======================================== -->
+      <section id="ceremony" class="ceremony-section section-padding text-center" aria-label="Invitation Message">
+        <div class="container container-narrow">
+          <div class="ceremony-card reveal-scale">
+            <!-- Decorative Lotus Crest -->
+            <div class="ceremony-lotus-crest" aria-hidden="true">
+              <img src="/images/lotus-art.svg" alt="" class="crest-img" />
+            </div>
+
+            <span class="ceremony-script">You Are Cordially Invited</span>
+            <h2 class="ceremony-heading">Join Us</h2>
+
+            <div class="ceremony-quote-box">
+              <p class="ceremony-text">
+                &ldquo;Your presence will make our celebration even more special.&rdquo;
+              </p>
+            </div>
+
+            <p class="ceremony-body">
+              Bless our union with your prayers, warm smiles, and cherished presence
+              as we take the sacred saptapadi steps together in the fellowship of our families.
+            </p>
+
+            <div class="kerala-auspicious-symbol" aria-hidden="true">
+              <svg viewBox="0 0 60 24" width="60" height="24" fill="none" stroke="#B89758" stroke-width="1.2">
+                <path d="M5 12 C 15 5, 25 19, 30 12 C 35 5, 45 19, 55 12" />
+                <circle cx="30" cy="12" r="3" fill="#607B6A"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           5. PHOTO GALLERY SECTION
+           ======================================== -->
+      <section id="gallery" class="gallery-section section-padding" aria-label="Moments Gallery">
+        <div class="container">
+          <div class="section-header text-center reveal-fade-up">
+            <span class="section-subtitle">Cherished Moments</span>
+            <h2 class="section-title">Photo Gallery</h2>
+            <p class="section-desc">
+              Glimpses of quiet smiles, age-old rituals, and memories framed forever.
+            </p>
+          </div>
+
+          <!-- Editorial Masonry Gallery Layout -->
+          <div class="gallery-editorial-grid">
+            <!-- GALLERY ITEM 1: Garland & Ceremony Hands -->
+            <figure class="gallery-item item-portrait reveal-fade-up" style="--delay: 0.1s;">
+              <div class="gallery-card" data-gallery-src="/images/gallery-1.jpg" data-caption="Sacred lotus garland exchange & bridal blessings">
+                <!-- EDITABLE IMAGE: galleryImage1 -->
+                <img
+                  src="/images/gallery-1.jpg"
+                  alt="Ceremony garland with pink lotus flowers"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="gallery-overlay">
+                  <span class="gallery-caption">The Sacred Garland</span>
+                </div>
+              </div>
+            </figure>
+
+            <!-- GALLERY ITEM 2: Backwaters Walk (Wide) -->
+            <figure class="gallery-item item-landscape reveal-fade-up" style="--delay: 0.2s;">
+              <div class="gallery-card" data-gallery-src="/images/gallery-2.jpg" data-caption="Walking hand-in-hand along tranquil Kerala backwaters">
+                <!-- EDITABLE IMAGE: galleryImage2 -->
+                <img
+                  src="/images/gallery-2.jpg"
+                  alt="Anil and Ardra along serene Kerala backwaters"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="gallery-overlay">
+                  <span class="gallery-caption">Serenade on the Waters</span>
+                </div>
+              </div>
+            </figure>
+
+            <!-- GALLERY ITEM 3: Bride Portrait -->
+            <figure class="gallery-item item-portrait reveal-fade-up" style="--delay: 0.3s;">
+              <div class="gallery-card card-tilt-left" data-gallery-src="/images/gallery-3.jpg" data-caption="Ardra in traditional Kasavu saree and temple jewelry">
+                <!-- EDITABLE IMAGE: galleryImage3 -->
+                <img
+                  src="/images/gallery-3.jpg"
+                  alt="Bride portrait with jasmine flowers in hair"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="gallery-overlay">
+                  <span class="gallery-caption">Grace &amp; Jasmine</span>
+                </div>
+              </div>
+            </figure>
+
+            <!-- GALLERY ITEM 4: Traditional Nilavilakku Lamp & Lotus -->
+            <figure class="gallery-item item-landscape reveal-fade-up" style="--delay: 0.4s;">
+              <div class="gallery-card" data-gallery-src="/images/gallery-5.jpg" data-caption="Traditional Kerala brass Nilavilakku lamp with fresh lotus blooms">
+                <!-- EDITABLE IMAGE: galleryImage4 -->
+                <img
+                  src="/images/gallery-5.jpg"
+                  alt="Kerala wedding brass lamp with lotus and jasmine"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="gallery-overlay">
+                  <span class="gallery-caption">The Auspicious Lamp</span>
+                </div>
+              </div>
+            </figure>
+
+            <!-- GALLERY ITEM 5: Groom Portrait -->
+            <figure class="gallery-item item-portrait reveal-fade-up" style="--delay: 0.5s;">
+              <div class="gallery-card card-tilt-right" data-gallery-src="/images/gallery-4.jpg" data-caption="Anil in traditional cream silk kurta">
+                <!-- EDITABLE IMAGE: galleryImage5 -->
+                <img
+                  src="/images/gallery-4.jpg"
+                  alt="Groom portrait in cream silk kurta"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="gallery-overlay">
+                  <span class="gallery-caption">The Groom</span>
+                </div>
+              </div>
+            </figure>
+
+            <!-- GALLERY ITEM 6: Candid Joyful Laughter -->
+            <figure class="gallery-item item-square reveal-fade-up" style="--delay: 0.6s;">
+              <div class="gallery-card" data-gallery-src="/images/gallery-6.jpg" data-caption="Joyful smiles under lush botanical canopy">
+                <!-- EDITABLE IMAGE: galleryImage6 -->
+                <img
+                  src="/images/gallery-6.jpg"
+                  alt="Couple laughing together under tropical botanical foliage"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="gallery-overlay">
+                  <span class="gallery-caption">Laughter &amp; Light</span>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIGHTBOX MODAL FOR GALLERY -->
+      <div id="gallery-lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Photo Lightbox">
+        <button class="lightbox-close" id="lightbox-close-btn" type="button" aria-label="Close Lightbox">&times;</button>
+        <div class="lightbox-content">
+          <img src="" alt="" id="lightbox-img" class="lightbox-image" />
+          <p id="lightbox-caption" class="lightbox-caption-text"></p>
+        </div>
+      </div>
+
+      <!-- ========================================
+           6. VENUE / LOCATION SECTION
+           ======================================== -->
+      <section id="location" class="venue-section section-padding" aria-label="Venue and Location">
+        <div class="container">
+          <div class="section-header text-center reveal-fade-up">
+            <span class="section-subtitle">Find Your Way</span>
+            <h2 class="section-title">Where We Celebrate</h2>
+            <div class="header-flourish" aria-hidden="true">
+              <svg viewBox="0 0 100 20" width="80" height="16" fill="none" stroke="#B89758" stroke-width="1">
+                <path d="M10 10 Q 30 18, 50 10 T 90 10" />
+                <circle cx="50" cy="10" r="2.5" fill="#B89758"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="venue-card-wrapper reveal-scale">
+            <div class="venue-card">
+              <div class="venue-ornament top-ornament" aria-hidden="true">
+                <img src="/images/lotus-art.svg" alt="" class="venue-lotus-icon" />
+              </div>
+
+              <div class="venue-card-body text-center">
+                <!-- EDITABLE PLACEHOLDERS FOR VENUE, DATE, TIME -->
+                <h3 class="venue-name editable-field" data-field="venue-title">The Heritage Palace Convention Center</h3>
+                <p class="venue-address editable-field" data-field="venue-address">
+                  Kovalam Beach Road, Near Light House Beach<br />
+                  Thiruvananthapuram, Kerala 695527
+                </p>
+
+                <div class="venue-meta-pills">
+                  <div class="meta-pill">
+                    <span class="pill-label">Date:</span>
+                    <span class="pill-val editable-field" data-field="venue-date-val">Sunday, Nov 29, 2026</span>
+                  </div>
+                  <div class="meta-pill">
+                    <span class="pill-label">Muhurtham:</span>
+                    <span class="pill-val editable-field" data-field="venue-time-val">09:30 AM – 10:30 AM</span>
+                  </div>
+                </div>
+
+                <div class="venue-guide-note">
+                  <p>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="16" x2="12" y2="12"></line>
+                      <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    Complimentary valet parking is reserved for all guests at the main palace entrance.
+                  </p>
+                </div>
+
+                <!-- EDITABLE: View Location Link (replace with actual Google Maps URL) -->
+                <div class="venue-action">
+                  <a
+                    href="https://maps.google.com/?q=Heritage+Palace+Kovalam+Kerala"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                    id="view-location-btn"
+                  >
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                    </svg>
+                    <span>View Location on Map</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           INTERACTIVE BLESSINGS NOTE SECTION
+           ======================================== -->
+      <section class="blessings-section section-padding" aria-label="Send Blessings">
+        <div class="container container-narrow">
+          <div class="blessings-card reveal-fade-up">
+            <div class="section-header text-center">
+              <span class="section-subtitle">Warm Wishes</span>
+              <h3 class="blessings-title">Shower Your Blessings</h3>
+              <p class="blessings-desc">
+                Leave a heartfelt blessing or message for Anil &amp; Ardra as they embark on this sacred journey.
+              </p>
+            </div>
+
+            <form id="wishes-form" class="wishes-form" novalidate>
+              <div class="form-group">
+                <label for="guest-name" class="form-label">Your Name</label>
+                <input
+                  type="text"
+                  id="guest-name"
+                  class="form-input"
+                  placeholder="e.g., Harikrishnan &amp; Family"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="guest-message" class="form-label">Your Blessing / Warm Wish</label>
+                <textarea
+                  id="guest-message"
+                  class="form-textarea"
+                  rows="3"
+                  placeholder="Wishing you a lifetime of laughter, harmony, and togetherness..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-action text-center">
+                <button type="submit" class="btn btn-secondary" id="submit-wish-btn">
+                  <span>Send Blessings</span>
+                </button>
+              </div>
+
+              <div id="wishes-feedback" class="wishes-feedback hidden" role="alert">
+                Thank you! Your warm blessings have been received with love.
+              </div>
+            </form>
+
+            <div id="wishes-display-list" class="wishes-list" aria-live="polite">
+              <!-- Dynamically populated from localStorage -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           7. FINAL INVITATION / CLOSING
+           ======================================== -->
+      <section id="closing" class="closing-section section-padding" aria-label="Closing Invitation">
+        <!-- Botanical Composition: Banana Leaves framing bottom -->
+        <div class="closing-botanical-frame leaf-bottom-left" data-parallax="-0.04" aria-hidden="true">
+          <img src="/images/banana-leaf-art.jpg" alt="" class="banana-leaf-img" />
+        </div>
+        <div class="closing-botanical-frame leaf-bottom-right" data-parallax="-0.04" aria-hidden="true">
+          <img src="/images/banana-leaf-art.jpg" alt="" class="banana-leaf-img" />
+        </div>
+
+        <div class="container text-center">
+          <div class="closing-content reveal-scale">
+            <!-- Center Lotus Emblem -->
+            <div class="closing-lotus-emblem" aria-hidden="true">
+              <img src="/images/lotus-art.svg" alt="" class="closing-lotus-img" />
+            </div>
+
+            <!-- Couple Names -->
+            <h2 class="closing-names">ANIL &amp; ARDRA</h2>
+
+            <div class="closing-ornament-line" aria-hidden="true">
+              <span></span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <circle cx="12" cy="12" r="3" fill="#B89758"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <!-- Heartfelt Closing Lines -->
+            <p class="closing-lead">
+              &ldquo;With love, laughter and a lifetime ahead.&rdquo;
+            </p>
+
+            <p class="closing-gratitude">
+              Thank you for being part of our celebration.
+            </p>
+
+            <!-- Closing Sign-off -->
+            <div class="closing-signoff">
+              <span class="signoff-script">With love</span>
+              <span class="signoff-family">The Families of Anil &amp; Ardra</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Copyright & Easy-to-edit notice -->
+    <footer class="site-footer">
+      <div class="container text-center">
+        <p class="footer-copy">
+          Designed with love for Anil &amp; Ardra &bull; Kerala Botanical Wedding Invitation
+        </p>
+      </div>
+    </footer>
+
+    <!-- Main Application Script -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

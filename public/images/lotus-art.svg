@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <defs>
+    <!-- Sage Green Lily Pad Gradients -->
+    <linearGradient id="padGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BAC8B8" />
+      <stop offset="60%" stop-color="#9CAF88" />
+      <stop offset="100%" stop-color="#6B8E7B" />
+    </linearGradient>
+
+    <!-- Outer Lotus Petal Gradient (Soft Blush Pink to Coral Rose) -->
+    <linearGradient id="petalOuterGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FDF2EF" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#F7D6D0" />
+      <stop offset="100%" stop-color="#E8A598" />
+    </linearGradient>
+
+    <!-- Inner Lotus Petal Gradient -->
+    <linearGradient id="petalInnerGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="60%" stop-color="#F9E0DB" />
+      <stop offset="100%" stop-color="#EAA69A" />
+    </linearGradient>
+
+    <!-- Center Gold Pod Gradient -->
+    <radialGradient id="goldPodGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDE8B5" />
+      <stop offset="60%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#B89758" />
+    </radialGradient>
+  </defs>
+
+  <!-- LILY PADS (BOTTOM FOUNDATION) -->
+  <g opacity="0.85">
+    <ellipse cx="60" cy="130" rx="45" ry="18" fill="url(#padGrad)" transform="rotate(-6 60 130)"/>
+    <ellipse cx="140" cy="130" rx="45" ry="18" fill="url(#padGrad)" transform="rotate(6 140 130)"/>
+    <!-- Pad delicate veins -->
+    <path d="M60 130 C45 125 30 128 20 130 M60 130 C50 136 35 138 25 142 M60 130 C75 135 90 135 100 132" stroke="#5A7A68" stroke-width="0.8" fill="none" opacity="0.6"/>
+    <path d="M140 130 C155 125 170 128 180 130 M140 130 C150 136 165 138 175 142 M140 130 C125 135 110 135 100 132" stroke="#5A7A68" stroke-width="0.8" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- STEM -->
+  <path d="M100 105 Q 98 128 97 150" stroke="#6B8E7B" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- LOTUS FLOWER PETALS (LAYER 1: OUTER SPREAD) -->
+  <path d="M100 95 C60 105 25 90 35 70 C45 52 75 75 100 95 Z" fill="url(#petalOuterGrad)" stroke="#B89758" stroke-width="0.5"/>
+  <path d="M100 95 C140 105 175 90 165 70 C155 52 125 75 100 95 Z" fill="url(#petalOuterGrad)" stroke="#B89758" stroke-width="0.5"/>
+
+  <!-- LOTUS FLOWER PETALS (LAYER 2: MID SPREAD) -->
+  <path d="M100 95 C70 95 45 70 58 45 C70 25 88 65 100 95 Z" fill="url(#petalOuterGrad)" stroke="#B89758" stroke-width="0.6"/>
+  <path d="M100 95 C130 95 155 70 142 45 C130 25 112 65 100 95 Z" fill="url(#petalOuterGrad)" stroke="#B89758" stroke-width="0.6"/>
+
+  <!-- LOTUS FLOWER PETALS (LAYER 3: INNER UPRIGHT) -->
+  <path d="M100 95 C82 85 68 50 82 25 C92 10 98 50 100 95 Z" fill="url(#petalInnerGrad)" stroke="#B89758" stroke-width="0.6"/>
+  <path d="M100 95 C118 85 132 50 118 25 C108 10 102 50 100 95 Z" fill="url(#petalInnerGrad)" stroke="#B89758" stroke-width="0.6"/>
+
+  <!-- CENTER MAJESTIC PETAL -->
+  <path d="M100 95 C90 75 88 40 100 15 C112 40 110 75 100 95 Z" fill="url(#petalInnerGrad)" stroke="#D4AF37" stroke-width="0.8"/>
+
+  <!-- SACRED GOLD PERICARP & STAMENS -->
+  <ellipse cx="100" cy="74" rx="14" ry="11" fill="url(#goldPodGrad)" stroke="#B89758" stroke-width="0.8"/>
+  <!-- Gold Stamen dots -->
+  <circle cx="95" cy="71" r="1.2" fill="#8C6D32"/>
+  <circle cx="100" cy="70" r="1.2" fill="#8C6D32"/>
+  <circle cx="105" cy="71" r="1.2" fill="#8C6D32"/>
+  <circle cx="93" cy="75" r="1.2" fill="#8C6D32"/>
+  <circle cx="98" cy="75" r="1.2" fill="#8C6D32"/>
+  <circle cx="103" cy="75" r="1.2" fill="#8C6D32"/>
+  <circle cx="107" cy="75" r="1.2" fill="#8C6D32"/>
+  <circle cx="96" cy="79" r="1.2" fill="#8C6D32"/>
+  <circle cx="101" cy="79" r="1.2" fill="#8C6D32"/>
+  <circle cx="105" cy="79" r="1.2" fill="#8C6D32"/>
+
+  <!-- FOREGROUND CUPPING PETALS -->
+  <path d="M85 84 C85 96 100 102 100 102 C100 102 115 96 115 84 C110 88 90 88 85 84 Z" fill="url(#petalInnerGrad)" stroke="#B89758" stroke-width="0.5"/>
+</svg>
