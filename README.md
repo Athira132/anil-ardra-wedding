@@ -16,9 +16,12 @@ A luxury, Kerala-inspired single-page wedding invitation website created for **A
 - **No Real Photographs & No Peacocks**:
   - Couple represented with bespoke pencil sketch wedding stationery art.
   - Zero peacock motifs, feathers, or elements.
-- **Dedicated Location Section**:
-  - Dedicated venue section for Chakolas Pavilion Convention Centre with responsive Google Maps embed and direct link to `https://maps.app.goo.gl/K7cWqppcJANAemw76?g_st=ac`.
+- **Dedicated Location & Venue Showcase**:
+  - Authentic venue photograph of the Grand Arena at Chakolas Pavilion Convention Centre in Thrissur.
+  - Standard place pin map (no route/directions preview) and prominent button opening `https://maps.app.goo.gl/K7cWqppcJANAemw76?g_st=ac`.
   - Contextual reference for morning Thalikettu at Guruvayur Sree Krishna Temple.
+- **Symmetrical Event Cards**:
+  - Shared component structure with strictly equal dimensions, matching icon areas, aligned venue rows, and synchronized location buttons on desktop and mobile.
 
 ## Exact Invitation Content
 ```

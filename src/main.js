@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initYouTubeAudio();
   initCalendarAction();
   initBlessingsWhatsApp();
+  initMapActions();
 });
 
 /* --------------------------------------------------------------------------
@@ -566,4 +567,28 @@ function showToast(message, icon = '✨') {
   toastTimeout = setTimeout(() => {
     toast.classList.add('hidden');
   }, 3500);
+}
+
+/* --------------------------------------------------------------------------
+   10. VENUE LOCATION & GOOGLE MAPS ACTIONS
+   Exact Venue URL: https://maps.app.goo.gl/K7cWqppcJANAemw76?g_st=ac
+   -------------------------------------------------------------------------- */
+function initMapActions() {
+  const CHAKOLAS_MAP_URL = 'https://maps.app.goo.gl/K7cWqppcJANAemw76?g_st=ac';
+
+  // Ceremony Card Venue Map Button
+  const ceremonyMapBtn = document.getElementById('ceremony-venue-map-btn');
+  if (ceremonyMapBtn) {
+    ceremonyMapBtn.addEventListener('click', () => {
+      showToast('Opening Chakolas Pavilion in Google Maps...', '📍');
+    });
+  }
+
+  // Location Section Map Button
+  const locationSectionBtn = document.getElementById('open-google-maps-btn');
+  if (locationSectionBtn) {
+    locationSectionBtn.addEventListener('click', () => {
+      showToast('Opening Chakolas Pavilion in Google Maps...', '📍');
+    });
+  }
 }

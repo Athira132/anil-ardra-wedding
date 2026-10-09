@@ -211,13 +211,44 @@
               <!-- Romantic Top Accent Script -->
               <p class="hero-top-script reveal-fade-down">With joyful hearts &amp; family blessings</p>
 
-              <!-- PROMINENT NAMES: ANIL & ARDRA (Directly blended, NO separate disconnected card/box) -->
-              <div class="hero-integrated-names-wrapper reveal-scale">
-                <h1 class="hero-integrated-names">
-                  <span class="name-anil">ANIL</span>
-                  <span class="name-amp">&amp;</span>
-                  <span class="name-ardra">ARDRA</span>
-                </h1>
+              <!-- PROMINENT NAMES: ANIL & ARDRA with Thin Double-Line Ornamental Gold Frame -->
+              <div class="hero-names-frame-container reveal-scale">
+                <div class="hero-ornamental-frame">
+                  <!-- Lotus-Inspired Corner Flourishes -->
+                  <span class="frame-corner corner-top-left" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M3 15V3h12M3 3l9 9M7 3c2 4 4 6 9 6M3 7c4 2 6 4 6 9" stroke-linecap="round"/>
+                      <circle cx="11" cy="11" r="1.5" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  <span class="frame-corner corner-top-right" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M21 15V3H9M21 3l-9 9M17 3c-2 4-4 6-9 6M21 7c-4 2-6 4-6 9" stroke-linecap="round"/>
+                      <circle cx="13" cy="11" r="1.5" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  <span class="frame-corner corner-bottom-left" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M3 9v12h12M3 21l9-9M7 21c2-4 4-6 9-6M3 17c4-2 6-4 6-9" stroke-linecap="round"/>
+                      <circle cx="11" cy="13" r="1.5" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  <span class="frame-corner corner-bottom-right" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M21 9v12H9M21 21l-9-9M17 21c-2-4-4-6-9-6M21 17c-4-2-6-4-6-9" stroke-linecap="round"/>
+                      <circle cx="13" cy="13" r="1.5" fill="currentColor"/>
+                    </svg>
+                  </span>
+
+                  <!-- Inner Double Line Frame -->
+                  <div class="frame-inner-border">
+                    <h1 class="hero-integrated-names">
+                      <span class="name-anil">ANIL</span>
+                      <span class="name-amp">&amp;</span>
+                      <span class="name-ardra">ARDRA</span>
+                    </h1>
+                  </div>
+                </div>
               </div>
 
               <!-- Kerala Floral Gold Divider -->
@@ -360,54 +391,65 @@
             </p>
           </div>
 
-          <!-- Dual Ceremonies Cards Grid -->
+          <!-- Dual Ceremonies Cards Grid (Equal Dimensions & Shared Component Structure) -->
           <div class="ceremonies-grid">
             <!-- 1. THALIKETTU CARD -->
             <div class="ceremony-card reveal-fade-up" style="--delay: 0.15s;">
               <div class="ceremony-card-inner">
-                <div class="ceremony-icon-badge" aria-hidden="true">
-                  <img src="/images/lotus-bud.svg" alt="" width="28" height="40" />
+                <div class="ceremony-top-badge-area">
+                  <div class="ceremony-icon-badge" aria-hidden="true">
+                    <img src="/images/lotus-bud.svg" alt="" width="28" height="40" />
+                  </div>
+                  <span class="ceremony-tag">Sacred Muhurtham</span>
                 </div>
-                <span class="ceremony-tag">Sacred Muhurtham</span>
                 <!-- EXACT DETAIL: THALIKETTU -->
-                <h3 class="ceremony-event-name">THALIKETTU</h3>
+                <div class="ceremony-title-area">
+                  <h3 class="ceremony-event-name">THALIKETTU</h3>
+                </div>
                 <div class="ceremony-location-details">
                   <!-- EXACT DETAIL: At Guruvayur Sree Krishna Temple -->
                   <p class="ceremony-venue-highlight">At Guruvayur Sree Krishna Temple</p>
-                  <p class="ceremony-venue-city">Guruvayur, Thrissur, Kerala</p>
+                  <p class="ceremony-venue-address">Guruvayur, Thrissur, Kerala</p>
+                  <div class="ceremony-timing-badge">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>Auspicious Morning Muhurtham</span>
+                  </div>
                 </div>
                 <div class="ceremony-action">
                   <a
                     href="https://maps.google.com/?q=Guruvayur+Sree+Krishna+Temple+Guruvayur+Kerala"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn btn-outline-emerald"
-                    aria-label="View Guruvayur Sree Krishna Temple on Google Maps"
+                    class="btn btn-outline-emerald ceremony-map-btn"
+                    id="temple-venue-map-btn"
+                    aria-label="Open Guruvayur Sree Krishna Temple in Google Maps"
                   >
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <span>View Temple on Map</span>
+                    <span>Open Temple in Google Maps</span>
                   </a>
                 </div>
               </div>
             </div>
 
-            <!-- DECORATIVE LOTUS CONNECTOR -->
-            <div class="ceremonies-connector reveal-scale" aria-hidden="true" style="--delay: 0.25s;">
-              <img src="/images/lotus-floating.svg" alt="" width="80" height="60" />
-            </div>
-
             <!-- 2. WEDDING CEREMONY CARD -->
-            <div class="ceremony-card reveal-fade-up" style="--delay: 0.35s;">
+            <div class="ceremony-card reveal-fade-up" style="--delay: 0.25s;">
               <div class="ceremony-card-inner">
-                <div class="ceremony-icon-badge" aria-hidden="true">
-                  <img src="/images/lotus-art.svg" alt="" width="36" height="30" />
+                <div class="ceremony-top-badge-area">
+                  <div class="ceremony-icon-badge" aria-hidden="true">
+                    <img src="/images/lotus-art.svg" alt="" width="36" height="30" />
+                  </div>
+                  <span class="ceremony-tag">Celebration &amp; Sadhya</span>
                 </div>
-                <span class="ceremony-tag">Celebration &amp; Sadhya</span>
                 <!-- EXACT DETAIL: WEDDING CEREMONY -->
-                <h3 class="ceremony-event-name">WEDDING CEREMONY</h3>
+                <div class="ceremony-title-area">
+                  <h3 class="ceremony-event-name">WEDDING CEREMONY</h3>
+                </div>
                 <div class="ceremony-location-details">
                   <!-- EXACT DETAIL: At Chakolas Pavilion Convention Centre -->
                   <p class="ceremony-venue-highlight">At Chakolas Pavilion Convention Centre</p>
@@ -427,14 +469,15 @@
                     href="https://maps.app.goo.gl/K7cWqppcJANAemw76?g_st=ac"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn btn-outline-emerald"
-                    aria-label="View Chakolas Pavilion Convention Centre on Google Maps"
+                    class="btn btn-outline-emerald ceremony-map-btn"
+                    id="ceremony-venue-map-btn"
+                    aria-label="Open Chakolas Pavilion Convention Centre in Google Maps"
                   >
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <span>View Venue on Map</span>
+                    <span>Open Venue in Google Maps</span>
                   </a>
                 </div>
               </div>
@@ -478,12 +521,21 @@
             <div class="location-card">
               <!-- Location Details -->
               <div class="location-details-col">
-                <span class="venue-pill">Wedding Ceremony &amp; Feast</span>
+                <span class="venue-pill">Wedding Ceremony &amp; Feast Venue</span>
                 <h3 class="location-venue-name">Chakolas Pavilion Convention Centre</h3>
-                <p class="location-address">
-                  Anchery Chira, Kuttanellur,<br />
-                  Thrissur, Kerala 680014
-                </p>
+                
+                <div class="venue-address-block">
+                  <span class="address-pin-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </span>
+                  <p class="location-address">
+                    Anchery Chira, Kuttanellur,<br />
+                    Thrissur, Kerala 680014
+                  </p>
+                </div>
 
                 <div class="venue-timing-notice">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -526,26 +578,66 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="temple-map-link"
+                    aria-label="Open Guruvayur Sree Krishna Temple in Google Maps"
                   >
-                    <span>View Guruvayur Temple Directions &rarr;</span>
+                    <span>View Guruvayur Temple on Google Maps &rarr;</span>
                   </a>
                 </div>
               </div>
 
-              <!-- Interactive Google Map Embed Frame -->
-              <div class="location-map-col">
-                <div class="map-frame-wrapper">
-                  <iframe
-                    src="https://maps.google.com/maps?q=Chakolas+Pavilion+Convention+Centre,+Anchery+Chira,+Kuttanellur,+Thrissur&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    width="100%"
-                    height="100%"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Interactive Google Map of Chakolas Pavilion Convention Centre"
-                    class="google-map-iframe"
-                  ></iframe>
+              <!-- Prominent Authentic Venue Photo & Standard Place Pin Map (No Route) -->
+              <div class="location-visual-col">
+                <!-- Verified Venue Photo of Chakolas Pavilion Auditorium -->
+                <div class="venue-photo-card">
+                  <div class="venue-photo-wrapper">
+                    <img
+                      src="/images/venue-chakolas-pavilion.jpg"
+                      alt="Chakolas Pavilion Convention Centre Arena and Grand Auditorium in Thrissur"
+                      class="venue-actual-img"
+                      width="800"
+                      height="533"
+                      loading="lazy"
+                    />
+                    <div class="venue-photo-badge">
+                      <span class="venue-badge-dot"></span>
+                      <span>Chakolas Pavilion &bull; Arena &amp; Grand Hall</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Standard Place Pin Map (Place map, NOT a driving route) -->
+                <div class="venue-map-card">
+                  <div class="venue-map-header">
+                    <span class="map-label-text">
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                      <span>Venue Map Pin</span>
+                    </span>
+                    <a
+                      href="https://maps.app.goo.gl/K7cWqppcJANAemw76?g_st=ac"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="map-external-link"
+                      title="Open full interactive map in Google Maps"
+                    >
+                      <span>Open Full Map &rarr;</span>
+                    </a>
+                  </div>
+                  <div class="map-frame-wrapper">
+                    <iframe
+                      src="https://maps.google.com/maps?q=Chakolas+Pavilion+Convention+Centre,+Anchery+Chira,+Kuttanellur,+Thrissur+Kerala+680014&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+                      width="100%"
+                      height="100%"
+                      style="border:0;"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                      title="Place Map Pin of Chakolas Pavilion Convention Centre"
+                      class="google-map-iframe"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
