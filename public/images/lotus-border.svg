@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 48" width="600" height="48">
+  <defs>
+    <linearGradient id="garlandPetal" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="50%" stop-color="#F9E0DB" />
+      <stop offset="100%" stop-color="#E8A598" />
+    </linearGradient>
+    <linearGradient id="garlandSage" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6B8E7B" />
+      <stop offset="50%" stop-color="#9CAF88" />
+      <stop offset="100%" stop-color="#6B8E7B" />
+    </linearGradient>
+  </defs>
+
+  <!-- Flowing Central Vine Line -->
+  <path d="M0 24 Q 75 14, 150 24 T 300 24 T 450 24 T 600 24" fill="none" stroke="#D4AF37" stroke-width="1" opacity="0.6"/>
+
+  <!-- Repeating Lotus Clusters -->
+  <!-- Center Main Lotus (at 300, 24) -->
+  <g transform="translate(300, 24)">
+    <!-- Lily Pad -->
+    <ellipse cx="0" cy="10" rx="20" ry="6" fill="#80A18E" opacity="0.7"/>
+    <!-- Petals -->
+    <path d="M0 6 C-15 10 -25 4 -20 -2 C-15 -8 -5 0 0 6 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.5"/>
+    <path d="M0 6 C15 10 25 4 20 -2 C15 -8 5 0 0 6 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.5"/>
+    <path d="M0 6 C-10 4 -12 -8 0 -16 C12 -8 10 4 0 6 Z" fill="url(#garlandPetal)" stroke="#D4AF37" stroke-width="0.6"/>
+    <circle cx="0" cy="-2" r="2.5" fill="#D4AF37"/>
+  </g>
+
+  <!-- Left Lotus (at 150, 24) -->
+  <g transform="translate(150, 24) scale(0.8)">
+    <ellipse cx="0" cy="8" rx="16" ry="5" fill="#80A18E" opacity="0.7"/>
+    <path d="M0 5 C-12 8 -20 3 -16 -2 C-12 -6 -4 0 0 5 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.5"/>
+    <path d="M0 5 C12 8 20 3 16 -2 C12 -6 4 0 0 5 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.5"/>
+    <path d="M0 5 C-8 3 -10 -6 0 -13 C10 -6 8 3 0 5 Z" fill="url(#garlandPetal)" stroke="#D4AF37" stroke-width="0.6"/>
+    <circle cx="0" cy="-1.5" r="2" fill="#D4AF37"/>
+  </g>
+
+  <!-- Right Lotus (at 450, 24) -->
+  <g transform="translate(450, 24) scale(0.8)">
+    <ellipse cx="0" cy="8" rx="16" ry="5" fill="#80A18E" opacity="0.7"/>
+    <path d="M0 5 C-12 8 -20 3 -16 -2 C-12 -6 -4 0 0 5 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.5"/>
+    <path d="M0 5 C12 8 20 3 16 -2 C12 -6 4 0 0 5 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.5"/>
+    <path d="M0 5 C-8 3 -10 -6 0 -13 C10 -6 8 3 0 5 Z" fill="url(#garlandPetal)" stroke="#D4AF37" stroke-width="0.6"/>
+    <circle cx="0" cy="-1.5" r="2" fill="#D4AF37"/>
+  </g>
+
+  <!-- Small Buds in between -->
+  <g transform="translate(75, 20) scale(0.55)">
+    <path d="M0 10 C-6 5 -8 -3 0 -12 C8 -3 6 5 0 10 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.6"/>
+    <circle cx="0" cy="-12" r="1.5" fill="#D4AF37"/>
+  </g>
+  <g transform="translate(225, 20) scale(0.55)">
+    <path d="M0 10 C-6 5 -8 -3 0 -12 C8 -3 6 5 0 10 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.6"/>
+    <circle cx="0" cy="-12" r="1.5" fill="#D4AF37"/>
+  </g>
+  <g transform="translate(375, 20) scale(0.55)">
+    <path d="M0 10 C-6 5 -8 -3 0 -12 C8 -3 6 5 0 10 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.6"/>
+    <circle cx="0" cy="-12" r="1.5" fill="#D4AF37"/>
+  </g>
+  <g transform="translate(525, 20) scale(0.55)">
+    <path d="M0 10 C-6 5 -8 -3 0 -12 C8 -3 6 5 0 10 Z" fill="url(#garlandPetal)" stroke="#B89758" stroke-width="0.6"/>
+    <circle cx="0" cy="-12" r="1.5" fill="#D4AF37"/>
+  </g>
+
+  <!-- Sage Leaves -->
+  <path d="M40 24 C48 18 54 18 56 24 C52 28 46 28 40 24 Z" fill="url(#garlandSage)" opacity="0.75"/>
+  <path d="M110 24 C118 28 124 28 126 24 C122 18 116 18 110 24 Z" fill="url(#garlandSage)" opacity="0.75"/>
+  <path d="M190 24 C198 18 204 18 206 24 C202 28 196 28 190 24 Z" fill="url(#garlandSage)" opacity="0.75"/>
+  <path d="M260 24 C268 28 274 28 276 24 C272 18 266 18 260 24 Z" fill="url(#garlandSage)" opacity="0.75"/>
+  <path d="M340 24 C348 18 354 18 356 24 C352 28 346 28 340 24 Z" fill="url(#garlandSage)" opacity="0.75"/>
+  <path d="M410 24 C418 28 424 28 426 24 C422 18 416 18 410 24 Z" fill="url(#garlandSage)" opacity="0.75"/>
+  <path d="M490 24 C498 18 504 18 506 24 C502 28 496 28 490 24 Z" fill="url(#garlandSage)" opacity="0.75"/>
+  <path d="M560 24 C568 28 574 28 576 24 C572 18 566 18 560 24 Z" fill="url(#garlandSage)" opacity="0.75"/>
+</svg>

@@ -1,6 +1,6 @@
 /**
- * ANIL & ARDRA — KERALA BOTANICAL WEDDING INVITATION
- * Interactive Features & Animation Engine
+ * ANIL BABU & ADA MELETATH — KERALA BOTANICAL WEDDING INVITATION
+ * Interactive Engine & Media Controller
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,10 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initPetalsCanvas();
   initNavigation();
-  initGalleryLightbox();
-  initAmbientMusic();
+  initYouTubeAudio();
   initCalendarAction();
-  initBlessingsGuestbook();
+  initBlessingsWhatsApp();
 });
 
 /* --------------------------------------------------------------------------
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
    -------------------------------------------------------------------------- */
 function initHeroEntrance() {
   const heroReveals = document.querySelectorAll('#hero [class*="reveal-"]');
-  // Stagger initial entrance smoothly
   setTimeout(() => {
     heroReveals.forEach((el, index) => {
       setTimeout(() => {
@@ -34,7 +32,6 @@ function initHeroEntrance() {
    2. SCROLL REVEAL SYSTEM (INTERSECTION OBSERVER)
    -------------------------------------------------------------------------- */
 function initScrollReveal() {
-  // If user prefers reduced motion, reveal everything immediately
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('[class*="reveal-"]').forEach(el => el.classList.add('is-revealed'));
     return;
@@ -52,7 +49,7 @@ function initScrollReveal() {
   }, {
     root: null,
     rootMargin: '0px 0px -40px 0px',
-    threshold: 0.12
+    threshold: 0.1
   });
 
   revealElements.forEach(el => observer.observe(el));
@@ -74,7 +71,7 @@ function initParallax() {
       window.requestAnimationFrame(() => {
         const scrolled = window.pageYOffset;
         parallaxElements.forEach(el => {
-          const speed = parseFloat(el.getAttribute('data-parallax') || '0.05');
+          const speed = parseFloat(el.getAttribute('data-parallax') || '0.04');
           const yPos = scrolled * speed;
           el.style.transform = `translate3d(0, ${yPos}px, 0)`;
         });
@@ -109,13 +106,13 @@ function initPetalsCanvas() {
   const petalCount = window.innerWidth < 768 ? 16 : 28;
   const petals = [];
 
-  // Soft pastel petal color palette: blush pink, pale rose, warm cream
+  // Soft pastel petal color palette: blush pink, pale rose, warm cream & gentle sage
   const petalColors = [
     'rgba(247, 214, 208, 0.65)',
     'rgba(232, 165, 152, 0.55)',
-    'rgba(253, 241, 238, 0.7)',
-    'rgba(249, 224, 219, 0.6)',
-    'rgba(216, 228, 217, 0.45)' // subtle sage petal
+    'rgba(253, 241, 238, 0.70)',
+    'rgba(249, 224, 219, 0.60)',
+    'rgba(216, 228, 217, 0.45)'
   ];
 
   class Petal {
@@ -126,8 +123,8 @@ function initPetalsCanvas() {
     reset(initial = false) {
       this.x = Math.random() * width;
       this.y = initial ? Math.random() * height : -20;
-      this.size = Math.random() * 8 + 6; // 6 to 14px
-      this.speedY = Math.random() * 0.8 + 0.4; // slow, gentle descent
+      this.size = Math.random() * 8 + 6;
+      this.speedY = Math.random() * 0.7 + 0.35;
       this.speedX = Math.random() * 0.5 - 0.25;
       this.rotation = Math.random() * Math.PI * 2;
       this.rotationSpeed = (Math.random() - 0.5) * 0.02;
@@ -152,8 +149,7 @@ function initPetalsCanvas() {
       ctx.translate(this.x, this.y);
       ctx.rotate(this.rotation);
       ctx.fillStyle = this.color;
-      
-      // Draw organic curved lotus petal silhouette
+
       ctx.beginPath();
       ctx.moveTo(0, -this.size);
       ctx.bezierCurveTo(this.size * 0.8, -this.size * 0.5, this.size * 0.8, this.size * 0.5, 0, this.size);
@@ -161,7 +157,7 @@ function initPetalsCanvas() {
       ctx.fill();
 
       // Subtle center vein
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
       ctx.lineWidth = 0.5;
       ctx.beginPath();
       ctx.moveTo(0, -this.size * 0.8);
@@ -211,7 +207,6 @@ function initNavigation() {
       mobileToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Close menu when clicking link
     links.forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
@@ -221,7 +216,6 @@ function initNavigation() {
     });
   }
 
-  // Scroll spy to highlight active section
   window.addEventListener('scroll', () => {
     let current = '';
     const scrollPosition = window.pageYOffset + 180;
@@ -244,193 +238,197 @@ function initNavigation() {
 }
 
 /* --------------------------------------------------------------------------
-   6. PHOTO GALLERY LIGHTBOX
+   6. YOUTUBE WEDDING AUDIO PLAYER ENGINE
+   Source: https://youtu.be/vPY_oohGR34 (Sayee Rakshith - Violin)
+   Autoplay with fallback, persistent control, accurate state sync
    -------------------------------------------------------------------------- */
-function initGalleryLightbox() {
-  const lightbox = document.getElementById('gallery-lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const closeBtn = document.getElementById('lightbox-close-btn');
-  const galleryCards = document.querySelectorAll('.gallery-card');
-
-  if (!lightbox || !lightboxImg || !closeBtn) return;
-
-  function openLightbox(src, caption) {
-    lightboxImg.src = src;
-    lightboxImg.alt = caption || 'Anil and Ardra Wedding Gallery';
-    lightboxCaption.textContent = caption || '';
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightboxImg.src = '';
-    document.body.style.overflow = '';
-  }
-
-  galleryCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const src = card.getAttribute('data-gallery-src');
-      const caption = card.getAttribute('data-caption');
-      if (src) openLightbox(src, caption);
-    });
-  });
-
-  closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-      closeLightbox();
-    }
-  });
-}
-
-/* --------------------------------------------------------------------------
-   7. AMBIENT MUSIC ENGINE (WEB AUDIO API RAGAM SYNTHESIZER)
-   Zero external dependencies, crystal clear, soothing Kerala temple flute / tanpura
-   -------------------------------------------------------------------------- */
-function initAmbientMusic() {
+function initYouTubeAudio() {
+  const YOUTUBE_VIDEO_ID = 'vPY_oohGR34';
   const musicToggle = document.getElementById('music-toggle');
+  const musicLabel = document.getElementById('music-label');
   const iconSoundOff = musicToggle?.querySelector('.icon-sound-off');
   const iconSoundOn = musicToggle?.querySelector('.icon-sound-on');
-  if (!musicToggle) return;
+  const promptBar = document.getElementById('music-prompt-bar');
+  const promptBtn = document.getElementById('music-prompt-btn');
+  const promptClose = document.getElementById('music-prompt-close');
 
-  let audioCtx = null;
+  let ytPlayer = null;
   let isPlaying = false;
-  let intervalId = null;
-  let masterGain = null;
+  let isReady = false;
 
-  // Auspicious Indian classical Kalyani / Mohanam pentatonic scale frequencies (Hz)
-  // Sa (C4), Ri (D4), Ga (E4), Pa (G4), Dha (A4), Sa' (C5)
-  const notes = [
-    261.63, // C4
-    293.66, // D4
-    329.63, // E4
-    392.00, // G4
-    440.00, // A4
-    523.25, // C5
-    587.33, // D5
-    659.25  // E5
-  ];
+  function updateUIState(playing, loading = false) {
+    isPlaying = playing;
+    if (!musicToggle) return;
 
-  function playNote(freq, time, duration = 3.5) {
-    if (!audioCtx) return;
-    try {
-      const osc = audioCtx.createOscillator();
-      const noteGain = audioCtx.createGain();
+    if (loading) {
+      if (musicLabel) musicLabel.textContent = 'Loading...';
+      return;
+    }
 
-      // Flute / acoustic soft sine + subtle triangle warmth
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, time);
-
-      // Delicate envelope
-      noteGain.gain.setValueAtTime(0, time);
-      noteGain.gain.linearRampToValueAtTime(0.045, time + 0.4);
-      noteGain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
-
-      osc.connect(noteGain);
-      noteGain.connect(masterGain);
-
-      osc.start(time);
-      osc.stop(time + duration);
-    } catch (e) {
-      console.warn('Audio playback note notice', e);
+    if (playing) {
+      musicToggle.classList.add('playing');
+      musicToggle.setAttribute('aria-pressed', 'true');
+      musicToggle.setAttribute('aria-label', 'Pause wedding music');
+      if (musicLabel) musicLabel.textContent = 'Pause';
+      iconSoundOff?.classList.add('hidden');
+      iconSoundOn?.classList.remove('hidden');
+      if (promptBar) promptBar.classList.add('hidden');
+    } else {
+      musicToggle.classList.remove('playing');
+      musicToggle.setAttribute('aria-pressed', 'false');
+      musicToggle.setAttribute('aria-label', 'Play wedding music');
+      if (musicLabel) musicLabel.textContent = 'Play Music';
+      iconSoundOff?.classList.remove('hidden');
+      iconSoundOn?.classList.add('hidden');
     }
   }
 
-  function startTanpuraDrone() {
-    if (!audioCtx || !masterGain) return;
-    // Continuous soft background Sa-Pa drone (C3 + G3)
-    const droneFreqs = [130.81, 196.00];
-    droneFreqs.forEach(freq => {
-      const osc = audioCtx.createOscillator();
-      const dGain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-      dGain.gain.setValueAtTime(0.015, audioCtx.currentTime);
-      osc.connect(dGain);
-      dGain.connect(masterGain);
-      osc.start();
+  function createPlayer() {
+    ytPlayer = new window.YT.Player('yt-player', {
+      height: '100',
+      width: '100',
+      videoId: YOUTUBE_VIDEO_ID,
+      playerVars: {
+        autoplay: 1,
+        loop: 1,
+        playlist: YOUTUBE_VIDEO_ID,
+        controls: 0,
+        disablekb: 1,
+        fs: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        rel: 0
+      },
+      events: {
+        onReady: (event) => {
+          isReady = true;
+          // Attempt audible autoplay
+          try {
+            event.target.playVideo();
+          } catch (e) {
+            console.log('Autoplay blocked by browser policy', e);
+          }
+
+          // Check if autoplay succeeded after 1 second
+          setTimeout(() => {
+            const state = ytPlayer?.getPlayerState();
+            if (state === window.YT.PlayerState.PLAYING) {
+              updateUIState(true);
+            } else {
+              // Autoplay with sound was blocked by the browser policy
+              updateUIState(false);
+              if (promptBar) {
+                promptBar.classList.remove('hidden');
+              }
+            }
+          }, 1200);
+        },
+        onStateChange: (event) => {
+          if (event.data === window.YT.PlayerState.PLAYING) {
+            updateUIState(true);
+          } else if (event.data === window.YT.PlayerState.PAUSED) {
+            updateUIState(false);
+          } else if (event.data === window.YT.PlayerState.ENDED) {
+            // Auto loop
+            ytPlayer?.playVideo();
+          } else if (event.data === window.YT.PlayerState.BUFFERING) {
+            updateUIState(false, true);
+          }
+        },
+        onError: (err) => {
+          console.warn('YouTube Player notification:', err);
+          updateUIState(false);
+        }
+      }
     });
   }
 
-  function startMelodyLoop() {
-    let noteIndex = 0;
-    // Auspicious ascending and descending gentle sequence
-    const sequence = [0, 2, 3, 4, 5, 4, 3, 2, 0, 3, 2, 4, 5, 7, 5, 4, 2, 0];
+  // Load YouTube Iframe API if not already present
+  if (!window.YT || !window.YT.Player) {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    intervalId = setInterval(() => {
-      if (!isPlaying || !audioCtx) return;
-      const freq = notes[sequence[noteIndex % sequence.length]];
-      playNote(freq, audioCtx.currentTime, 4.0);
-      noteIndex++;
-    }, 1800);
+    window.onYouTubeIframeAPIReady = () => {
+      createPlayer();
+    };
+  } else {
+    createPlayer();
   }
 
-  function toggleMusic() {
-    if (!audioCtx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      audioCtx = new AudioContext();
-      masterGain = audioCtx.createGain();
-      masterGain.gain.setValueAtTime(0.7, audioCtx.currentTime);
-      masterGain.connect(audioCtx.destination);
-      startTanpuraDrone();
+  // Persistent Toggle Button Click Handler
+  musicToggle?.addEventListener('click', () => {
+    if (!isReady || !ytPlayer) {
+      showToast('Loading wedding audio...', '🎵');
+      return;
     }
 
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-
-    if (!isPlaying) {
-      isPlaying = true;
-      masterGain.gain.linearRampToValueAtTime(0.7, audioCtx.currentTime + 0.5);
-      startMelodyLoop();
-      musicToggle.classList.add('playing');
-      iconSoundOff?.classList.add('hidden');
-      iconSoundOn?.classList.remove('hidden');
-      musicToggle.setAttribute('aria-label', 'Pause wedding ambient music');
+    const state = ytPlayer.getPlayerState();
+    if (state === window.YT.PlayerState.PLAYING) {
+      ytPlayer.pauseVideo();
     } else {
-      isPlaying = false;
-      masterGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.5);
-      if (intervalId) clearInterval(intervalId);
-      musicToggle.classList.remove('playing');
-      iconSoundOff?.classList.remove('hidden');
-      iconSoundOn?.classList.add('hidden');
-      musicToggle.setAttribute('aria-label', 'Play soft wedding ambient music');
+      ytPlayer.playVideo();
+      showToast('Playing wedding music ✨', '🎵');
     }
-  }
+  });
 
-  musicToggle.addEventListener('click', toggleMusic);
+  // Prompt Play Button Click (1-tap start)
+  promptBtn?.addEventListener('click', () => {
+    if (ytPlayer && isReady) {
+      ytPlayer.playVideo();
+      showToast('Playing wedding music ✨', '🎵');
+    }
+    if (promptBar) promptBar.classList.add('hidden');
+  });
+
+  // Prompt Dismiss Button Click
+  promptClose?.addEventListener('click', () => {
+    if (promptBar) promptBar.classList.add('hidden');
+  });
+
+  // Optional global user interaction fallback: first touch or click starts music if blocked
+  const userStartOnInteraction = () => {
+    if (isReady && ytPlayer && !isPlaying) {
+      const state = ytPlayer.getPlayerState();
+      if (state !== window.YT.PlayerState.PLAYING) {
+        // We only attempt if prompt bar is visible
+        if (promptBar && !promptBar.classList.contains('hidden')) {
+          ytPlayer.playVideo();
+        }
+      }
+    }
+    document.removeEventListener('click', userStartOnInteraction);
+  };
+  document.addEventListener('click', userStartOnInteraction, { once: true });
 }
 
 /* --------------------------------------------------------------------------
-   8. ADD TO CALENDAR ACTION (.ICS DOWNLOAD & GOOGLE CALENDAR)
+   7. ADD TO CALENDAR ACTION (.ICS DOWNLOAD & GOOGLE CALENDAR)
+   Exact Details: Sunday, 20th December 2026
    -------------------------------------------------------------------------- */
 function initCalendarAction() {
   const calBtn = document.getElementById('add-to-calendar-btn');
   if (!calBtn) return;
 
   calBtn.addEventListener('click', () => {
-    // Wedding event details
     const event = {
-      title: 'Wedding of Anil & Ardra',
-      description: 'Together with their families, Anil and Ardra invite you to celebrate their auspicious wedding ceremony in Kerala.',
-      location: 'The Heritage Palace Convention Center, Kovalam Beach Road, Trivandrum, Kerala',
-      startDate: '20261129T040000Z', // Nov 29, 2026 09:30 AM IST (UTC: 04:00)
-      endDate: '20261129T080000Z'    // Nov 29, 2026 01:30 PM IST (UTC: 08:00)
+      title: 'Wedding: Anil Babu with Ada Meletath',
+      description: 'Wedding Ceremony of Anil Babu and Ada Meletath.\\n\\nThalikettu at Guruvayur Sree Krishna Temple.\\nWedding Ceremony at Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur.\\nCeremony begins at 11:30 AM followed by lunch.\\nPresents in blessings only.',
+      location: 'Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur, Kerala',
+      // Sunday, 20th December 2026: 11:30 AM IST = 06:00 UTC
+      startDate: '20261220T060000Z',
+      endDate: '20261220T103000Z'
     };
 
-    // Build standard .ics format string
+    // Google Calendar direct link
+    const googleCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.startDate}/${event.endDate}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
+
+    // Build standard .ics calendar file
     const icsContent = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Anil and Ardra//Wedding Invitation//EN',
+      'PRODID:-//Anil Babu & Ada Meletath//Wedding Invitation//EN',
       'CALSCALE:GREGORIAN',
       'METHOD:PUBLISH',
       'BEGIN:VEVENT',
@@ -448,109 +446,88 @@ function initCalendarAction() {
     const url = URL.createObjectURL(blob);
     const downloadLink = document.createElement('a');
     downloadLink.href = url;
-    downloadLink.setAttribute('download', 'Anil_and_Ardra_Wedding.ics');
+    downloadLink.setAttribute('download', 'Anil_Babu_and_Ada_Wedding.ics');
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
     URL.revokeObjectURL(url);
+
+    showToast('Calendar invite downloaded (.ics)', '📅');
   });
 }
 
 /* --------------------------------------------------------------------------
-   9. INTERACTIVE BLESSINGS GUESTBOOK
+   8. SEND YOUR BLESSINGS (WHATSAPP & CLIPBOARD, ZERO BACKEND)
+   Recipient: +91 6238 433 871 (formatted 916238433871)
    -------------------------------------------------------------------------- */
-function initBlessingsGuestbook() {
-  const form = document.getElementById('wishes-form');
-  const nameInput = document.getElementById('guest-name');
-  const messageInput = document.getElementById('guest-message');
-  const feedback = document.getElementById('wishes-feedback');
-  const listContainer = document.getElementById('wishes-display-list');
+function initBlessingsWhatsApp() {
+  const WHATSAPP_NUMBER = '916238433871';
+  const textarea = document.getElementById('blessing-message-input');
+  const sendWhatsAppBtn = document.getElementById('send-whatsapp-btn');
+  const copyBtn = document.getElementById('copy-blessing-btn');
+  const chips = document.querySelectorAll('.blessing-chip');
 
-  if (!form || !listContainer) return;
+  if (!textarea) return;
 
-  const STORAGE_KEY = 'anil_ardra_wedding_wishes';
-
-  // Sample heartfelt default blessings
-  const defaultWishes = [
-    {
-      name: 'Unnikrishnan & Deepa Nair',
-      message: 'May God bless your sacred union with enduring joy, abundant peace, and eternal companionship.',
-      time: 'Just now'
-    },
-    {
-      name: 'Reshma & Ashwin',
-      message: 'So thrilled to celebrate your special day! Wishing Anil and Ardra a lifetime filled with laughter and love.',
-      time: 'Earlier today'
-    }
-  ];
-
-  function getStoredWishes() {
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : defaultWishes;
-    } catch (e) {
-      return defaultWishes;
-    }
-  }
-
-  function saveWishes(wishes) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(wishes));
-    } catch (e) {
-      console.warn('Storage unavailable', e);
-    }
-  }
-
-  function renderWishes() {
-    const wishes = getStoredWishes();
-    listContainer.innerHTML = '';
-
-    wishes.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'wish-item';
-      card.innerHTML = `
-        <div class="wish-item-header">
-          <span class="wish-author">${escapeHtml(item.name)}</span>
-          <span class="wish-time">${escapeHtml(item.time)}</span>
-        </div>
-        <p class="wish-message">&ldquo;${escapeHtml(item.message)}&rdquo;</p>
-      `;
-      listContainer.appendChild(card);
+  // Handle Quick Chips Click
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const msg = chip.getAttribute('data-msg');
+      if (msg) {
+        textarea.value = msg;
+        textarea.focus();
+        showToast('Blessing suggestion selected', '🌸');
+      }
     });
-  }
-
-  function escapeHtml(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = nameInput.value.trim();
-    const message = messageInput.value.trim();
-
-    if (!name || !message) return;
-
-    const newWish = {
-      name,
-      message,
-      time: 'Just now'
-    };
-
-    const currentWishes = getStoredWishes();
-    currentWishes.unshift(newWish);
-    saveWishes(currentWishes);
-    renderWishes();
-
-    nameInput.value = '';
-    messageInput.value = '';
-
-    if (feedback) {
-      feedback.classList.remove('hidden');
-      setTimeout(() => feedback.classList.add('hidden'), 4000);
-    }
   });
 
-  renderWishes();
+  // Handle Send via WhatsApp Click
+  sendWhatsAppBtn?.addEventListener('click', () => {
+    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ada! Sending you both love and blessings.';
+    const encoded = encodeURIComponent(rawMessage);
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+    showToast('Opening WhatsApp to send blessing...', '💬');
+  });
+
+  // Handle Copy Blessing Click
+  copyBtn?.addEventListener('click', async () => {
+    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ada! Sending you both love and blessings.';
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(rawMessage);
+      } else {
+        // Fallback for older browsers
+        textarea.select();
+        document.execCommand('copy');
+      }
+      showToast('Blessing copied! Ready to paste & share.', '✨');
+    } catch (e) {
+      textarea.select();
+      showToast('Selected text. Press Ctrl+C to copy.', '📋');
+    }
+  });
+}
+
+/* --------------------------------------------------------------------------
+   9. GLOBAL TOAST NOTIFICATION HELPER
+   -------------------------------------------------------------------------- */
+let toastTimeout = null;
+function showToast(message, icon = '✨') {
+  const toast = document.getElementById('toast-notification');
+  const msgEl = document.getElementById('toast-message');
+  const iconEl = document.getElementById('toast-icon');
+
+  if (!toast || !msgEl) return;
+
+  msgEl.textContent = message;
+  if (iconEl) iconEl.textContent = icon;
+
+  toast.classList.remove('hidden');
+
+  if (toastTimeout) clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    toast.classList.add('hidden');
+  }, 3500);
 }

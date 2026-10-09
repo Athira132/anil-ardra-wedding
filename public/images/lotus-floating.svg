@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+  <defs>
+    <radialGradient id="waterRipple" cx="50%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#E2EAE3" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#FAF7F2" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="floatingPetalGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="50%" stop-color="#F9E0DB"/>
+      <stop offset="100%" stop-color="#E8A598"/>
+    </linearGradient>
+    <linearGradient id="padGradFloat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BAC8B8"/>
+      <stop offset="60%" stop-color="#9CAF88"/>
+      <stop offset="100%" stop-color="#6B8E7B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Water Ripple Rings -->
+  <ellipse cx="120" cy="120" rx="100" ry="25" fill="none" stroke="#9CAF88" stroke-width="0.8" opacity="0.3"/>
+  <ellipse cx="120" cy="120" rx="70" ry="18" fill="none" stroke="#B89758" stroke-width="0.6" opacity="0.35"/>
+  <ellipse cx="120" cy="120" rx="45" ry="12" fill="url(#waterRipple)"/>
+
+  <!-- Lily Pads -->
+  <ellipse cx="75" cy="122" rx="42" ry="16" fill="url(#padGradFloat)" transform="rotate(-6 75 122)" opacity="0.9"/>
+  <ellipse cx="165" cy="122" rx="42" ry="16" fill="url(#padGradFloat)" transform="rotate(6 165 122)" opacity="0.9"/>
+
+  <!-- Lotus Flower Layers -->
+  <!-- Outer Petals Left & Right -->
+  <path d="M120 115 C80 122 45 108 55 90 C65 72 95 95 120 115 Z" fill="url(#floatingPetalGrad)" stroke="#B89758" stroke-width="0.6"/>
+  <path d="M120 115 C160 122 195 108 185 90 C175 72 145 95 120 115 Z" fill="url(#floatingPetalGrad)" stroke="#B89758" stroke-width="0.6"/>
+
+  <!-- Mid Petals -->
+  <path d="M120 115 C90 112 65 90 78 65 C88 45 108 85 120 115 Z" fill="url(#floatingPetalGrad)" stroke="#B89758" stroke-width="0.6"/>
+  <path d="M120 115 C150 112 175 90 162 65 C152 45 132 85 120 115 Z" fill="url(#floatingPetalGrad)" stroke="#B89758" stroke-width="0.6"/>
+
+  <!-- Inner Petals -->
+  <path d="M120 115 C100 100 88 65 100 40 C110 20 118 65 120 115 Z" fill="url(#floatingPetalGrad)" stroke="#B89758" stroke-width="0.6"/>
+  <path d="M120 115 C140 100 152 65 140 40 C130 20 122 65 120 115 Z" fill="url(#floatingPetalGrad)" stroke="#B89758" stroke-width="0.6"/>
+
+  <!-- Center Majestic Petal -->
+  <path d="M120 115 C110 90 108 55 120 25 C132 55 130 90 120 115 Z" fill="url(#floatingPetalGrad)" stroke="#D4AF37" stroke-width="0.8"/>
+
+  <!-- Golden Core Stamen -->
+  <ellipse cx="120" cy="94" rx="14" ry="10" fill="#D4AF37"/>
+  <ellipse cx="120" cy="94" rx="11" ry="8" fill="#FDE8B5"/>
+  <circle cx="116" cy="92" r="1.2" fill="#8C6D32"/>
+  <circle cx="120" cy="91" r="1.2" fill="#8C6D32"/>
+  <circle cx="124" cy="92" r="1.2" fill="#8C6D32"/>
+  <circle cx="118" cy="95" r="1.2" fill="#8C6D32"/>
+  <circle cx="122" cy="95" r="1.2" fill="#8C6D32"/>
+
+  <!-- Cupping Petals in Foreground -->
+  <path d="M106 102 C106 114 120 120 120 120 C120 120 134 114 134 102 C130 106 110 106 106 102 Z" fill="url(#floatingPetalGrad)" stroke="#B89758" stroke-width="0.5"/>
+</svg>

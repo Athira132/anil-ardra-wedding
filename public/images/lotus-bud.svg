@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 180" width="120" height="180">
+  <defs>
+    <!-- Blush Pink Bud Gradient -->
+    <linearGradient id="budPetalGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="45%" stop-color="#F9E0DB" />
+      <stop offset="85%" stop-color="#F7D6D0" />
+      <stop offset="100%" stop-color="#E8A598" />
+    </linearGradient>
+    <!-- Sage Green Sepal Gradient -->
+    <linearGradient id="budSepalGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#557564" />
+      <stop offset="60%" stop-color="#80A18E" />
+      <stop offset="100%" stop-color="#A5C2B1" />
+    </linearGradient>
+    <linearGradient id="goldStemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#9C7E3A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Stem -->
+  <path d="M60 115 Q 58 145 55 175" stroke="#6B8E7B" stroke-width="3" stroke-linecap="round" fill="none"/>
+  
+  <!-- Outer Sepal Leaves Cupping the Bud -->
+  <path d="M60 120 C42 110 32 80 48 55 C54 75 56 100 60 120 Z" fill="url(#budSepalGrad)" stroke="#B89758" stroke-width="0.5"/>
+  <path d="M60 120 C78 110 88 80 72 55 C66 75 64 100 60 120 Z" fill="url(#budSepalGrad)" stroke="#B89758" stroke-width="0.5"/>
+
+  <!-- Inner Bud Petals Layer -->
+  <path d="M60 115 C45 95 44 45 60 20 C52 50 54 85 60 115 Z" fill="url(#budPetalGrad)" stroke="#B89758" stroke-width="0.5"/>
+  <path d="M60 115 C75 95 76 45 60 20 C68 50 66 85 60 115 Z" fill="url(#budPetalGrad)" stroke="#B89758" stroke-width="0.5"/>
+  
+  <!-- Center Tapered Bud Tip -->
+  <path d="M60 115 C54 80 52 40 60 10 C68 40 66 80 60 115 Z" fill="url(#budPetalGrad)" stroke="#D4AF37" stroke-width="0.75"/>
+
+  <!-- Tiny Gold Gilded Leaf Sparkle -->
+  <circle cx="60" cy="10" r="1.5" fill="#D4AF37"/>
+</svg>

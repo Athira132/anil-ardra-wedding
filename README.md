@@ -1,43 +1,40 @@
-# Anil & Ardra — Wedding Invitation Website
+# Anil Babu & Ada Meletath — Wedding Invitation Website
 
-A luxury, Kerala-inspired single-page wedding invitation website created for **Anil & Ardra**.
+A luxury, Kerala-inspired single-page wedding invitation website created for **Anil Babu & Ada Meletath** (with Anil & Ardra featured in the hero banner).
 
 ## Visual Design & Aesthetics
-- **Color Palette**: Botanical pastel green, sage green, off-white, warm cream, soft blush pink, very light peach, and subtle muted gold accents.
+- **Color Palette**: Pastel sage green, warm cream, off-white, and blush pink with antique gold accents.
 - **Kerala Botanical Motifs**:
-  - Sacret Lotus flowers (transparent vector illustration with delicate pink petals and gold core)
-  - Artistic hand-painted Kerala peacock perched gracefully
-  - Kerala banana plant foliage framing the layout with smooth parallax scrolling (no fruit/bananas)
-  - Floating lotus petals canvas particle animation
+  - Many layered Lotus flower illustrations, lotus buds, floating blossoms, and floral garland borders.
+  - Kerala banana plant foliage framing the layout with smooth parallax scrolling (no fruit/bananas).
+  - Floating lotus petals canvas particle animation.
+  - **Peacock completely removed** (no peacock illustrations, feathers, or peacock motifs).
 - **Typography**:
-  - Royal serif: `Cinzel`
+  - Royal serif display: `Cinzel`
   - Body & quotes: `Cormorant Garamond`
   - Romantic script accents: `Pinyon Script`
   - Clean UI: `Plus Jakarta Sans`
 
-## Page Sections
-1. **Hero / Opening**: Couple names `ANIL & ARDRA`, botanical framing, editable date & venue badges, and animated scroll cue.
-2. **Our Story**: Asymmetric editorial layout with organic arch frames, thin muted-gold borders, and couple portraits.
-3. **Wedding Day**: Auspicious details cards for DATE, TIME, and VENUE with subtle hover lift and decorative lotus connectors + "Add to Calendar" `.ics` export.
-4. **Ceremony (Join Us)**: Centered invitation card with auspicious Kerala motifs and typography.
-5. **Photo Gallery**: Editorial masonry gallery with lightbox zoom, subtle rotational tilts, and captions.
-6. **Where We Celebrate**: Venue location card with directions note and Google Maps link.
-7. **Interactive Blessings**: Real-time guestbook where guests can send heartfelt blessings (saved to local storage).
-8. **Closing**: Botanical closing composition with couple names and family sign-off.
-9. **Minimal Floating Navigation**: Transparent pill navigation with smooth scroll spy and mobile menu drawer.
-10. **Ambient Audio**: Web Audio API synthesized classical ragam arpeggiator & tanpura drone (user initiated, no autoplay).
+## Exact Invitation Details
+- **Couple**: Anil Babu with Ada Meletath
+- **Parents**: Daughter of Mrs. Saritha Prasad & Mr. Prasad Meletath
+- **Residence**: Villa 17, Sobha Silver Estate, Attore, Thrissur
+- **Date**: Sunday, 20th December 2026 (1202 Dhanu 6)
+- **Thalikettu**: At Guruvayur Sree Krishna Temple
+- **Wedding Ceremony**: At Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur. Ceremony Begins at 11:30 AM followed by lunch.
+- **Sharing the happiness**: Balu, Sanam and Saanvi
+- **Note**: Presents in blessings only
+- **RSVP**: +91 6238 433 871 (clickable `tel:` and WhatsApp links)
 
-## Easy Image & Content Replacement
-All images are organized in `public/images/`:
-- `couple-hero.jpg` — Hero couple photograph
-- `couple-story-1.jpg` — Primary story couple photograph
-- `couple-story-2.jpg` — Candid secondary couple photograph
-- `gallery-1.jpg` to `gallery-6.jpg` — Photo gallery images
-- `peacock-art.jpg` — Decorative Kerala peacock artwork
-- `banana-leaf-art.jpg` — Kerala banana plant foliage
-- `lotus-art.svg` — Sacred lotus blossom illustration
+## Audio & Music
+- **Source**: YouTube (`vPY_oohGR34` - Sayee Rakshith Violin from 'Amaran')
+- **Autoplay & Fallbacks**: Autoplay where browser allows; reliable visible 1-tap playback prompt banner if audible autoplay is blocked.
+- **Persistent Toggle**: Accurate playing/paused state with animated sound wave equalizer.
 
-Editable placeholders for Date, Time, and Venue are clearly marked in `index.html` with class `.editable-field`.
+## Send Your Blessings (No Backend)
+- Opens WhatsApp to send a pre-filled blessing directly to `+91 6238 433 871` via `https://wa.me/916238433871?text=...`.
+- "Copy a Blessing" button to easily copy congratulatory wishes to clipboard.
+- No database, backend, or fake message storage.
 
 ## Development & Build
 ```bash
