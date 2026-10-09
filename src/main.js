@@ -1,13 +1,13 @@
 /**
- * ANIL BABU & ADA MELETATH — KERALA BOTANICAL WEDDING INVITATION
- * Interactive Engine & Media Controller
+ * ANIL BABU & ARDRA — KERALA BOTANICAL WEDDING INVITATION
+ * Interactive Engine, Ambient Sparkles & YouTube Media Controller
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeroEntrance();
   initScrollReveal();
   initParallax();
-  initPetalsCanvas();
+  initPetalsAndSparklesCanvas();
   initNavigation();
   initYouTubeAudio();
   initCalendarAction();
@@ -23,9 +23,9 @@ function initHeroEntrance() {
     heroReveals.forEach((el, index) => {
       setTimeout(() => {
         el.classList.add('is-revealed');
-      }, index * 120);
+      }, index * 100);
     });
-  }, 100);
+  }, 80);
 }
 
 /* --------------------------------------------------------------------------
@@ -56,7 +56,7 @@ function initScrollReveal() {
 }
 
 /* --------------------------------------------------------------------------
-   3. SUBTLE PARALLAX SCROLLING (BANANA LEAVES & BOTANICALS)
+   3. PARALLAX SCROLLING ENGINE
    -------------------------------------------------------------------------- */
 function initParallax() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -83,9 +83,9 @@ function initParallax() {
 }
 
 /* --------------------------------------------------------------------------
-   4. FLOATING LOTUS PETALS CANVAS ENGINE
+   4. FLOATING LOTUS PETALS & GOLDEN PARTICLES CANVAS
    -------------------------------------------------------------------------- */
-function initPetalsCanvas() {
+function initPetalsAndSparklesCanvas() {
   const canvas = document.getElementById('petals-canvas');
   if (!canvas) return;
 
@@ -104,15 +104,17 @@ function initPetalsCanvas() {
   }, { passive: true });
 
   const petalCount = window.innerWidth < 768 ? 16 : 28;
+  const sparkleCount = window.innerWidth < 768 ? 20 : 36;
   const petals = [];
+  const sparkles = [];
 
-  // Soft pastel petal color palette: blush pink, pale rose, warm cream & gentle sage
+  // Lotus petal colors: blush, rose, coral pink, warm cream
   const petalColors = [
-    'rgba(247, 214, 208, 0.65)',
-    'rgba(232, 165, 152, 0.55)',
-    'rgba(253, 241, 238, 0.70)',
-    'rgba(249, 224, 219, 0.60)',
-    'rgba(216, 228, 217, 0.45)'
+    'rgba(248, 165, 181, 0.70)',
+    'rgba(242, 140, 159, 0.60)',
+    'rgba(255, 240, 243, 0.75)',
+    'rgba(232, 122, 104, 0.55)',
+    'rgba(245, 215, 127, 0.40)'
   ];
 
   class Petal {
@@ -156,7 +158,7 @@ function initPetalsCanvas() {
       ctx.bezierCurveTo(-this.size * 0.8, this.size * 0.5, -this.size * 0.8, -this.size * 0.5, 0, -this.size);
       ctx.fill();
 
-      // Subtle center vein
+      // Delicate center vein
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
       ctx.lineWidth = 0.5;
       ctx.beginPath();
@@ -168,8 +170,47 @@ function initPetalsCanvas() {
     }
   }
 
+  // Golden Diya / Firefly Sparkles
+  class Sparkle {
+    constructor() {
+      this.reset(true);
+    }
+
+    reset(initial = false) {
+      this.x = Math.random() * width;
+      this.y = initial ? Math.random() * height : height + 10;
+      this.size = Math.random() * 2 + 1;
+      this.speedY = -(Math.random() * 0.4 + 0.15); // gentle upward drift
+      this.speedX = Math.random() * 0.3 - 0.15;
+      this.opacity = Math.random() * 0.6 + 0.2;
+      this.pulse = Math.random() * Math.PI;
+    }
+
+    update() {
+      this.pulse += 0.03;
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      if (this.y < -10 || this.x < 0 || this.x > width) {
+        this.reset();
+      }
+    }
+
+    draw() {
+      const currentOpacity = this.opacity * (0.6 + Math.sin(this.pulse) * 0.4);
+      ctx.fillStyle = `rgba(245, 215, 127, ${currentOpacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
   for (let i = 0; i < petalCount; i++) {
     petals.push(new Petal());
+  }
+
+  for (let i = 0; i < sparkleCount; i++) {
+    sparkles.push(new Sparkle());
   }
 
   let isVisible = true;
@@ -180,6 +221,10 @@ function initPetalsCanvas() {
   function animate() {
     if (isVisible) {
       ctx.clearRect(0, 0, width, height);
+      sparkles.forEach(s => {
+        s.update();
+        s.draw();
+      });
       petals.forEach(p => {
         p.update();
         p.draw();
@@ -240,7 +285,6 @@ function initNavigation() {
 /* --------------------------------------------------------------------------
    6. YOUTUBE WEDDING AUDIO PLAYER ENGINE
    Source: https://youtu.be/vPY_oohGR34 (Sayee Rakshith - Violin)
-   Autoplay with fallback, persistent control, accurate state sync
    -------------------------------------------------------------------------- */
 function initYouTubeAudio() {
   const YOUTUBE_VIDEO_ID = 'vPY_oohGR34';
@@ -302,7 +346,6 @@ function initYouTubeAudio() {
       events: {
         onReady: (event) => {
           isReady = true;
-          // Attempt audible autoplay
           try {
             event.target.playVideo();
           } catch (e) {
@@ -315,7 +358,6 @@ function initYouTubeAudio() {
             if (state === window.YT.PlayerState.PLAYING) {
               updateUIState(true);
             } else {
-              // Autoplay with sound was blocked by the browser policy
               updateUIState(false);
               if (promptBar) {
                 promptBar.classList.remove('hidden');
@@ -329,7 +371,6 @@ function initYouTubeAudio() {
           } else if (event.data === window.YT.PlayerState.PAUSED) {
             updateUIState(false);
           } else if (event.data === window.YT.PlayerState.ENDED) {
-            // Auto loop
             ytPlayer?.playVideo();
           } else if (event.data === window.YT.PlayerState.BUFFERING) {
             updateUIState(false, true);
@@ -387,20 +428,19 @@ function initYouTubeAudio() {
     if (promptBar) promptBar.classList.add('hidden');
   });
 
-  // Optional global user interaction fallback: first touch or click starts music if blocked
+  // Global user interaction fallback: start audio on first touch/click anywhere on document if paused
   const userStartOnInteraction = () => {
     if (isReady && ytPlayer && !isPlaying) {
       const state = ytPlayer.getPlayerState();
       if (state !== window.YT.PlayerState.PLAYING) {
-        // We only attempt if prompt bar is visible
-        if (promptBar && !promptBar.classList.contains('hidden')) {
-          ytPlayer.playVideo();
-        }
+        ytPlayer.playVideo();
       }
     }
     document.removeEventListener('click', userStartOnInteraction);
+    document.removeEventListener('touchstart', userStartOnInteraction);
   };
   document.addEventListener('click', userStartOnInteraction, { once: true });
+  document.addEventListener('touchstart', userStartOnInteraction, { once: true });
 }
 
 /* --------------------------------------------------------------------------
@@ -413,22 +453,19 @@ function initCalendarAction() {
 
   calBtn.addEventListener('click', () => {
     const event = {
-      title: 'Wedding: Anil Babu with Ada Meletath',
-      description: 'Wedding Ceremony of Anil Babu and Ada Meletath.\\n\\nThalikettu at Guruvayur Sree Krishna Temple.\\nWedding Ceremony at Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur.\\nCeremony begins at 11:30 AM followed by lunch.\\nPresents in blessings only.',
+      title: 'Wedding: Anil Babu with Ardra',
+      description: 'Wedding Ceremony of Anil Babu and Ardra.\\n\\nTHALIKETTU at Guruvayur Sree Krishna Temple.\\nWEDDING CEREMONY at Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur.\\nCeremony Begins at 11:30 AM followed by lunch.\\nPresents in blessings only.',
       location: 'Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur, Kerala',
       // Sunday, 20th December 2026: 11:30 AM IST = 06:00 UTC
       startDate: '20261220T060000Z',
       endDate: '20261220T103000Z'
     };
 
-    // Google Calendar direct link
-    const googleCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.startDate}/${event.endDate}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
-
     // Build standard .ics calendar file
     const icsContent = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Anil Babu & Ada Meletath//Wedding Invitation//EN',
+      'PRODID:-//Anil Babu & Ardra//Wedding Invitation//EN',
       'CALSCALE:GREGORIAN',
       'METHOD:PUBLISH',
       'BEGIN:VEVENT',
@@ -446,7 +483,7 @@ function initCalendarAction() {
     const url = URL.createObjectURL(blob);
     const downloadLink = document.createElement('a');
     downloadLink.href = url;
-    downloadLink.setAttribute('download', 'Anil_Babu_and_Ada_Wedding.ics');
+    downloadLink.setAttribute('download', 'Anil_Babu_and_Ardra_Wedding.ics');
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
@@ -483,7 +520,7 @@ function initBlessingsWhatsApp() {
 
   // Handle Send via WhatsApp Click
   sendWhatsAppBtn?.addEventListener('click', () => {
-    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ada! Sending you both love and blessings.';
+    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ardra! Sending you both love and blessings.';
     const encoded = encodeURIComponent(rawMessage);
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
 
@@ -493,12 +530,11 @@ function initBlessingsWhatsApp() {
 
   // Handle Copy Blessing Click
   copyBtn?.addEventListener('click', async () => {
-    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ada! Sending you both love and blessings.';
+    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ardra! Sending you both love and blessings.';
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(rawMessage);
       } else {
-        // Fallback for older browsers
         textarea.select();
         document.execCommand('copy');
       }

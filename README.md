@@ -1,40 +1,60 @@
-# Anil Babu & Ada Meletath — Wedding Invitation Website
+# Anil Babu & Ardra — Kerala Wedding Invitation Website
 
-A luxury, Kerala-inspired single-page wedding invitation website created for **Anil Babu & Ada Meletath** (with Anil & Ardra featured in the hero banner).
+A luxury, Kerala-inspired single-page wedding invitation website created for **Anil Babu & Ardra**.
 
 ## Visual Design & Aesthetics
-- **Color Palette**: Pastel sage green, warm cream, off-white, and blush pink with antique gold accents.
-- **Kerala Botanical Motifs**:
-  - Many layered Lotus flower illustrations, lotus buds, floating blossoms, and floral garland borders.
-  - Kerala banana plant foliage framing the layout with smooth parallax scrolling (no fruit/bananas).
-  - Floating lotus petals canvas particle animation.
-  - **Peacock completely removed** (no peacock illustrations, feathers, or peacock motifs).
-- **Typography**:
-  - Royal serif display: `Cinzel`
-  - Body & quotes: `Cormorant Garamond`
-  - Romantic script accents: `Pinyon Script`
-  - Clean UI: `Plus Jakarta Sans`
+- **Full-Screen Hero**:
+  - Detailed green Kerala banana leaf background element.
+  - "ANIL & ARDRA" artistically blended directly into the banana leaf composition (no disconnected card or box).
+  - Fine art digital illustration of the Kerala bride and groom in traditional Kasavu wedding attire with gold detailing and jasmine.
+  - Hanging lotus floral installations suspended from the top edge with delicate swaying motion.
+  - Floating lotus petals and glowing golden particles canvas animation.
+- **Richer Kerala Color Palette**:
+  - Emerald green, warm temple gold, ivory, soft cream, coral pink, and lotus pink.
+- **Zero Logos**:
+  - Logo removed completely; the couple's names serve as the visual identity.
+- **No Photographs & No Peacocks**:
+  - All photographs replaced with custom fine-art illustration.
+  - Zero peacock motifs, feathers, or elements.
 
-## Exact Invitation Details
-- **Couple**: Anil Babu with Ada Meletath
-- **Parents**: Daughter of Mrs. Saritha Prasad & Mr. Prasad Meletath
-- **Residence**: Villa 17, Sobha Silver Estate, Attore, Thrissur
-- **Date**: Sunday, 20th December 2026 (1202 Dhanu 6)
-- **Thalikettu**: At Guruvayur Sree Krishna Temple
-- **Wedding Ceremony**: At Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur. Ceremony Begins at 11:30 AM followed by lunch.
-- **Sharing the happiness**: Balu, Sanam and Saanvi
-- **Note**: Presents in blessings only
-- **RSVP**: +91 6238 433 871 (clickable `tel:` and WhatsApp links)
+## Exact Invitation Content
+```
+Anil Babu
+with
+Ardra
 
-## Audio & Music
+Daughter of Mrs. Saritha Prasad & Mr. Prasad Meletath
+
+Villa 17, Sobha Silver Estate, Attore, Thrissur
+
+Sunday, 20th December 2026 (1202 Dhanu 6)
+
+THALIKETTU
+At Guruvayur Sree Krishna Temple
+
+WEDDING CEREMONY
+At Chakolas Pavilion Convention Centre
+Anchery Chira, Kuttanellur, Thrissur
+
+Ceremony Begins at 11:30 AM followed by lunch
+
+Sharing the happiness: Balu, Sanam and Saanvi
+
+Presents in blessings only
+
+RSVP: +91 6238 433 871
+```
+
+## Background Music
 - **Source**: YouTube (`vPY_oohGR34` - Sayee Rakshith Violin from 'Amaran')
-- **Autoplay & Fallbacks**: Autoplay where browser allows; reliable visible 1-tap playback prompt banner if audible autoplay is blocked.
-- **Persistent Toggle**: Accurate playing/paused state with animated sound wave equalizer.
+- **Autoplay & Fallbacks**: Autoplay where browser allows; prominent, elegant "Play music" prompt banner if browser blocks audible autoplay; 1-tap start on first interaction.
+- **Persistent Toggle**: Live equalizer wave indicating actual playing/paused state.
 
-## Send Your Blessings (No Backend)
-- Opens WhatsApp to send a pre-filled blessing directly to `+91 6238 433 871` via `https://wa.me/916238433871?text=...`.
-- "Copy a Blessing" button to easily copy congratulatory wishes to clipboard.
-- No database, backend, or fake message storage.
+## Blessings & RSVP (No Backend)
+- WhatsApp blessing button opens conversation with `+91 6238 433 871` pre-filled with:
+  `"Congratulations, Anil Babu and Ardra! Sending you both love and blessings."`
+- "Copy a Blessing" button with toast notification.
+- Dedicated Call and WhatsApp RSVP actions.
 
 ## Development & Build
 ```bash

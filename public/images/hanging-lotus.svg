@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 320" width="80" height="320">
+  <defs>
+    <!-- Lotus Petal Gradient (Lush Pink to Coral Rose) -->
+    <linearGradient id="hangPetalOuter" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="40%" stop-color="#F9CFD7" />
+      <stop offset="80%" stop-color="#F28C9F" />
+      <stop offset="100%" stop-color="#E25C75" />
+    </linearGradient>
+    <linearGradient id="hangPetalInner" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="50%" stop-color="#FDE8EC" />
+      <stop offset="100%" stop-color="#F49DB0" />
+    </linearGradient>
+    <!-- Stem / String Gradient (Golden Silk to Emerald Stem) -->
+    <linearGradient id="silkString" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="65%" stop-color="#C5A030" />
+      <stop offset="70%" stop-color="#557564" />
+      <stop offset="100%" stop-color="#3B5346" />
+    </linearGradient>
+    <!-- Emerald Leaf Gradient -->
+    <linearGradient id="emeraldLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#80A18E" />
+      <stop offset="50%" stop-color="#466E58" />
+      <stop offset="100%" stop-color="#2D4D3C" />
+    </linearGradient>
+  </defs>
+
+  <!-- Hanging Silk String / Vine -->
+  <line x1="40" y1="0" x2="40" y2="240" stroke="url(#silkString)" stroke-width="1.8" stroke-dasharray="8,2" />
+
+  <!-- Tiny Gold Beads along the string -->
+  <circle cx="40" cy="40" r="2.5" fill="#D4AF37" stroke="#9C7E3A" stroke-width="0.5"/>
+  <circle cx="40" cy="90" r="3" fill="#D4AF37" stroke="#9C7E3A" stroke-width="0.5"/>
+  <circle cx="40" cy="140" r="2.5" fill="#D4AF37" stroke="#9C7E3A" stroke-width="0.5"/>
+  <circle cx="40" cy="190" r="3.5" fill="#D4AF37" stroke="#9C7E3A" stroke-width="0.5"/>
+
+  <!-- Delicate Jasmine/Bud clusters on string -->
+  <!-- Upper Bud cluster -->
+  <g transform="translate(40, 115) scale(0.6)">
+    <path d="M0 0 C-10 -15 -8 -30 0 -40 C8 -30 10 -15 0 0 Z" fill="#FFFDF9" stroke="#E25C75" stroke-width="0.8"/>
+    <path d="M0 0 C-12 -10 -18 0 -5 10 Z" fill="url(#emeraldLeaf)"/>
+  </g>
+
+  <!-- Side Leaves -->
+  <path d="M40 70 C30 65 15 72 20 85 C28 88 38 78 40 70 Z" fill="url(#emeraldLeaf)" opacity="0.85"/>
+  <path d="M40 160 C52 155 65 162 60 175 C52 178 42 168 40 160 Z" fill="url(#emeraldLeaf)" opacity="0.85"/>
+  <path d="M40 220 C28 215 14 224 18 236 C28 238 38 228 40 220 Z" fill="url(#emeraldLeaf)" opacity="0.9"/>
+
+  <!-- Lotus Flower at the Bottom of String (Centered at x=40, y=265) -->
+  <g transform="translate(40, 260)">
+    <!-- Lily Pad Backdrop -->
+    <ellipse cx="0" cy="18" rx="32" ry="12" fill="url(#emeraldLeaf)" opacity="0.9"/>
+    
+    <!-- Outer Lotus Petals -->
+    <path d="M0 12 C-32 16 -44 4 -32 -10 C-22 -20 -10 -4 0 12 Z" fill="url(#hangPetalOuter)" stroke="#D4AF37" stroke-width="0.6"/>
+    <path d="M0 12 C32 16 44 4 32 -10 C22 -20 10 -4 0 12 Z" fill="url(#hangPetalOuter)" stroke="#D4AF37" stroke-width="0.6"/>
+
+    <!-- Mid Petals -->
+    <path d="M0 12 C-26 8 -30 -16 -18 -32 C-8 -40 -4 -10 0 12 Z" fill="url(#hangPetalOuter)" stroke="#D4AF37" stroke-width="0.6"/>
+    <path d="M0 12 C26 8 30 -16 18 -32 C8 -40 4 -10 0 12 Z" fill="url(#hangPetalOuter)" stroke="#D4AF37" stroke-width="0.6"/>
+
+    <!-- Inner Petals -->
+    <path d="M0 12 C-16 0 -18 -34 -8 -46 C-2 -52 0 -20 0 12 Z" fill="url(#hangPetalInner)" stroke="#D4AF37" stroke-width="0.6"/>
+    <path d="M0 12 C16 0 18 -34 8 -46 C2 -52 0 -20 0 12 Z" fill="url(#hangPetalInner)" stroke="#D4AF37" stroke-width="0.6"/>
+
+    <!-- Center Majestic Upright Petal -->
+    <path d="M0 12 C-8 -12 -10 -42 0 -58 C10 -42 8 -12 0 12 Z" fill="url(#hangPetalInner)" stroke="#D4AF37" stroke-width="0.8"/>
+
+    <!-- Gold Core Stamens -->
+    <ellipse cx="0" cy="-8" rx="8" ry="6" fill="#D4AF37"/>
+    <circle cx="-3" cy="-9" r="1" fill="#8C6D32"/>
+    <circle cx="0" cy="-10" r="1.2" fill="#8C6D32"/>
+    <circle cx="3" cy="-9" r="1" fill="#8C6D32"/>
+    <circle cx="-2" cy="-6" r="1" fill="#8C6D32"/>
+    <circle cx="2" cy="-6" r="1" fill="#8C6D32"/>
+
+    <!-- Foreground Cupping Petal -->
+    <path d="M-12 2 C-12 12 0 16 0 16 C0 16 12 12 12 2 C8 6 -8 6 -12 2 Z" fill="url(#hangPetalInner)" stroke="#D4AF37" stroke-width="0.5"/>
+  </g>
+</svg>

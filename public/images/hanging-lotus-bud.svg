@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 260" width="60" height="260">
+  <defs>
+    <linearGradient id="budPetalHang" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="45%" stop-color="#F9CFD7" />
+      <stop offset="85%" stop-color="#F28C9F" />
+      <stop offset="100%" stop-color="#E25C75" />
+    </linearGradient>
+    <linearGradient id="silkStringBud" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#557564" />
+      <stop offset="100%" stop-color="#3B5346" />
+    </linearGradient>
+    <linearGradient id="emeraldLeafBud" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#80A18E" />
+      <stop offset="100%" stop-color="#2D4D3C" />
+    </linearGradient>
+  </defs>
+
+  <!-- String -->
+  <line x1="30" y1="0" x2="30" y2="190" stroke="url(#silkStringBud)" stroke-width="1.6" stroke-dasharray="6,2" />
+
+  <!-- Gold Beads -->
+  <circle cx="30" cy="30" r="2" fill="#D4AF37"/>
+  <circle cx="30" cy="75" r="2.5" fill="#D4AF37"/>
+  <circle cx="30" cy="120" r="2" fill="#D4AF37"/>
+  <circle cx="30" cy="160" r="3" fill="#D4AF37"/>
+
+  <!-- Leaf Accents -->
+  <path d="M30 55 C22 50 12 56 16 66 C22 68 28 62 30 55 Z" fill="url(#emeraldLeafBud)" opacity="0.85"/>
+  <path d="M30 135 C38 130 48 136 44 146 C38 148 32 142 30 135 Z" fill="url(#emeraldLeafBud)" opacity="0.85"/>
+
+  <!-- Hanging Lotus Bud at Bottom (Centered at x=30, y=215) -->
+  <g transform="translate(30, 215)">
+    <!-- Sepals cupping -->
+    <path d="M0 25 C-14 18 -20 -4 -8 -22 C-4 -6 -2 12 0 25 Z" fill="url(#emeraldLeafBud)" stroke="#D4AF37" stroke-width="0.5"/>
+    <path d="M0 25 C14 18 20 -4 8 -22 C4 -6 2 12 0 25 Z" fill="url(#emeraldLeafBud)" stroke="#D4AF37" stroke-width="0.5"/>
+    <!-- Outer Bud Petals -->
+    <path d="M0 20 C-10 6 -11 -28 0 -45 C-5 -22 -4 4 0 20 Z" fill="url(#budPetalHang)" stroke="#D4AF37" stroke-width="0.5"/>
+    <path d="M0 20 C10 6 11 -28 0 -45 C5 -22 4 4 0 20 Z" fill="url(#budPetalHang)" stroke="#D4AF37" stroke-width="0.5"/>
+    <!-- Center Tapered Tip -->
+    <path d="M0 20 C-4 -4 -5 -32 0 -52 C5 -32 4 -4 0 20 Z" fill="url(#budPetalHang)" stroke="#D4AF37" stroke-width="0.75"/>
+    <circle cx="0" cy="-52" r="1.5" fill="#D4AF37"/>
+  </g>
+</svg>
