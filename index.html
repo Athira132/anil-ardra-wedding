@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     
     <!-- Primary Meta Tags -->
     <title>Anil Babu &amp; Ardra Meletath | Kerala Wedding Invitation</title>
@@ -10,6 +10,10 @@
     <meta name="description" content="Wedding invitation of Anil Babu with Ardra Meletath. Sunday, 20th December 2026. Guruvayur Sree Krishna Temple &amp; Chakolas Pavilion, Thrissur. Presents in blessings only." />
     <meta name="theme-color" content="#164636" />
     
+    <!-- Preload Critical Above-The-Fold Assets -->
+    <link rel="preload" as="image" href="/images/pencil-couple-illustration.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/images/hero-banana-leaf.webp" type="image/webp" />
+
     <!-- Open Graph / WhatsApp / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://anil-ardra-wedding.vercel.app/" />
@@ -30,13 +34,64 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Pinyon+Script&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
+    <!-- ========================================
+         OPENING WEDDING INVITATION LOADING SCREEN
+         ======================================== -->
+    <div id="invitation-loader" class="invitation-loader" role="status" aria-live="polite" aria-label="Loading sacred wedding invitation for Anil and Ardra">
+      <div class="loader-inner">
+        <!-- Blooming Lotus Blossom Icon with breathing halo -->
+        <div class="loader-lotus-wrapper" aria-hidden="true">
+          <svg class="loader-lotus-svg" viewBox="0 0 100 80" width="76" height="60" fill="none">
+            <path d="M50 10 C44 26, 44 48, 50 62 C56 48, 56 26, 50 10 Z" fill="url(#loaderGold)" />
+            <path d="M50 18 C38 30, 26 48, 38 60 C44 56, 48 48, 50 40 Z" fill="url(#loaderPink1)" />
+            <path d="M50 18 C62 30, 74 48, 62 60 C56 56, 52 48, 50 40 Z" fill="url(#loaderPink1)" />
+            <path d="M50 28 C30 40, 16 54, 26 64 C36 64, 44 58, 48 50 Z" fill="url(#loaderPink2)" opacity="0.88" />
+            <path d="M50 28 C70 40, 84 54, 74 64 C64 64, 56 58, 52 50 Z" fill="url(#loaderPink2)" opacity="0.88" />
+            <path d="M24 66 C36 71, 64 71, 76 66 C68 70, 32 70, 24 66 Z" fill="url(#loaderGold)" opacity="0.75" />
+            <defs>
+              <linearGradient id="loaderGold" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFF2CE" />
+                <stop offset="100%" stop-color="#D4AF37" />
+              </linearGradient>
+              <linearGradient id="loaderPink1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FDE8EC" />
+                <stop offset="100%" stop-color="#E88298" />
+              </linearGradient>
+              <linearGradient id="loaderPink2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFF0F3" />
+                <stop offset="100%" stop-color="#F2A5B5" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="loader-halo-pulse" aria-hidden="true"></div>
+        </div>
+
+        <!-- Sacred Sanskrit Benediction -->
+        <p class="loader-benediction">|| &nbsp;शुभं भवतु&nbsp; ||</p>
+
+        <!-- Names: ANIL & ARDRA -->
+        <h2 class="loader-names">
+          <span class="loader-name">ANIL</span>
+          <span class="loader-amp">&amp;</span>
+          <span class="loader-name">ARDRA</span>
+        </h2>
+
+        <p class="loader-sub">Sacred Wedding Invitation</p>
+
+        <!-- Micro Gold Progress Bar -->
+        <div class="loader-progress-track" aria-hidden="true">
+          <div class="loader-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Floating Lotus Petals and Golden Particle Sparkles Canvas -->
     <canvas id="petals-canvas" aria-hidden="true"></canvas>
 
@@ -68,14 +123,14 @@
         </div>
 
         <div class="nav-actions">
-          <!-- Persistent YouTube Audio Playback Toggle Button -->
+          <!-- Unobtrusive Accessible YouTube Audio Controller -->
           <button
             id="music-toggle"
             class="music-btn"
             type="button"
             aria-label="Play wedding invitation music"
             aria-pressed="false"
-            title="Wedding Music (Sayee Rakshith - Violin)"
+            title="Auspicious Wedding Music (Violin)"
           >
             <!-- Animated Equalizer Sound Wave Bars -->
             <span class="audio-equalizer" aria-hidden="true">
@@ -86,19 +141,19 @@
 
             <span class="music-icon" id="music-icon">
               <!-- Sound Off SVG -->
-              <svg class="icon-sound-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="icon-sound-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                 <line x1="23" y1="9" x2="17" y2="15"></line>
                 <line x1="17" y1="9" x2="23" y2="15"></line>
               </svg>
               <!-- Sound On SVG -->
-              <svg class="icon-sound-on hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="icon-sound-on hidden" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                 <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                 <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
               </svg>
             </span>
-            <span class="music-label" id="music-label">Play Music</span>
+            <span class="music-label" id="music-label">Music</span>
           </button>
 
           <!-- Mobile Hamburger Toggle -->
@@ -117,26 +172,6 @@
       </nav>
     </header>
 
-    <!-- Floating Fallback Music Prompt (visible if browser blocked audible autoplay) -->
-    <aside id="music-prompt-bar" class="music-prompt-bar hidden" role="region" aria-label="Music playback announcement">
-      <div class="prompt-inner">
-        <span class="prompt-lotus-icon" aria-hidden="true">
-          <img src="/images/lotus-bud.svg" alt="" width="18" height="26" />
-        </span>
-        <div class="prompt-text">
-          <span class="prompt-title">Wedding Music</span>
-          <span class="prompt-sub">Tap to listen to auspicious violin melody</span>
-        </div>
-        <button id="music-prompt-btn" class="prompt-play-btn" type="button" aria-label="Start wedding music playback">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Play</span>
-        </button>
-        <button id="music-prompt-close" class="prompt-dismiss-btn" type="button" aria-label="Dismiss music notice">&times;</button>
-      </div>
-    </aside>
-
     <main id="main-content">
       <!-- ========================================
            1. FULL-SCREEN HERO BANNER WITH BANANA LEAF,
@@ -145,11 +180,17 @@
       <section id="hero" class="hero-section" aria-label="Wedding Hero Banner">
         <!-- Giant Detailed Kerala Banana Leaf Background with subtle depth parallax -->
         <div class="hero-banana-leaf-bg" data-parallax="-0.04" aria-hidden="true">
-          <img
-            src="/images/hero-banana-leaf.jpg"
-            alt="Lush Kerala green banana leaf with gold trim and lotus blossoms"
-            class="banana-leaf-hero-img"
-          />
+          <picture>
+            <source srcset="/images/hero-banana-leaf.webp" type="image/webp" />
+            <img
+              src="/images/hero-banana-leaf.jpg"
+              alt="Lush Kerala green banana leaf with gold trim and lotus blossoms"
+              class="banana-leaf-hero-img"
+              width="1920"
+              height="1080"
+              fetchpriority="high"
+            />
+          </picture>
           <div class="hero-leaf-overlay"></div>
         </div>
 
@@ -188,13 +229,17 @@
               <div class="couple-pencil-card">
                 <div class="pencil-card-glow" aria-hidden="true"></div>
                 <div class="pencil-arch-inner">
-                  <img
-                    src="/images/pencil-couple-illustration.jpg"
-                    alt="Romantic pencil sketch drawing of Kerala bride and groom in traditional wedding attire"
-                    class="couple-pencil-img"
-                    width="440"
-                    height="586"
-                  />
+                  <picture>
+                    <source srcset="/images/pencil-couple-illustration.webp" type="image/webp" />
+                    <img
+                      src="/images/pencil-couple-illustration.jpg"
+                      alt="Romantic pencil sketch drawing of Kerala bride and groom in traditional wedding attire"
+                      class="couple-pencil-img"
+                      width="440"
+                      height="586"
+                      fetchpriority="high"
+                    />
+                  </picture>
                 </div>
                 <!-- Floral Base Accents with Blooming Lotus Flowers -->
                 <div class="pencil-lotus-accent left" aria-hidden="true">
@@ -590,14 +635,18 @@
                 <!-- Verified Venue Photo of Chakolas Pavilion Auditorium -->
                 <div class="venue-photo-card">
                   <div class="venue-photo-wrapper">
-                    <img
-                      src="/images/venue-chakolas-pavilion.jpg"
-                      alt="Chakolas Pavilion Convention Centre Arena and Grand Auditorium in Thrissur"
-                      class="venue-actual-img"
-                      width="800"
-                      height="533"
-                      loading="lazy"
-                    />
+                    <picture>
+                      <source srcset="/images/venue-chakolas-pavilion.webp" type="image/webp" />
+                      <img
+                        src="/images/venue-chakolas-pavilion.jpg"
+                        alt="Chakolas Pavilion Convention Centre Arena and Grand Auditorium in Thrissur"
+                        class="venue-actual-img"
+                        width="800"
+                        height="533"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                     <div class="venue-photo-badge">
                       <span class="venue-badge-dot"></span>
                       <span>Chakolas Pavilion &bull; Arena &amp; Grand Hall</span>

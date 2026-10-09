@@ -398,102 +398,163 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   4. FALLBACK MUSIC PROMPT BANNER
+   4. ELEGANT OPENING WEDDING INVITATION LOADING SCREEN
+   Ivory background, emerald botanical touches, small pink lotus, gold accents
    -------------------------------------------------------------------------- */
-.music-prompt-bar {
+.invitation-loader {
   position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 99;
-  width: auto;
-  max-width: 92vw;
-  background: rgba(255, 253, 249, 0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--color-gold-border);
-  box-shadow: 0 14px 40px rgba(13, 51, 38, 0.15), var(--shadow-hero-glow);
-  border-radius: var(--radius-pill);
-  padding: 8px 14px 8px 18px;
-  animation: promptSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes promptSlideUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 20px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
-.prompt-inner {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: var(--color-cream);
+  background-image: 
+    radial-gradient(circle at 50% 25%, #FFFDF9 0%, #FAF6EF 60%, #F3ECE0 100%),
+    radial-gradient(var(--color-emerald-deep) 0.8px, transparent 0.8px);
+  background-size: 100% 100%, 24px 24px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.7s ease;
+  pointer-events: auto;
 }
 
-.prompt-lotus-icon {
-  display: flex;
-  align-items: center;
-  animation: softPulse 2.5s infinite ease-in-out;
+.invitation-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-@keyframes softPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-
-.prompt-text {
+.loader-inner {
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 34px 26px;
+  max-width: 360px;
+  width: calc(100% - 36px);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 249, 0.88);
+  border: 1px solid var(--color-gold-border);
+  box-shadow: 0 16px 40px rgba(13, 51, 38, 0.08), 0 0 30px rgba(245, 215, 127, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.prompt-title {
+.loader-lotus-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.loader-lotus-svg {
+  animation: loaderLotusBreath 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 4px 14px rgba(232, 130, 152, 0.35));
+}
+
+@keyframes loaderLotusBreath {
+  0%, 100% {
+    transform: scale(0.96);
+    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.3));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 18px rgba(232, 130, 152, 0.5));
+  }
+}
+
+.loader-halo-pulse {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  animation: haloSpin 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes haloSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loader-benediction {
   font-family: var(--font-serif-display);
   font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.24em;
+  color: var(--color-gold-deep);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.loader-names {
+  font-family: var(--font-serif-display);
+  font-size: clamp(22px, 6vw, 28px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
   color: var(--color-emerald-deep);
-  line-height: 1.2;
-}
-
-.prompt-sub {
-  font-size: 11px;
-  color: var(--color-text-muted);
-}
-
-.prompt-play-btn {
-  display: inline-flex;
+  line-height: 1.15;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  background: linear-gradient(135deg, var(--color-emerald-main) 0%, var(--color-emerald-deep) 100%);
-  color: #FFFDF9;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.loader-name {
+  background: linear-gradient(180deg, var(--color-emerald-deep) 0%, var(--color-emerald-main) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loader-amp {
+  font-family: var(--font-script);
+  font-size: clamp(28px, 7vw, 36px);
+  font-weight: 400;
+  color: var(--color-gold-warm);
+  line-height: 0.8;
+  margin-top: -4px;
+  -webkit-text-fill-color: var(--color-gold-warm);
+}
+
+.loader-sub {
+  font-family: var(--font-serif-body);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+.loader-progress-track {
+  width: 140px;
+  height: 2.5px;
+  background: rgba(212, 175, 55, 0.2);
   border-radius: var(--radius-pill);
-  padding: 7px 16px;
-  font-size: 12px;
-  font-weight: 600;
-  box-shadow: 0 4px 12px var(--color-emerald-glow);
-  transition: all var(--transition-fast);
+  overflow: hidden;
+  position: relative;
 }
 
-.prompt-play-btn:hover {
-  background: linear-gradient(135deg, var(--color-emerald-rich) 0%, var(--color-emerald-main) 100%);
-  transform: scale(1.04);
+.loader-progress-bar {
+  position: absolute;
+  height: 100%;
+  width: 45%;
+  background: linear-gradient(90deg, #D4AF37 0%, #F5D77F 50%, #D4AF37 100%);
+  border-radius: var(--radius-pill);
+  animation: loaderProgress 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.prompt-dismiss-btn {
-  font-size: 18px;
-  line-height: 1;
-  color: var(--color-text-light);
-  padding: 4px;
-  border-radius: 50%;
-  transition: color var(--transition-fast);
-}
-
-.prompt-dismiss-btn:hover {
-  color: var(--color-text-main);
+@keyframes loaderProgress {
+  0% { left: -45%; }
+  50% { left: 45%; }
+  100% { left: 105%; }
 }
 
 /* --------------------------------------------------------------------------
@@ -750,16 +811,17 @@ img {
 
 .hero-integrated-names {
   font-family: var(--font-serif-display);
-  font-size: clamp(40px, 6.8vw, 76px);
+  font-size: clamp(34px, 4.2vw, 56px);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--color-ivory);
   line-height: 1.1;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(10px, 2vw, 22px);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: clamp(8px, 1.5vw, 18px);
   margin: 0;
   text-shadow:
     0 0 35px rgba(245, 215, 127, 0.5),
@@ -776,7 +838,7 @@ img {
 
 .name-amp {
   font-family: var(--font-script);
-  font-size: clamp(48px, 8.5vw, 88px);
+  font-size: clamp(42px, 5.2vw, 68px);
   font-weight: 400;
   color: var(--color-gold-bright);
   line-height: 0.8;
@@ -2077,13 +2139,13 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   15. RESPONSIVE DESIGN (TABLETS & MOBILE)
+   15. RESPONSIVE DESIGN (TABLETS & MOBILE VIEWPORTS: 320px - 960px)
    -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
   .hero-composition-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 36px;
+    gap: 32px;
   }
 
   .hero-typography-col {
@@ -2106,10 +2168,10 @@ img {
 
   .ceremonies-grid {
     grid-template-columns: 1fr;
-    max-width: 520px;
+    max-width: 480px;
     margin-left: auto;
     margin-right: auto;
-    gap: 28px;
+    gap: 24px;
   }
 
   .ceremonies-connector {
@@ -2126,47 +2188,73 @@ img {
   }
 
   .venue-map-card .map-frame-wrapper {
-    min-height: 260px;
+    min-height: 250px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --nav-height: 64px;
+    --nav-height: 58px;
   }
 
   .section-padding {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .floating-nav-container {
+    top: 10px;
+    padding: 0 10px;
   }
 
   .floating-nav {
-    padding: 6px 16px;
-    gap: 16px;
+    padding: 5px 12px 5px 16px;
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .nav-names {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .music-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+    gap: 5px;
   }
 
   .mobile-toggle {
     display: flex;
+    width: 38px;
+    height: 38px;
+    padding: 7px;
   }
 
   .nav-links {
     position: fixed;
-    top: calc(var(--nav-height) + 18px);
-    left: 16px;
-    right: 16px;
+    top: calc(var(--nav-height) + 12px);
+    left: 12px;
+    right: 12px;
     flex-direction: column;
     background: rgba(255, 253, 249, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     border: 1px solid var(--color-gold-border);
     border-radius: var(--radius-lg);
-    padding: 24px;
-    gap: 16px;
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-20px);
+    padding: 20px 16px;
+    gap: 12px;
+    box-shadow: 0 16px 45px rgba(13, 51, 38, 0.18);
+    transform: translateY(-16px);
     opacity: 0;
     pointer-events: none;
     transition: all var(--transition-smooth);
+    z-index: 105;
   }
 
   .nav-links.open {
@@ -2178,96 +2266,336 @@ img {
   .nav-link {
     width: 100%;
     text-align: center;
-    font-size: 15px;
-    padding: 10px;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
   }
 
-  /* Hanging Lotus on Mobile (Left and Right edges only, scaled) */
+  /* Hanging Lotus on Mobile: Left and Right edges only, scaled and non-overlapping */
   .hanging-lotus-edge {
-    gap: 6px;
+    gap: 4px;
+    z-index: 4;
   }
 
   .hanging-lotus-left {
-    left: 6px;
+    left: 4px;
   }
 
   .hanging-lotus-right {
-    right: 6px;
+    right: 4px;
   }
 
   .hanging-stem {
-    transform: scale(0.6);
+    transform: scale(0.5);
     transform-origin: top center;
   }
 
   .hang-stem-l2,
-  .hang-stem-r2 {
-    display: none; /* Keep natural breathing room on mobile */
+  .hang-stem-l3,
+  .hang-stem-r2,
+  .hang-stem-r3 {
+    display: none; /* Keep single clean hanging lotus on each side to prevent visual clutter */
   }
 
-  /* Couple pencil drawing on mobile */
+  /* Couple pencil drawing proportioned on mobile */
   .couple-pencil-card {
-    max-width: 300px;
+    max-width: clamp(190px, 50vw, 240px);
+    padding: 7px;
+    border-radius: 170px 170px 16px 16px;
+    margin-top: 4px;
   }
 
-  .card-corner {
-    width: 65px;
-    height: 65px;
+  .pencil-arch-inner {
+    border-radius: 160px 160px 12px 12px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
   }
 
-  .corner-tl { top: 8px; left: 8px; }
-  .corner-tr { top: 8px; right: 8px; }
-  .corner-bl { bottom: 8px; left: 8px; }
-  .corner-br { bottom: 8px; right: 8px; }
+  .couple-pencil-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
+  }
+
+  .pencil-lotus-accent {
+    transform: scale(0.72);
+    bottom: -10px;
+  }
+
+  .pencil-lotus-accent.left {
+    left: -12px;
+  }
+
+  .pencil-lotus-accent.right {
+    right: -10px;
+    transform: scaleX(-1) scale(0.72);
+  }
+
+  /* Equal Ceremonies Cards */
+  .ceremonies-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .ceremony-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ceremony-card-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 20px;
+  }
+
+  .ceremony-map-btn {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    font-size: 13px;
+    padding: 10px 16px;
+  }
 
   .blessings-actions-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .btn-blessing-send,
+  .btn-blessing-copy {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+  }
+
+  .rsvp-actions-dual {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-rsvp-call,
+  .btn-rsvp-wa {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    padding-top: 90px;
+    padding-top: clamp(74px, 11vh, 86px);
+    padding-bottom: 36px;
+    padding-left: 14px;
+    padding-right: 14px;
+    min-height: 100svh;
+  }
+
+  .hero-composition-grid {
+    gap: clamp(14px, 3vh, 22px);
+  }
+
+  .hero-top-script {
+    font-size: clamp(18px, 4.6vw, 24px);
+    margin-bottom: 4px;
+  }
+
+  /* Compact Ornamental Border with Single-Line Prominent Names */
+  .hero-names-frame-container {
+    margin-bottom: 12px;
+    width: auto;
+    max-width: 100%;
+    display: inline-flex;
+    justify-content: center;
   }
 
   .hero-ornamental-frame {
-    padding: 8px 12px;
+    padding: 5px 8px;
+    border-radius: var(--radius-sm);
+    width: auto;
+    max-width: 100%;
   }
 
   .frame-inner-border {
-    padding: 8px 12px;
+    padding: 6px 12px;
+    border-radius: calc(var(--radius-sm) - 2px);
   }
 
   .hero-integrated-names {
-    font-size: clamp(32px, 8.5vw, 42px);
-    letter-spacing: 0.08em;
-    gap: 8px;
+    font-size: clamp(20px, 6.2vw, 30px);
+    letter-spacing: clamp(0.04em, 1.2vw, 0.07em);
+    gap: clamp(4px, 1.4vw, 8px);
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    text-shadow: 0 0 20px rgba(245, 215, 127, 0.4), 0 2px 10px rgba(0, 0, 0, 0.8);
   }
 
   .name-amp {
-    font-size: clamp(38px, 9.5vw, 48px);
+    font-size: clamp(24px, 7.8vw, 38px);
+    margin-top: -3px;
+  }
+
+  .hero-lotus-divider {
+    margin: 10px auto 14px;
+    max-width: 280px;
+    gap: 10px;
+  }
+
+  .hero-invitation-subtext {
+    font-size: clamp(15px, 4vw, 18px);
+    line-height: 1.45;
+    margin-bottom: 14px;
   }
 
   .hero-date-seal {
-    font-size: 12px;
-    padding: 8px 16px;
+    font-size: 11px;
+    padding: 7px 14px;
+    gap: 7px;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
   }
 
-  .auspicious-date-seal {
-    padding: 10px 18px;
+  .hero-scroll-cue {
+    margin-top: 2px;
+  }
+
+  .scroll-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  /* Couple Card on Small Screens */
+  .couple-pencil-card {
+    max-width: clamp(170px, 48vw, 220px);
+    padding: 6px;
+  }
+
+  .pencil-arch-inner {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Card and Content Spacing on Small Screens */
+  .invitation-card {
+    padding: 28px 16px;
+  }
+
+  .invitation-couple-names {
+    font-size: clamp(26px, 6.4vw, 34px);
+    gap: 6px;
+  }
+
+  .couple-ampersand {
+    font-size: clamp(32px, 8vw, 42px);
+  }
+
+  .invitation-body-text {
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 6.2vw, 28px);
+    letter-spacing: 0.1em;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* Location Card Details */
+  .location-details-col {
+    padding: 20px 16px;
+  }
+
+  .location-venue-name {
+    font-size: clamp(20px, 5.2vw, 25px);
+  }
+
+  .venue-photo-wrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+  .venue-map-card .map-frame-wrapper {
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .venue-timing-notice {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  .blessing-textarea {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+    padding: 12px;
+  }
+
+  .blessing-chip {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 
   .rsvp-tel-link {
+    font-size: 17px;
+    padding: 6px 14px;
+  }
+}
+
+/* Specific refinement for ultra-narrow phones (320px - 360px e.g. iPhone SE / Galaxy Fold) */
+@media (max-width: 360px) {
+  .hero-section {
+    padding-top: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .hero-ornamental-frame {
+    padding: 4px 6px;
+  }
+
+  .frame-inner-border {
+    padding: 5px 8px;
+  }
+
+  .hero-integrated-names {
     font-size: 18px;
-    padding: 6px 16px;
+    letter-spacing: 0.04em;
+    gap: 3px;
+  }
+
+  .name-amp {
+    font-size: 22px;
   }
 
   .couple-pencil-card {
-    max-width: 270px;
+    max-width: 160px;
   }
 
-  .ceremony-map-btn {
-    max-width: 100%;
+  .hanging-stem {
+    transform: scale(0.4);
+  }
+
+  .hanging-lotus-left { left: 2px; }
+  .hanging-lotus-right { right: 2px; }
+
+  .invitation-card {
+    padding: 22px 12px;
+  }
+
+  .nav-names {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .music-btn {
+    padding: 4px 8px;
+    font-size: 10px;
   }
 }
 

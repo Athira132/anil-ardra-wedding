@@ -51,10 +51,20 @@ Presents in blessings only
 RSVP: +91 6238 433 871
 ```
 
+## Opening Loading Screen & Performance
+- **Sacred Ivory Invitation Loader**:
+  - Full-screen loading screen on warm ivory background (`#FAF6EF`) with subtle emerald botanical details, blooming lotus SVG animation, gold progress bar, Sanskrit benediction (`|| शुभं भवतु ||`), and "ANIL & ARDRA".
+  - Preloads critical above-the-fold pencil couple illustration and fonts.
+  - Strict 1.8s maximum safety timeout prevents visitors from ever being trapped on slow networks.
+  - Next-gen WebP imagery and compressed JPEGs reduce total image transfer by ~80% (over 1.7 MB saved).
+
 ## Background Music
-- **Source**: YouTube (`vPY_oohGR34` - Sayee Rakshith Violin from 'Amaran')
-- **Autoplay & Fallbacks**: Autoplay where browser allows; prominent, elegant "Play music" prompt banner if browser blocks audible autoplay; 1-tap start on first interaction.
-- **Persistent Toggle**: Live equalizer wave indicating actual playing/paused state.
+- **Source**: YouTube (`vPY_oohGR34` - Sayee Rakshith Violin)
+- **Browser-Compliant Autoplay**:
+  - Requests autoplay on load without asking the visitor to click Play first.
+  - If audible autoplay is restricted by browser policy (common on mobile), automatically falls back to buffered muted playback with an unobtrusive navbar control.
+  - Seamless 1-tap unmuting on any first touch or tap without blocking prompts or confirmation modals.
+  - Persistent accessible toggle with live equalizer wave indicating confirmed audio playback.
 
 ## Blessings & RSVP (No Backend)
 - WhatsApp blessing button opens conversation with `+91 6238 433 871` pre-filled with:

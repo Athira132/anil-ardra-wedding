@@ -4,7 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initHeroEntrance();
+  initInvitationLoader();
   initScrollReveal();
   initParallax();
   initPetalsAndSparklesCanvas();
@@ -16,6 +16,58 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
+   0. ELEGANT OPENING WEDDING INVITATION LOADING SCREEN
+   Preload critical hero illustration & fonts; never trap visitors (1.8s safety timeout)
+   -------------------------------------------------------------------------- */
+function initInvitationLoader() {
+  const loader = document.getElementById('invitation-loader');
+  if (!loader) {
+    initHeroEntrance();
+    return;
+  }
+
+  let isDismissed = false;
+  function dismissLoader() {
+    if (isDismissed) return;
+    isDismissed = true;
+
+    loader.classList.add('is-hidden');
+    initHeroEntrance();
+  }
+
+  // Safety fallback: maximum 1.8 seconds so visitor is NEVER trapped by slow network
+  const safetyTimer = setTimeout(dismissLoader, 1800);
+
+  // Preload & check critical above-the-fold hero illustration
+  const criticalImg = new Image();
+  criticalImg.src = '/images/pencil-couple-illustration.webp';
+
+  const imgPromise = new Promise(resolve => {
+    if (criticalImg.complete) {
+      resolve();
+    } else {
+      criticalImg.onload = () => resolve();
+      criticalImg.onerror = () => resolve(); // Non-blocking on failure
+    }
+  });
+
+  const fontsPromise = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+
+  // Minimum graceful duration of 350ms to ensure smooth initial paint
+  const minTimer = new Promise(resolve => setTimeout(resolve, 350));
+
+  Promise.all([imgPromise, fontsPromise, minTimer])
+    .then(() => {
+      clearTimeout(safetyTimer);
+      dismissLoader();
+    })
+    .catch(() => {
+      clearTimeout(safetyTimer);
+      dismissLoader();
+    });
+}
+
+/* --------------------------------------------------------------------------
    1. HERO ENTRANCE ANIMATION
    -------------------------------------------------------------------------- */
 function initHeroEntrance() {
@@ -24,21 +76,21 @@ function initHeroEntrance() {
     heroReveals.forEach((el, index) => {
       setTimeout(() => {
         el.classList.add('is-revealed');
-      }, index * 100);
+      }, index * 90);
     });
-  }, 80);
+  }, 60);
 }
 
 /* --------------------------------------------------------------------------
    2. SCROLL REVEAL SYSTEM (INTERSECTION OBSERVER)
    -------------------------------------------------------------------------- */
 function initScrollReveal() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('[class*="reveal-"]').forEach(el => el.classList.add('is-revealed'));
+  const revealElements = document.querySelectorAll('section:not(#hero) [class*="reveal-"]');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('is-revealed'));
     return;
   }
-
-  const revealElements = document.querySelectorAll('section:not(#hero) [class*="reveal-"]');
 
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -49,11 +101,30 @@ function initScrollReveal() {
     });
   }, {
     root: null,
-    rootMargin: '0px 0px -40px 0px',
-    threshold: 0.1
+    rootMargin: '80px 0px 80px 0px',
+    threshold: 0.01
   });
 
   revealElements.forEach(el => observer.observe(el));
+
+  // Safety fallback for fast scrolling and headless rendering
+  const checkVisible = () => {
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    revealElements.forEach(el => {
+      if (!el.classList.contains('is-revealed')) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= vh + 120 && rect.bottom >= -50) {
+          el.classList.add('is-revealed');
+          observer.unobserve(el);
+        }
+      }
+    });
+  };
+
+  // Initial check plus scroll & resize listeners
+  setTimeout(checkVisible, 250);
+  window.addEventListener('scroll', checkVisible, { passive: true });
+  window.addEventListener('resize', checkVisible, { passive: true });
 }
 
 /* --------------------------------------------------------------------------
@@ -286,6 +357,7 @@ function initNavigation() {
 /* --------------------------------------------------------------------------
    6. YOUTUBE WEDDING AUDIO PLAYER ENGINE
    Source: https://youtu.be/vPY_oohGR34 (Sayee Rakshith - Violin)
+   Autoplay with browser compliance, muted fallback, and 1-tap unmute
    -------------------------------------------------------------------------- */
 function initYouTubeAudio() {
   const YOUTUBE_VIDEO_ID = 'vPY_oohGR34';
@@ -293,16 +365,11 @@ function initYouTubeAudio() {
   const musicLabel = document.getElementById('music-label');
   const iconSoundOff = musicToggle?.querySelector('.icon-sound-off');
   const iconSoundOn = musicToggle?.querySelector('.icon-sound-on');
-  const promptBar = document.getElementById('music-prompt-bar');
-  const promptBtn = document.getElementById('music-prompt-btn');
-  const promptClose = document.getElementById('music-prompt-close');
 
   let ytPlayer = null;
-  let isPlaying = false;
   let isReady = false;
 
-  function updateUIState(playing, loading = false) {
-    isPlaying = playing;
+  function updateUIState(playing, loading = false, isMutedOnly = false) {
     if (!musicToggle) return;
 
     if (loading) {
@@ -317,7 +384,13 @@ function initYouTubeAudio() {
       if (musicLabel) musicLabel.textContent = 'Pause';
       iconSoundOff?.classList.add('hidden');
       iconSoundOn?.classList.remove('hidden');
-      if (promptBar) promptBar.classList.add('hidden');
+    } else if (isMutedOnly) {
+      musicToggle.classList.remove('playing');
+      musicToggle.setAttribute('aria-pressed', 'false');
+      musicToggle.setAttribute('aria-label', 'Tap to unmute wedding music');
+      if (musicLabel) musicLabel.textContent = 'Unmute';
+      iconSoundOff?.classList.remove('hidden');
+      iconSoundOn?.classList.add('hidden');
     } else {
       musicToggle.classList.remove('playing');
       musicToggle.setAttribute('aria-pressed', 'false');
@@ -347,45 +420,62 @@ function initYouTubeAudio() {
       events: {
         onReady: (event) => {
           isReady = true;
+          // Attempt browser-compliant autoplay
           try {
             event.target.playVideo();
           } catch (e) {
-            console.log('Autoplay blocked by browser policy', e);
+            console.log('Autoplay request initiated', e);
           }
 
-          // Check if autoplay succeeded after 1 second
+          // Evaluate autoplay status after brief buffer period
           setTimeout(() => {
-            const state = ytPlayer?.getPlayerState();
-            if (state === window.YT.PlayerState.PLAYING) {
+            if (!ytPlayer || !ytPlayer.getPlayerState) return;
+            const state = ytPlayer.getPlayerState();
+            const isMuted = ytPlayer.isMuted ? ytPlayer.isMuted() : false;
+
+            if (state === window.YT.PlayerState.PLAYING && !isMuted) {
+              // Direct audible autoplay succeeded
               updateUIState(true);
             } else {
-              updateUIState(false);
-              if (promptBar) {
-                promptBar.classList.remove('hidden');
+              // Audible autoplay restricted by browser policy: start muted as fallback
+              try {
+                ytPlayer.mute();
+                ytPlayer.playVideo();
+                updateUIState(false, false, true);
+              } catch (err) {
+                console.log('Muted fallback notice:', err);
+                updateUIState(false);
               }
             }
-          }, 1200);
+          }, 800);
         },
         onStateChange: (event) => {
+          if (!ytPlayer) return;
+          const isMuted = ytPlayer.isMuted ? ytPlayer.isMuted() : false;
+
           if (event.data === window.YT.PlayerState.PLAYING) {
-            updateUIState(true);
+            if (isMuted) {
+              updateUIState(false, false, true);
+            } else {
+              updateUIState(true);
+            }
           } else if (event.data === window.YT.PlayerState.PAUSED) {
             updateUIState(false);
           } else if (event.data === window.YT.PlayerState.ENDED) {
-            ytPlayer?.playVideo();
+            ytPlayer.playVideo();
           } else if (event.data === window.YT.PlayerState.BUFFERING) {
             updateUIState(false, true);
           }
         },
         onError: (err) => {
-          console.warn('YouTube Player notification:', err);
+          console.warn('YouTube Player note:', err);
           updateUIState(false);
         }
       }
     });
   }
 
-  // Load YouTube Iframe API if not already present
+  // Load YouTube Iframe API asynchronously
   if (!window.YT || !window.YT.Player) {
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -399,49 +489,50 @@ function initYouTubeAudio() {
     createPlayer();
   }
 
-  // Persistent Toggle Button Click Handler
-  musicToggle?.addEventListener('click', () => {
-    if (!isReady || !ytPlayer) {
-      showToast('Loading wedding audio...', '🎵');
+  // Unobtrusive Music Toggle Button
+  musicToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!isReady || !ytPlayer || !ytPlayer.getPlayerState) {
+      showToast('Connecting wedding music...', '🎵');
       return;
     }
 
     const state = ytPlayer.getPlayerState();
-    if (state === window.YT.PlayerState.PLAYING) {
+    const isMuted = ytPlayer.isMuted ? ytPlayer.isMuted() : false;
+
+    if (state === window.YT.PlayerState.PLAYING && !isMuted) {
       ytPlayer.pauseVideo();
+      updateUIState(false);
+      showToast('Music paused', '⏸');
     } else {
+      // Unmute and play
+      if (ytPlayer.unMute) ytPlayer.unMute();
+      if (ytPlayer.setVolume) ytPlayer.setVolume(100);
       ytPlayer.playVideo();
+      updateUIState(true);
       showToast('Playing wedding music ✨', '🎵');
     }
   });
 
-  // Prompt Play Button Click (1-tap start)
-  promptBtn?.addEventListener('click', () => {
-    if (ytPlayer && isReady) {
-      ytPlayer.playVideo();
-      showToast('Playing wedding music ✨', '🎵');
-    }
-    if (promptBar) promptBar.classList.add('hidden');
-  });
+  // Global first user interaction: seamlessly unmute if currently muted
+  const unmuteOnFirstGesture = () => {
+    if (isReady && ytPlayer) {
+      const isMuted = ytPlayer.isMuted ? ytPlayer.isMuted() : false;
+      const state = ytPlayer.getPlayerState ? ytPlayer.getPlayerState() : null;
 
-  // Prompt Dismiss Button Click
-  promptClose?.addEventListener('click', () => {
-    if (promptBar) promptBar.classList.add('hidden');
-  });
-
-  // Global user interaction fallback: start audio on first touch/click anywhere on document if paused
-  const userStartOnInteraction = () => {
-    if (isReady && ytPlayer && !isPlaying) {
-      const state = ytPlayer.getPlayerState();
-      if (state !== window.YT.PlayerState.PLAYING) {
+      if (isMuted || state !== window.YT.PlayerState.PLAYING) {
+        if (ytPlayer.unMute) ytPlayer.unMute();
+        if (ytPlayer.setVolume) ytPlayer.setVolume(100);
         ytPlayer.playVideo();
+        updateUIState(true);
       }
     }
-    document.removeEventListener('click', userStartOnInteraction);
-    document.removeEventListener('touchstart', userStartOnInteraction);
+    document.removeEventListener('click', unmuteOnFirstGesture);
+    document.removeEventListener('touchstart', unmuteOnFirstGesture);
   };
-  document.addEventListener('click', userStartOnInteraction, { once: true });
-  document.addEventListener('touchstart', userStartOnInteraction, { once: true });
+
+  document.addEventListener('click', unmuteOnFirstGesture, { once: true });
+  document.addEventListener('touchstart', unmuteOnFirstGesture, { once: true });
 }
 
 /* --------------------------------------------------------------------------
