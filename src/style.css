@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ANIL BABU & ARDRA — KERALA BOTANICAL WEDDING INVITATION
+   ANIL BABU & ARDRA MELETATH — KERALA BOTANICAL WEDDING INVITATION
    Design System & Styling
    Palette: Emerald Green, Warm Gold, Ivory, Soft Cream, Coral & Lotus Pink
    ========================================================================== */
@@ -288,7 +288,7 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 }
 
 .nav-link {
@@ -297,7 +297,7 @@ img {
   font-weight: 500;
   color: var(--color-text-muted);
   letter-spacing: 0.02em;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: var(--radius-pill);
   transition: all var(--transition-fast);
 }
@@ -498,7 +498,7 @@ img {
 
 /* --------------------------------------------------------------------------
    5. BREATHTAKING FULL-SCREEN HERO BANNER WITH BANANA LEAF,
-      HANGING LOTUS INSTALLATION & INTEGRATED NAMES
+      HANGING LOTUS (LEFT & RIGHT ONLY) & PENCIL DRAWING COUPLE
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
@@ -544,23 +544,27 @@ img {
   mix-blend-mode: multiply;
 }
 
-/* Hanging Lotus Flower Floral Installations (Swaying from the top) */
-.hanging-lotus-installation {
+/* HANGING LOTUS FLOWERS: LEFT AND RIGHT ONLY (CENTER/TOP-CENTER IS COMPLETELY CLEAR) */
+.hanging-lotus-edge {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 300px;
   pointer-events: none;
   z-index: 5;
   display: flex;
-  justify-content: space-between;
-  padding: 0 3%;
+  gap: 14px;
+}
+
+.hanging-lotus-left {
+  left: 20px;
+}
+
+.hanging-lotus-right {
+  right: 20px;
 }
 
 .hanging-stem {
   transform-origin: top center;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.28));
 }
 
 .hang-img {
@@ -568,40 +572,13 @@ img {
   display: block;
 }
 
-.hang-stem-1 {
-  height: 270px;
-  animation: lotusSway1 6s ease-in-out infinite alternate;
-}
+.hang-stem-l1 { height: 260px; animation: lotusSway1 6s ease-in-out infinite alternate; }
+.hang-stem-l2 { height: 190px; animation: lotusSway2 7.2s ease-in-out infinite alternate; }
+.hang-stem-l3 { height: 240px; animation: lotusSway3 5.8s ease-in-out infinite alternate; }
 
-.hang-stem-2 {
-  height: 210px;
-  animation: lotusSway2 7.2s ease-in-out infinite alternate;
-}
-
-.hang-stem-3 {
-  height: 290px;
-  animation: lotusSway3 5.8s ease-in-out infinite alternate;
-}
-
-.hang-stem-4 {
-  height: 190px;
-  animation: lotusSway1 6.8s ease-in-out infinite alternate;
-}
-
-.hang-stem-5 {
-  height: 280px;
-  animation: lotusSway2 6.2s ease-in-out infinite alternate;
-}
-
-.hang-stem-6 {
-  height: 220px;
-  animation: lotusSway3 7.5s ease-in-out infinite alternate;
-}
-
-.hang-stem-7 {
-  height: 260px;
-  animation: lotusSway1 5.5s ease-in-out infinite alternate;
-}
+.hang-stem-r1 { height: 250px; animation: lotusSway2 6.5s ease-in-out infinite alternate; }
+.hang-stem-r2 { height: 200px; animation: lotusSway1 7.4s ease-in-out infinite alternate; }
+.hang-stem-r3 { height: 270px; animation: lotusSway3 6.1s ease-in-out infinite alternate; }
 
 @keyframes lotusSway1 {
   0% { transform: rotate(-3.5deg); }
@@ -632,41 +609,50 @@ img {
   gap: clamp(24px, 4vw, 56px);
 }
 
-/* Left: Romantic Illustrated Couple in Arched Temple Frame */
+/* Left: Couple Pencil Sketch on Softly Illuminated Ivory Card */
 .hero-couple-col {
   display: flex;
   justify-content: center;
 }
 
-.couple-illustration-frame {
+.couple-pencil-card {
   position: relative;
   width: 100%;
-  max-width: 380px;
+  max-width: 400px;
   border-radius: var(--radius-arch);
-  padding: 8px;
-  background: linear-gradient(145deg, rgba(245, 215, 127, 0.7) 0%, rgba(212, 175, 55, 0.4) 50%, rgba(140, 109, 50, 0.8) 100%);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), var(--shadow-hero-glow);
+  padding: 10px;
+  background: radial-gradient(circle at 50% 35%, #FFFDF9 50%, #FAF4E8 90%, #EFE5D3 100%);
+  border: 2px solid var(--color-gold-warm);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 0 45px rgba(245, 215, 127, 0.4),
+    inset 0 0 30px rgba(255, 255, 255, 0.8);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.frame-gold-glow {
+.pencil-card-glow {
   position: absolute;
-  inset: -10px;
-  border-radius: var(--radius-arch);
-  background: radial-gradient(circle at 50% 30%, rgba(245, 215, 127, 0.35) 0%, transparent 70%);
-  filter: blur(12px);
+  inset: -15px;
+  border-radius: 230px 230px 30px 30px;
+  background: radial-gradient(circle at 50% 40%, rgba(245, 215, 127, 0.3) 0%, rgba(255, 253, 249, 0.15) 50%, transparent 75%);
+  filter: blur(14px);
   pointer-events: none;
   z-index: 0;
 }
 
-.frame-arch-inner {
+.pencil-arch-inner {
   position: relative;
-  border-radius: 212px 212px 18px 18px;
+  border-radius: 210px 210px 18px 18px;
   overflow: hidden;
   z-index: 1;
-  background: var(--color-emerald-deep);
+  background: #FFFDF9;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.couple-art-img {
+.couple-pencil-img {
   width: 100%;
   height: auto;
   display: block;
@@ -674,11 +660,11 @@ img {
   transition: transform 1.2s ease;
 }
 
-.couple-illustration-frame:hover .couple-art-img {
-  transform: scale(1.03);
+.couple-pencil-card:hover .couple-pencil-img {
+  transform: scale(1.025);
 }
 
-.frame-lotus-base {
+.pencil-lotus-accent {
   position: absolute;
   bottom: -16px;
   pointer-events: none;
@@ -686,16 +672,16 @@ img {
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
 }
 
-.frame-lotus-base.left {
+.pencil-lotus-accent.left {
   left: -20px;
 }
 
-.frame-lotus-base.right {
+.pencil-lotus-accent.right {
   right: -16px;
   transform: scaleX(-1);
 }
 
-/* Right: Artistically Integrated Names ANIL & ARDRA */
+/* Right: Artistically Blended Names ANIL & ARDRA */
 .hero-typography-col {
   text-align: left;
   color: var(--color-ivory);
@@ -941,7 +927,7 @@ img {
   line-height: 1.4;
 }
 
-/* EXACT NAMES: Anil Babu with Ardra */
+/* EXACT NAMES: Anil Babu with Ardra Meletath */
 .invitation-names-block {
   margin-bottom: 24px;
 }
@@ -1240,7 +1226,147 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   8. SHARING THE HAPPINESS & RSVP SECTION
+   8. DEDICATED LOCATION & MAPS SECTION
+   -------------------------------------------------------------------------- */
+.location-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(36, 94, 71, 0.05) 0%, var(--color-bg-base) 100%);
+}
+
+.location-card-wrapper {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.location-card {
+  background: var(--color-ivory);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  overflow: hidden;
+}
+
+.location-details-col {
+  padding: clamp(30px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.venue-pill {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-serif-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-emerald-deep);
+  background: var(--color-cream-soft);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+  border: 1px solid var(--color-gold-border);
+}
+
+.location-venue-name {
+  font-family: var(--font-serif-display);
+  font-size: clamp(24px, 3.2vw, 32px);
+  font-weight: 700;
+  color: var(--color-emerald-deep);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.location-address {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.venue-timing-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-lotus-light);
+  border: 1px solid rgba(248, 165, 181, 0.5);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--color-coral-deep);
+  margin-bottom: 16px;
+}
+
+.venue-directions-hint {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.location-actions {
+  margin-bottom: 24px;
+}
+
+.temple-sublocation {
+  border-top: 1px solid var(--color-gold-border);
+  padding-top: 16px;
+}
+
+.temple-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-gold-antique);
+  margin-bottom: 4px;
+}
+
+.temple-text {
+  font-size: 14px;
+  color: var(--color-emerald-deep);
+  margin-bottom: 6px;
+}
+
+.temple-map-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-emerald-rich);
+  transition: color var(--transition-fast);
+}
+
+.temple-map-link:hover {
+  color: var(--color-coral-deep);
+}
+
+/* Map Column */
+.location-map-col {
+  position: relative;
+  min-height: 380px;
+  background: var(--color-cream-soft);
+}
+
+.map-frame-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+}
+
+.google-map-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   9. SHARING THE HAPPINESS & RSVP SECTION
    -------------------------------------------------------------------------- */
 .rsvp-section {
   position: relative;
@@ -1402,7 +1528,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   9. SEND YOUR BLESSINGS (ZERO BACKEND, WHATSAPP & CLIPBOARD)
+   10. SEND YOUR BLESSINGS (ZERO BACKEND, WHATSAPP & CLIPBOARD)
    -------------------------------------------------------------------------- */
 .blessings-section {
   position: relative;
@@ -1578,7 +1704,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   10. FINAL CLOSING INVITATION
+   11. FINAL CLOSING INVITATION
    -------------------------------------------------------------------------- */
 .closing-section {
   position: relative;
@@ -1668,7 +1794,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   11. SITE FOOTER
+   12. SITE FOOTER
    -------------------------------------------------------------------------- */
 .site-footer {
   border-top: 1px solid var(--color-gold-border);
@@ -1685,7 +1811,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   12. TOAST NOTIFICATION
+   13. TOAST NOTIFICATION
    -------------------------------------------------------------------------- */
 .toast-notification {
   position: fixed;
@@ -1721,7 +1847,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   13. ANIMATION REVEAL CLASSES
+   14. ANIMATION REVEAL CLASSES
    -------------------------------------------------------------------------- */
 .reveal-fade-up,
 .reveal-fade-down,
@@ -1748,7 +1874,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   14. RESPONSIVE DESIGN (TABLETS & MOBILE)
+   15. RESPONSIVE DESIGN (TABLETS & MOBILE)
    -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
   .hero-composition-grid {
@@ -1777,6 +1903,14 @@ img {
 
   .ceremonies-connector {
     display: none;
+  }
+
+  .location-card {
+    grid-template-columns: 1fr;
+  }
+
+  .location-map-col {
+    min-height: 320px;
   }
 }
 
@@ -1832,26 +1966,32 @@ img {
     padding: 10px;
   }
 
-  /* Hanging Lotus on Mobile */
-  .hanging-lotus-installation {
-    padding: 0 1%;
-    height: 180px;
+  /* Hanging Lotus on Mobile (Left and Right edges only, scaled) */
+  .hanging-lotus-edge {
+    gap: 6px;
+  }
+
+  .hanging-lotus-left {
+    left: 6px;
+  }
+
+  .hanging-lotus-right {
+    right: 6px;
   }
 
   .hanging-stem {
-    transform: scale(0.65);
+    transform: scale(0.6);
     transform-origin: top center;
   }
 
-  .hang-stem-2,
-  .hang-stem-4,
-  .hang-stem-6 {
-    display: none; /* Keep natural breathing room on small screens */
+  .hang-stem-l2,
+  .hang-stem-r2 {
+    display: none; /* Keep natural breathing room on mobile */
   }
 
-  /* Couple illustration on mobile */
-  .couple-illustration-frame {
-    max-width: 280px;
+  /* Couple pencil drawing on mobile */
+  .couple-pencil-card {
+    max-width: 300px;
   }
 
   .card-corner {
@@ -1887,10 +2027,14 @@ img {
     font-size: 18px;
     padding: 6px 16px;
   }
+
+  .couple-pencil-card {
+    max-width: 270px;
+  }
 }
 
 /* --------------------------------------------------------------------------
-   15. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   16. ACCESSIBILITY & PREFERS-REDUCED-MOTION
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -453,8 +453,8 @@ function initCalendarAction() {
 
   calBtn.addEventListener('click', () => {
     const event = {
-      title: 'Wedding: Anil Babu with Ardra',
-      description: 'Wedding Ceremony of Anil Babu and Ardra.\\n\\nTHALIKETTU at Guruvayur Sree Krishna Temple.\\nWEDDING CEREMONY at Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur.\\nCeremony Begins at 11:30 AM followed by lunch.\\nPresents in blessings only.',
+      title: 'Wedding: Anil Babu with Ardra Meletath',
+      description: 'Wedding Ceremony of Anil Babu and Ardra Meletath.\\n\\nTHALIKETTU at Guruvayur Sree Krishna Temple.\\nWEDDING CEREMONY at Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur.\\nCeremony Begins at 11:30 AM followed by lunch.\\nPresents in blessings only.',
       location: 'Chakolas Pavilion Convention Centre, Anchery Chira, Kuttanellur, Thrissur, Kerala',
       // Sunday, 20th December 2026: 11:30 AM IST = 06:00 UTC
       startDate: '20261220T060000Z',
@@ -465,7 +465,7 @@ function initCalendarAction() {
     const icsContent = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Anil Babu & Ardra//Wedding Invitation//EN',
+      'PRODID:-//Anil Babu & Ardra Meletath//Wedding Invitation//EN',
       'CALSCALE:GREGORIAN',
       'METHOD:PUBLISH',
       'BEGIN:VEVENT',
@@ -483,7 +483,7 @@ function initCalendarAction() {
     const url = URL.createObjectURL(blob);
     const downloadLink = document.createElement('a');
     downloadLink.href = url;
-    downloadLink.setAttribute('download', 'Anil_Babu_and_Ardra_Wedding.ics');
+    downloadLink.setAttribute('download', 'Anil_Babu_and_Ardra_Meletath_Wedding.ics');
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
@@ -520,7 +520,7 @@ function initBlessingsWhatsApp() {
 
   // Handle Send via WhatsApp Click
   sendWhatsAppBtn?.addEventListener('click', () => {
-    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ardra! Sending you both love and blessings.';
+    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ardra Meletath! Sending you both love and blessings.';
     const encoded = encodeURIComponent(rawMessage);
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
 
@@ -530,7 +530,7 @@ function initBlessingsWhatsApp() {
 
   // Handle Copy Blessing Click
   copyBtn?.addEventListener('click', async () => {
-    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ardra! Sending you both love and blessings.';
+    const rawMessage = textarea.value.trim() || 'Congratulations, Anil Babu and Ardra Meletath! Sending you both love and blessings.';
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(rawMessage);

@@ -1,27 +1,30 @@
-# Anil Babu & Ardra — Kerala Wedding Invitation Website
+# Anil Babu & Ardra Meletath — Kerala Wedding Invitation Website
 
-A luxury, Kerala-inspired single-page wedding invitation website created for **Anil Babu & Ardra**.
+A luxury, Kerala-inspired single-page wedding invitation website created for **Anil Babu & Ardra Meletath**.
 
 ## Visual Design & Aesthetics
 - **Full-Screen Hero**:
   - Detailed green Kerala banana leaf background element.
   - "ANIL & ARDRA" artistically blended directly into the banana leaf composition (no disconnected card or box).
-  - Fine art digital illustration of the Kerala bride and groom in traditional Kasavu wedding attire with gold detailing and jasmine.
-  - Hanging lotus floral installations suspended from the top edge with delicate swaying motion.
+  - Fine-art romantic graphite pencil sketch drawing of the Kerala bride and groom in traditional Kasavu wedding attire with soft ivory backing and subtle warm-cream glow.
+  - Hanging lotus floral installations confined strictly to the **LEFT and RIGHT edges** of the hero, keeping the center clear.
   - Floating lotus petals and glowing golden particles canvas animation.
 - **Richer Kerala Color Palette**:
   - Emerald green, warm temple gold, ivory, soft cream, coral pink, and lotus pink.
-- **Zero Logos**:
-  - Logo removed completely; the couple's names serve as the visual identity.
-- **No Photographs & No Peacocks**:
-  - All photographs replaced with custom fine-art illustration.
+- **Zero Logos / Monograms**:
+  - Logo removed completely; the couple's names serve as the clean visual identity.
+- **No Real Photographs & No Peacocks**:
+  - Couple represented with bespoke pencil sketch wedding stationery art.
   - Zero peacock motifs, feathers, or elements.
+- **Dedicated Location Section**:
+  - Dedicated venue section for Chakolas Pavilion Convention Centre with responsive Google Maps embed and direct link to `https://maps.app.goo.gl/K7cWqppcJANAemw76?g_st=ac`.
+  - Contextual reference for morning Thalikettu at Guruvayur Sree Krishna Temple.
 
 ## Exact Invitation Content
 ```
 Anil Babu
 with
-Ardra
+Ardra Meletath
 
 Daughter of Mrs. Saritha Prasad & Mr. Prasad Meletath
 
@@ -52,7 +55,7 @@ RSVP: +91 6238 433 871
 
 ## Blessings & RSVP (No Backend)
 - WhatsApp blessing button opens conversation with `+91 6238 433 871` pre-filled with:
-  `"Congratulations, Anil Babu and Ardra! Sending you both love and blessings."`
+  `"Congratulations, Anil Babu and Ardra Meletath! Sending you both love and blessings."`
 - "Copy a Blessing" button with toast notification.
 - Dedicated Call and WhatsApp RSVP actions.
 
