@@ -5,17 +5,15 @@ A luxury, Kerala-inspired single-page wedding invitation website created for **A
 ## Visual Design & Aesthetics
 - **Full-Screen Hero**:
   - Detailed green Kerala banana leaf background element.
-  - "ANIL & ARDRA" artistically blended directly into the banana leaf composition (no disconnected card or box).
-  - Fine-art romantic graphite pencil sketch drawing of the Kerala bride and groom in traditional Kasavu wedding attire with soft ivory backing and subtle warm-cream glow.
-  - Hanging lotus floral installations confined strictly to the **LEFT and RIGHT edges** of the hero, keeping the center clear.
-  - Floating lotus petals and glowing golden particles canvas animation.
+  - "ANIL & ARDRA" artistically blended directly into the banana leaf composition with an ornamental gold frame.
+  - Authentic bride and groom photograph of Anil Babu & Ardra Meletath in elegant temple arch framing with subtle ivory/gold backdrop.
+  - Traditional Kerala temple-style hanging brass oil lamps (Thookkuvilakku) confined strictly to the **LEFT and RIGHT edges** of the hero, keeping the center clear.
+  - Floating warm golden sacred temple embers and sparkles canvas animation.
 - **Richer Kerala Color Palette**:
-  - Emerald green, warm temple gold, ivory, soft cream, coral pink, and lotus pink.
-- **Zero Logos / Monograms**:
-  - Logo removed completely; the couple's names serve as the clean visual identity.
-- **No Real Photographs & No Peacocks**:
-  - Couple represented with bespoke pencil sketch wedding stationery art.
-  - Zero peacock motifs, feathers, or elements.
+  - Emerald green, warm temple gold, ivory, soft cream, and deep forest tones.
+- **Official Royal Couple Portrait**:
+  - The authentic couple photograph is featured in the hero and highlighted in the Sacred Invitation Card.
+  - Zero peacock motifs, feathers, or lotus floral elements.
 - **Dedicated Location & Venue Showcase**:
   - Authentic venue photograph of the Grand Arena at Chakolas Pavilion Convention Centre in Thrissur.
   - Standard place pin map (no route/directions preview) and prominent button opening `https://maps.app.goo.gl/K7cWqppcJANAemw76?g_st=ac`.
@@ -53,8 +51,8 @@ RSVP: +91 6238 433 871
 
 ## Opening Loading Screen & Performance
 - **Sacred Ivory Invitation Loader**:
-  - Full-screen loading screen on warm ivory background (`#FAF6EF`) with subtle emerald botanical details, blooming lotus SVG animation, gold progress bar, Sanskrit benediction (`|| शुभं भवतु ||`), and "ANIL & ARDRA".
-  - Preloads critical above-the-fold pencil couple illustration and fonts.
+  - Full-screen loading screen on warm ivory background (`#FAF6EF`) with subtle emerald botanical details, sacred Kerala Nilavilakku lamp with glowing flame, gold progress bar, Sanskrit benediction (`|| शुभं भवतु ||`), and "ANIL & ARDRA".
+  - Preloads critical above-the-fold couple photograph and fonts.
   - Strict 1.8s maximum safety timeout prevents visitors from ever being trapped on slow networks.
   - Next-gen WebP imagery and compressed JPEGs reduce total image transfer by ~80% (over 1.7 MB saved).
 

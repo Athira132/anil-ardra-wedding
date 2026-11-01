@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="lampGoldEmblem" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A3008" />
+      <stop offset="25%" stop-color="#8B651B" />
+      <stop offset="50%" stop-color="#FFF2A8" />
+      <stop offset="75%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#3D2507" />
+    </linearGradient>
+
+    <radialGradient id="lampAuraRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#FF8C00" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#FF8C00" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="deepamFlameGrad" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#E53935" />
+      <stop offset="35%" stop-color="#FB8C00" />
+      <stop offset="75%" stop-color="#FFEB3B" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+
+    <filter id="flameEmblemGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Aura Behind Crown Deepam -->
+  <circle cx="60" cy="26" r="24" fill="url(#lampAuraRadial)" />
+
+  <!-- Crown Flame (Mugappu Deepam) -->
+  <g id="crownFlame">
+    <path d="M60 38 Q50 25 60 12 Q70 25 60 38 Z" fill="url(#deepamFlameGrad)" filter="url(#flameEmblemGlow)" />
+    <path d="M60 36 Q54 27 60 18 Q66 27 60 36 Z" fill="#FFFFFF" />
+    <line x1="60" y1="39" x2="60" y2="35" stroke="#331A00" stroke-width="1.8" />
+  </g>
+
+  <!-- Traditional Kerala Nilavilakku Pinnacle (Makutam / Mottu) -->
+  <path d="M57 39 L63 39 L64 45 L56 45 Z" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="0.8" />
+  <circle cx="60" cy="48" r="4.5" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="0.6" />
+
+  <!-- Upper Oil Plate (Thattu) -->
+  <ellipse cx="60" cy="54" rx="30" ry="7" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="1" />
+  <ellipse cx="60" cy="53" rx="26" ry="4.5" fill="#5E3C0B" />
+  <!-- Side Wicks & Flames -->
+  <path d="M32 53 Q27 46 32 40 Q37 46 32 53 Z" fill="url(#deepamFlameGrad)" filter="url(#flameEmblemGlow)" />
+  <path d="M88 53 Q83 46 88 40 Q93 46 88 53 Z" fill="url(#deepamFlameGrad)" filter="url(#flameEmblemGlow)" />
+
+  <!-- Fluted Central Pillar (Thandu) -->
+  <path d="M57 56 L63 56 L64 74 L56 74 Z" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="0.6" />
+  <!-- Pillar Balusters -->
+  <ellipse cx="60" cy="62" rx="7" ry="4" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="0.6" />
+  <ellipse cx="60" cy="70" rx="8" ry="4.5" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="0.6" />
+
+  <!-- Lower Base Plate & Feet (Adithattu) -->
+  <ellipse cx="60" cy="78" rx="22" ry="5.5" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="0.8" />
+  <path d="M42 79 C44 92, 48 100, 60 100 C72 100, 76 92, 78 79 Z" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="0.8" />
+  <ellipse cx="60" cy="100" rx="28" ry="7" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="1.2" />
+  <ellipse cx="60" cy="104" rx="32" ry="6" fill="url(#lampGoldEmblem)" stroke="#3D2507" stroke-width="1" />
+  <rect x="36" y="105" width="48" height="3" rx="1.5" fill="#2E1805" />
+</svg>

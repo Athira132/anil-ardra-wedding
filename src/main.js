@@ -38,9 +38,9 @@ function initInvitationLoader() {
   // Safety fallback: maximum 1.8 seconds so visitor is NEVER trapped by slow network
   const safetyTimer = setTimeout(dismissLoader, 1800);
 
-  // Preload & check critical above-the-fold hero illustration
+  // Preload & check critical above-the-fold couple photograph
   const criticalImg = new Image();
-  criticalImg.src = '/images/pencil-couple-illustration.webp';
+  criticalImg.src = '/images/couple-photo.webp';
 
   const imgPromise = new Promise(resolve => {
     if (criticalImg.complete) {
@@ -155,7 +155,7 @@ function initParallax() {
 }
 
 /* --------------------------------------------------------------------------
-   4. FLOATING LOTUS PETALS & GOLDEN PARTICLES CANVAS
+   4. TRADITIONAL TEMPLE OIL LAMP EMBERS & GOLDEN PARTICLES CANVAS
    -------------------------------------------------------------------------- */
 function initPetalsAndSparklesCanvas() {
   const canvas = document.getElementById('petals-canvas');
@@ -175,114 +175,63 @@ function initPetalsAndSparklesCanvas() {
     height = canvas.height = window.innerHeight;
   }, { passive: true });
 
-  const petalCount = window.innerWidth < 768 ? 16 : 28;
-  const sparkleCount = window.innerWidth < 768 ? 20 : 36;
-  const petals = [];
-  const sparkles = [];
+  const sparkCount = window.innerWidth < 768 ? 22 : 42;
+  const embers = [];
 
-  // Lotus petal colors: blush, rose, coral pink, warm cream
-  const petalColors = [
-    'rgba(248, 165, 181, 0.70)',
-    'rgba(242, 140, 159, 0.60)',
-    'rgba(255, 240, 243, 0.75)',
-    'rgba(232, 122, 104, 0.55)',
-    'rgba(245, 215, 127, 0.40)'
+  // Warm temple golden lamp light colors (No pink lotus petals)
+  const goldPalette = [
+    'rgba(255, 215, 0, ',    // Pure Kerala temple gold
+    'rgba(255, 185, 45, ',   // Warm oil flame amber
+    'rgba(255, 243, 184, ',  // Soft pale gold highlight
+    'rgba(245, 166, 35, ',   // Deep brass glow
+    'rgba(255, 255, 240, '   // Bright flame core
   ];
 
-  class Petal {
+  class TempleEmber {
     constructor() {
       this.reset(true);
     }
 
     reset(initial = false) {
       this.x = Math.random() * width;
-      this.y = initial ? Math.random() * height : -20;
-      this.size = Math.random() * 8 + 6;
-      this.speedY = Math.random() * 0.7 + 0.35;
-      this.speedX = Math.random() * 0.5 - 0.25;
-      this.rotation = Math.random() * Math.PI * 2;
-      this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+      this.y = initial ? Math.random() * height : height + Math.random() * 20;
+      this.radius = Math.random() * 2.2 + 1.2;
+      this.speedY = -(Math.random() * 0.55 + 0.2); // Gentle upward draft from lamps
+      this.speedX = Math.random() * 0.4 - 0.2;
       this.wobble = Math.random() * Math.PI * 2;
       this.wobbleSpeed = Math.random() * 0.02 + 0.01;
-      this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+      this.baseOpacity = Math.random() * 0.55 + 0.25;
+      this.pulseSpeed = Math.random() * 0.03 + 0.015;
+      this.pulse = Math.random() * Math.PI * 2;
+      this.colorBase = goldPalette[Math.floor(Math.random() * goldPalette.length)];
     }
 
     update() {
       this.wobble += this.wobbleSpeed;
-      this.x += Math.sin(this.wobble) * 0.6 + this.speedX;
+      this.pulse += this.pulseSpeed;
+      this.x += Math.sin(this.wobble) * 0.4 + this.speedX;
       this.y += this.speedY;
-      this.rotation += this.rotationSpeed;
 
-      if (this.y > height + 20 || this.x < -30 || this.x > width + 30) {
+      if (this.y < -15 || this.x < -20 || this.x > width + 20) {
         this.reset();
       }
     }
 
     draw() {
+      const alpha = this.baseOpacity * (0.6 + Math.sin(this.pulse) * 0.4);
       ctx.save();
-      ctx.translate(this.x, this.y);
-      ctx.rotate(this.rotation);
-      ctx.fillStyle = this.color;
-
       ctx.beginPath();
-      ctx.moveTo(0, -this.size);
-      ctx.bezierCurveTo(this.size * 0.8, -this.size * 0.5, this.size * 0.8, this.size * 0.5, 0, this.size);
-      ctx.bezierCurveTo(-this.size * 0.8, this.size * 0.5, -this.size * 0.8, -this.size * 0.5, 0, -this.size);
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `${this.colorBase}${alpha})`;
+      ctx.shadowColor = 'rgba(255, 215, 0, 0.7)';
+      ctx.shadowBlur = this.radius * 3.5;
       ctx.fill();
-
-      // Delicate center vein
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-      ctx.lineWidth = 0.5;
-      ctx.beginPath();
-      ctx.moveTo(0, -this.size * 0.8);
-      ctx.lineTo(0, this.size * 0.8);
-      ctx.stroke();
-
       ctx.restore();
     }
   }
 
-  // Golden Diya / Firefly Sparkles
-  class Sparkle {
-    constructor() {
-      this.reset(true);
-    }
-
-    reset(initial = false) {
-      this.x = Math.random() * width;
-      this.y = initial ? Math.random() * height : height + 10;
-      this.size = Math.random() * 2 + 1;
-      this.speedY = -(Math.random() * 0.4 + 0.15); // gentle upward drift
-      this.speedX = Math.random() * 0.3 - 0.15;
-      this.opacity = Math.random() * 0.6 + 0.2;
-      this.pulse = Math.random() * Math.PI;
-    }
-
-    update() {
-      this.pulse += 0.03;
-      this.x += this.speedX;
-      this.y += this.speedY;
-
-      if (this.y < -10 || this.x < 0 || this.x > width) {
-        this.reset();
-      }
-    }
-
-    draw() {
-      const currentOpacity = this.opacity * (0.6 + Math.sin(this.pulse) * 0.4);
-      ctx.fillStyle = `rgba(245, 215, 127, ${currentOpacity})`;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  for (let i = 0; i < petalCount; i++) {
-    petals.push(new Petal());
-  }
-
-  for (let i = 0; i < sparkleCount; i++) {
-    sparkles.push(new Sparkle());
+  for (let i = 0; i < sparkCount; i++) {
+    embers.push(new TempleEmber());
   }
 
   let isVisible = true;
@@ -293,13 +242,9 @@ function initPetalsAndSparklesCanvas() {
   function animate() {
     if (isVisible) {
       ctx.clearRect(0, 0, width, height);
-      sparkles.forEach(s => {
-        s.update();
-        s.draw();
-      });
-      petals.forEach(p => {
-        p.update();
-        p.draw();
+      embers.forEach(e => {
+        e.update();
+        e.draw();
       });
     }
     requestAnimationFrame(animate);

@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" width="1200" height="60" fill="none">
+  <defs>
+    <linearGradient id="garlandGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B651B" />
+      <stop offset="25%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#FFF2A8" />
+      <stop offset="75%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#8B651B" />
+    </linearGradient>
+
+    <linearGradient id="garlandFlame" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#E65100" />
+      <stop offset="50%" stop-color="#FFD600" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+  </defs>
+
+  <!-- Continuous Upper Brass Chain / Festoon Cord -->
+  <line x1="0" y1="8" x2="1200" y2="8" stroke="url(#garlandGold)" stroke-width="2" />
+  <line x1="0" y1="12" x2="1200" y2="12" stroke="url(#garlandGold)" stroke-width="0.8" />
+
+  <!-- Repeating Scalloped Hanging Garland Arches with Small Diya / Bells -->
+  
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+    <g transform="translate(${x}, 8)">
+      <!-- Scallop curve -->
+      <path d="M-50 0 Q0 24 50 0" stroke="url(#garlandGold)" stroke-width="1.2" fill="none" />
+      <!-- Mini Hanging Chain -->
+      <line x1="0" y1="16" x2="0" y2="28" stroke="url(#garlandGold)" stroke-width="1" />
+      <!-- Mini Hanging Diya -->
+      <path d="M-6 32 Q0 30 6 32 Q8 35 5 37 Q0 39 -5 37 Q-8 35 -6 32 Z" fill="url(#garlandGold)" />
+      <!-- Flame -->
+      <path d="M0 31 Q-3 26 0 20 Q3 26 0 31 Z" fill="url(#garlandFlame)" />
+      <!-- Small Hanging Bead -->
+      <circle cx="0" cy="42" r="1.8" fill="url(#garlandGold)" />
+    </g>
+</svg>

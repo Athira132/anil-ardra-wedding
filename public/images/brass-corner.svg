@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90" width="90" height="90" fill="none">
+  <defs>
+    <linearGradient id="cornerGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2A8" />
+      <stop offset="40%" stop-color="#D4AF37" />
+      <stop offset="80%" stop-color="#8B651B" />
+      <stop offset="100%" stop-color="#4A3008" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Double Border Lines -->
+  <path d="M6 84 L6 6 L84 6" stroke="url(#cornerGold)" stroke-width="1.8" stroke-linecap="round" />
+  <path d="M12 78 L12 12 L78 12" stroke="url(#cornerGold)" stroke-width="0.8" stroke-linecap="round" />
+
+  <!-- Corner Ornamental Temple Bell / Motif -->
+  <circle cx="6" cy="6" r="3" fill="url(#cornerGold)" />
+  <circle cx="84" cy="6" r="2.5" fill="url(#cornerGold)" />
+  <circle cx="6" cy="84" r="2.5" fill="url(#cornerGold)" />
+
+  <!-- Geometric Brass Filigree & Spirals -->
+  <path d="M16 16 C28 16, 36 24, 36 36 C36 28, 44 20, 56 20" stroke="url(#cornerGold)" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M16 16 C16 28, 24 36, 36 36 C28 44, 20 52, 20 64" stroke="url(#cornerGold)" stroke-width="1.2" stroke-linecap="round" />
+
+  <!-- Center Corner Diya Lamp Accent -->
+  <ellipse cx="26" cy="26" rx="4.5" ry="3" fill="url(#cornerGold)" />
+  <path d="M26 24 Q23 19 26 14 Q29 19 26 24 Z" fill="#FFA000" />
+  <circle cx="26" cy="18" r="1.5" fill="#FFF9C4" />
+</svg>

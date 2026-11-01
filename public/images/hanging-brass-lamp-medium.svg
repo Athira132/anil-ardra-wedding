@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 440" width="160" height="440" fill="none">
+  <defs>
+    <linearGradient id="brassChainM" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4E3510" />
+      <stop offset="45%" stop-color="#D4AF37" />
+      <stop offset="60%" stop-color="#FFF1A8" />
+      <stop offset="100%" stop-color="#3A2408" />
+    </linearGradient>
+
+    <linearGradient id="brassGoldM" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4A3008" />
+      <stop offset="35%" stop-color="#DDAF3E" />
+      <stop offset="52%" stop-color="#FFF6C5" />
+      <stop offset="70%" stop-color="#E5B942" />
+      <stop offset="100%" stop-color="#4A3008" />
+    </linearGradient>
+
+    <radialGradient id="flameGlowM" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#FF8C00" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#FF4500" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="flameGradM" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#D32F2F" />
+      <stop offset="30%" stop-color="#F57C00" />
+      <stop offset="70%" stop-color="#FFD600" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+
+    <filter id="lampGlowM" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Chain (6 links) -->
+  <g id="chainM" stroke="#3D2507" stroke-width="0.8">
+    <ellipse cx="80" cy="14" rx="4" ry="12" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="14" rx="1.8" ry="7" fill="#1B0F03" />
+    <ellipse cx="80" cy="32" rx="3.6" ry="11" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="32" rx="1.6" ry="6" fill="#1B0F03" />
+    <ellipse cx="80" cy="50" rx="4" ry="12" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="50" rx="1.8" ry="7" fill="#1B0F03" />
+    <ellipse cx="80" cy="68" rx="3.6" ry="11" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="68" rx="1.6" ry="6" fill="#1B0F03" />
+    <ellipse cx="80" cy="86" rx="4" ry="12" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="86" rx="1.8" ry="7" fill="#1B0F03" />
+    <ellipse cx="80" cy="104" rx="3.6" ry="11" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="104" rx="1.6" ry="6" fill="#1B0F03" />
+  </g>
+
+  <!-- Crown Ring & Mount -->
+  <circle cx="80" cy="122" r="7" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="1.2" />
+  <circle cx="80" cy="122" r="3.5" fill="#1B0F03" />
+  <path d="M74 129 L86 129 L84 138 L76 138 Z" fill="url(#brassGoldM)" />
+  <ellipse cx="80" cy="148" rx="20" ry="7" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
+
+  <!-- Stem -->
+  <ellipse cx="80" cy="164" rx="9" ry="7" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="0.8" />
+  <path d="M72 175 C69 184, 68 193, 80 198 C92 193, 91 184, 88 175 Z" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="0.8" />
+  <rect x="73" y="198" width="14" height="5" rx="1.5" fill="url(#brassGoldM)" />
+  <path d="M75 203 L85 203 L87 212 L73 212 Z" fill="url(#brassGoldM)" />
+
+  <!-- Oil Dish -->
+  <path d="M26 224 Q80 213 134 224 Q141 231 130 236 Q80 245 30 236 Q20 231 26 224 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="1" />
+  <ellipse cx="80" cy="226" rx="48" ry="9" fill="url(#brassGoldM)" />
+  <ellipse cx="80" cy="227" rx="42" ry="6" fill="#6E4A10" opacity="0.85" />
+  <path d="M30 233 C34 251, 52 263, 80 263 C108 263, 126 251, 130 233 C120 242, 95 246, 80 246 C65 246, 40 242, 30 233 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
+
+  <!-- Wick Spouts -->
+  <path d="M24 223 Q18 225 17 227 Q22 230 28 228 Z" fill="url(#brassGoldM)" />
+  <path d="M47 231 Q41 234 39 237 Q46 238 51 235 Z" fill="url(#brassGoldM)" />
+  <path d="M76 238 Q80 242 80 243 Q84 242 84 238 Z" fill="url(#brassGoldM)" />
+  <path d="M109 235 Q114 238 121 237 Q119 234 113 231 Z" fill="url(#brassGoldM)" />
+  <path d="M132 228 Q138 230 143 227 Q142 225 136 223 Z" fill="url(#brassGoldM)" />
+
+  <!-- Ambient Glow -->
+  <circle cx="17" cy="217" r="18" fill="url(#flameGlowM)" opacity="0.85" />
+  <circle cx="41" cy="225" r="20" fill="url(#flameGlowM)" opacity="0.9" />
+  <circle cx="80" cy="230" r="22" fill="url(#flameGlowM)" opacity="0.95" />
+  <circle cx="119" cy="225" r="20" fill="url(#flameGlowM)" opacity="0.9" />
+  <circle cx="143" cy="217" r="18" fill="url(#flameGlowM)" opacity="0.85" />
+
+  <!-- Flames -->
+  <path d="M17 226 Q11 217 17 208 Q23 217 17 226 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+  <path d="M17 225 Q13 219 17 212 Q21 219 17 225 Z" fill="#FFFFF0" />
+
+  <path d="M41 235 Q34 224 41 214 Q48 224 41 235 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+  <path d="M41 234 Q36 226 41 218 Q46 226 41 234 Z" fill="#FFFFF0" />
+
+  <path d="M80 240 Q71 227 80 214 Q89 227 80 240 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+  <path d="M80 238 Q74 229 80 220 Q86 229 80 238 Z" fill="#FFFFF0" />
+
+  <path d="M119 235 Q112 224 119 214 Q126 224 119 235 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+  <path d="M119 234 Q114 226 119 218 Q124 226 119 234 Z" fill="#FFFFF0" />
+
+  <path d="M143 226 Q137 217 143 208 Q149 217 143 226 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+  <path d="M143 225 Q139 219 143 212 Q147 219 143 225 Z" fill="#FFFFF0" />
+
+  <!-- Bottom Mani -->
+  <ellipse cx="80" cy="266" rx="5" ry="2.5" fill="url(#brassGoldM)" />
+  <ellipse cx="80" cy="273" rx="2.5" ry="5" fill="url(#brassChainM)" />
+  <ellipse cx="80" cy="281" rx="2.5" ry="5" fill="url(#brassChainM)" />
+  <path d="M75 288 Q80 286 85 288 L87 296 C90 304, 91 308, 91 311 Q80 313 69 311 C69 308, 70 304, 73 296 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
+  <ellipse cx="80" cy="311" rx="11" ry="3" fill="url(#brassGoldM)" />
+  <circle cx="80" cy="317" r="3" fill="url(#brassGoldM)" />
+  <path d="M78.5 320 L81.5 320 L80 326 Z" fill="url(#brassGoldM)" />
+</svg>

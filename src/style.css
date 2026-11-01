@@ -445,7 +445,7 @@ img {
   -webkit-backdrop-filter: blur(12px);
 }
 
-.loader-lotus-wrapper {
+.loader-lamp-wrapper {
   position: relative;
   display: flex;
   align-items: center;
@@ -453,20 +453,31 @@ img {
   margin-bottom: 16px;
 }
 
-.loader-lotus-svg {
-  animation: loaderLotusBreath 2.8s ease-in-out infinite;
-  filter: drop-shadow(0 4px 14px rgba(232, 130, 152, 0.35));
+.loader-lamp-svg {
+  animation: loaderLampGlow 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 4px 16px rgba(255, 185, 45, 0.45));
 }
 
-@keyframes loaderLotusBreath {
+.loader-flame-flicker {
+  animation: flameFlicker 1.8s ease-in-out infinite alternate;
+  transform-origin: 40px 35px;
+}
+
+@keyframes loaderLampGlow {
   0%, 100% {
-    transform: scale(0.96);
-    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.3));
+    transform: scale(0.97);
+    filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.4));
   }
   50% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 6px 18px rgba(232, 130, 152, 0.5));
+    transform: scale(1.03);
+    filter: drop-shadow(0 6px 22px rgba(255, 185, 45, 0.65));
   }
+}
+
+@keyframes flameFlicker {
+  0% { transform: scale(0.97) rotate(-1.5deg); opacity: 0.95; }
+  50% { transform: scale(1.04) rotate(1deg); opacity: 1; }
+  100% { transform: scale(0.98) rotate(-0.5deg); opacity: 0.96; }
 }
 
 .loader-halo-pulse {
@@ -559,7 +570,7 @@ img {
 
 /* --------------------------------------------------------------------------
    5. BREATHTAKING FULL-SCREEN HERO BANNER WITH BANANA LEAF,
-      HANGING LOTUS (LEFT & RIGHT ONLY) & PENCIL DRAWING COUPLE
+      TRADITIONAL HANGING BRASS LAMPS (LEFT & RIGHT) & REAL COUPLE PHOTOGRAPH
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
@@ -605,55 +616,82 @@ img {
   mix-blend-mode: multiply;
 }
 
-/* HANGING LOTUS FLOWERS: LEFT AND RIGHT ONLY (CENTER/TOP-CENTER IS COMPLETELY CLEAR) */
-.hanging-lotus-edge {
+/* TRADITIONAL KERALA HANGING BRASS LAMPS: LEFT AND RIGHT ONLY (CENTER IS COMPLETELY CLEAR) */
+.hanging-lamp-edge {
   position: absolute;
   top: 0;
   pointer-events: none;
   z-index: 5;
   display: flex;
-  gap: 14px;
+  gap: 16px;
 }
 
-.hanging-lotus-left {
+.hanging-lamp-left {
   left: 20px;
 }
 
-.hanging-lotus-right {
+.hanging-lamp-right {
   right: 20px;
 }
 
-.hanging-stem {
+.hanging-lamp-item {
+  position: relative;
   transform-origin: top center;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.28));
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.4));
+  transition: transform 0.4s ease;
 }
 
-.hang-img {
+.hang-lamp-img {
   width: auto;
   display: block;
 }
 
-.hang-stem-l1 { height: 260px; animation: lotusSway1 6s ease-in-out infinite alternate; }
-.hang-stem-l2 { height: 190px; animation: lotusSway2 7.2s ease-in-out infinite alternate; }
-.hang-stem-l3 { height: 240px; animation: lotusSway3 5.8s ease-in-out infinite alternate; }
-
-.hang-stem-r1 { height: 250px; animation: lotusSway2 6.5s ease-in-out infinite alternate; }
-.hang-stem-r2 { height: 200px; animation: lotusSway1 7.4s ease-in-out infinite alternate; }
-.hang-stem-r3 { height: 270px; animation: lotusSway3 6.1s ease-in-out infinite alternate; }
-
-@keyframes lotusSway1 {
-  0% { transform: rotate(-3.5deg); }
-  100% { transform: rotate(3.5deg); }
+.hang-lamp-l1 {
+  height: 380px;
+  animation: lampSwaySubtle1 8s ease-in-out infinite alternate;
 }
 
-@keyframes lotusSway2 {
-  0% { transform: rotate(3deg); }
-  100% { transform: rotate(-3deg); }
+.hang-lamp-l2 {
+  height: 290px;
+  animation: lampSwaySubtle2 9.5s ease-in-out infinite alternate;
 }
 
-@keyframes lotusSway3 {
-  0% { transform: rotate(-2.5deg); }
-  100% { transform: rotate(2.5deg); }
+.hang-lamp-r1 {
+  height: 380px;
+  animation: lampSwaySubtle2 8.6s ease-in-out infinite alternate;
+}
+
+.hang-lamp-r2 {
+  height: 290px;
+  animation: lampSwaySubtle1 10.2s ease-in-out infinite alternate;
+}
+
+.lamp-ambient-glow {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, rgba(255, 185, 45, 0.35) 0%, rgba(212, 175, 55, 0.15) 50%, transparent 75%);
+  filter: blur(12px);
+  pointer-events: none;
+  animation: lampAuraPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes lampSwaySubtle1 {
+  0% { transform: rotate(-1.2deg); }
+  100% { transform: rotate(1.2deg); }
+}
+
+@keyframes lampSwaySubtle2 {
+  0% { transform: rotate(1deg); }
+  100% { transform: rotate(-1deg); }
+}
+
+@keyframes lampAuraPulse {
+  0% { opacity: 0.75; transform: translateX(-50%) scale(0.95); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1.08); }
 }
 
 /* Main Hero Content Composition */
@@ -670,76 +708,123 @@ img {
   gap: clamp(24px, 4vw, 56px);
 }
 
-/* Left: Couple Pencil Sketch on Softly Illuminated Ivory Card */
+/* Left: Authentic Bride & Groom Photograph on Warm Ivory & Gold Card */
 .hero-couple-col {
   display: flex;
   justify-content: center;
 }
 
-.couple-pencil-card {
+.couple-photo-card {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  border-radius: var(--radius-arch);
+  max-width: 420px;
+  border-radius: 220px 220px 24px 24px;
   padding: 10px;
-  background: radial-gradient(circle at 50% 35%, #FFFDF9 50%, #FAF4E8 90%, #EFE5D3 100%);
+  background: radial-gradient(circle at 50% 30%, #FFFDF9 45%, #FAF4E8 80%, #EDE1C9 100%);
   border: 2px solid var(--color-gold-warm);
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.35),
-    0 0 45px rgba(245, 215, 127, 0.4),
-    inset 0 0 30px rgba(255, 255, 255, 0.8);
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(245, 215, 127, 0.45),
+    inset 0 0 30px rgba(255, 255, 255, 0.85);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.pencil-card-glow {
+.photo-ambient-glow {
   position: absolute;
-  inset: -15px;
-  border-radius: 230px 230px 30px 30px;
-  background: radial-gradient(circle at 50% 40%, rgba(245, 215, 127, 0.3) 0%, rgba(255, 253, 249, 0.15) 50%, transparent 75%);
-  filter: blur(14px);
+  inset: -14px;
+  border-radius: 230px 230px 32px 32px;
+  background: radial-gradient(circle at 50% 40%, rgba(245, 215, 127, 0.35) 0%, rgba(255, 253, 249, 0.18) 55%, transparent 75%);
+  filter: blur(16px);
   pointer-events: none;
   z-index: 0;
 }
 
-.pencil-arch-inner {
+.photo-arch-frame {
   position: relative;
+  width: 100%;
   border-radius: 210px 210px 18px 18px;
   overflow: hidden;
   z-index: 1;
-  background: #FFFDF9;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: #10261D;
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.25);
+  aspect-ratio: 2 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.couple-pencil-img {
+.couple-hero-photo {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
-  transition: transform 1.2s ease;
+  object-position: center 36%;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(1.02) contrast(1.03);
 }
 
-.couple-pencil-card:hover .couple-pencil-img {
-  transform: scale(1.025);
+.couple-photo-card:hover .couple-hero-photo {
+  transform: scale(1.03);
 }
 
-.pencil-lotus-accent {
+.photo-glass-rim {
   position: absolute;
-  bottom: -16px;
+  inset: 0;
+  border-radius: 210px 210px 18px 18px;
+  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.2);
   pointer-events: none;
   z-index: 2;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
 }
 
-.pencil-lotus-accent.left {
-  left: -20px;
+.photo-caption-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(13, 51, 38, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  border-radius: 30px;
+  padding: 5px 16px;
+  color: var(--color-gold-bright);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  z-index: 3;
 }
 
-.pencil-lotus-accent.right {
-  right: -16px;
-  transform: scaleX(-1);
+.photo-tag-dot {
+  width: 6px;
+  height: 6px;
+  background: #FFD700;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #FFD700;
+}
+
+.photo-lamp-accent {
+  position: absolute;
+  bottom: -14px;
+  pointer-events: none;
+  z-index: 4;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+
+.photo-lamp-accent.left {
+  left: -12px;
+}
+
+.photo-lamp-accent.right {
+  right: -12px;
 }
 
 /* Right: Artistically Blended Names ANIL & ARDRA */
@@ -847,8 +932,8 @@ img {
   text-shadow: 0 0 25px rgba(245, 215, 127, 0.6);
 }
 
-/* Hero Lotus Divider */
-.hero-lotus-divider {
+/* Hero Traditional Lamp Divider */
+.hero-lamp-divider {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -862,8 +947,13 @@ img {
   background: linear-gradient(90deg, transparent, var(--color-gold-warm), transparent);
 }
 
-.divider-lotus-crest {
-  filter: drop-shadow(0 4px 10px rgba(245, 215, 127, 0.4));
+.divider-lamp-crest {
+  filter: drop-shadow(0 4px 12px rgba(245, 215, 127, 0.5));
+}
+
+.scroll-lamp-icon {
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(245, 215, 127, 0.4));
 }
 
 .hero-invitation-subtext {
@@ -945,11 +1035,11 @@ img {
   text-align: center;
 }
 
-.lotus-garland-img {
+.brass-garland-img {
   width: 100%;
   height: auto;
-  opacity: 0.9;
-  filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.2));
+  opacity: 0.95;
+  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.35));
 }
 
 .invitation-card-wrapper {
@@ -961,7 +1051,7 @@ img {
   position: relative;
   background: var(--color-ivory);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card), 0 0 60px rgba(248, 165, 181, 0.22);
+  box-shadow: var(--shadow-card), 0 0 60px rgba(245, 215, 127, 0.25);
   border: 1px solid var(--color-gold-border);
   padding: clamp(32px, 6vw, 64px) clamp(24px, 5vw, 56px);
   text-align: center;
@@ -970,10 +1060,10 @@ img {
 }
 
 .invitation-card:hover {
-  box-shadow: var(--shadow-card-hover), 0 0 70px rgba(224, 186, 85, 0.25);
+  box-shadow: var(--shadow-card-hover), 0 0 70px rgba(224, 186, 85, 0.3);
 }
 
-/* Botanical Corner Ornaments with Lotus */
+/* Traditional Kerala Brass Corner Filigree (No Lotus, No Peacock) */
 .card-corner {
   position: absolute;
   width: clamp(70px, 12vw, 110px);
@@ -1003,12 +1093,73 @@ img {
 }
 
 .invitation-crest {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   display: inline-block;
 }
 
-.crest-lotus {
-  filter: drop-shadow(0 6px 14px rgba(248, 165, 181, 0.35));
+.crest-lamp {
+  filter: drop-shadow(0 6px 16px rgba(245, 215, 127, 0.45));
+}
+
+/* Official Couple Wedding Portrait Highlight in Sacred Invitation Card */
+.invitation-couple-portrait-box {
+  margin: 18px auto 26px;
+  max-width: 300px;
+  position: relative;
+  text-align: center;
+}
+
+.invitation-portrait-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 170px 170px 20px 20px;
+  padding: 7px;
+  background: radial-gradient(circle at 50% 30%, #FFFDF9 50%, #FAF4E8 90%, #E8DAC2 100%);
+  border: 2px solid var(--color-gold-warm);
+  box-shadow:
+    0 12px 32px rgba(13, 51, 38, 0.16),
+    0 0 25px rgba(212, 175, 55, 0.28),
+    inset 0 0 16px rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+.invitation-portrait-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 36%;
+  border-radius: 164px 164px 14px 14px;
+  display: block;
+  filter: brightness(1.02) contrast(1.02);
+}
+
+.portrait-caption {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  background: rgba(22, 70, 54, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 20px;
+}
+
+.portrait-lamp-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold-warm);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--color-gold-bright);
+}
+
+.portrait-caption-names {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--color-emerald-deep);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .auspicious-sanskrit-tag {
@@ -1167,7 +1318,7 @@ img {
   margin-bottom: 50px;
 }
 
-.header-lotus-ornament {
+.header-lamp-ornament {
   margin-bottom: 12px;
 }
 
@@ -1650,7 +1801,7 @@ img {
   text-align: center;
 }
 
-.card-lotus-top {
+.card-lamp-top {
   margin-bottom: 20px;
 }
 
@@ -1811,7 +1962,7 @@ img {
   margin-bottom: 30px;
 }
 
-.blessings-lotus-icon {
+.blessings-lamp-icon {
   margin-bottom: 12px;
 }
 
@@ -1989,12 +2140,12 @@ img {
   margin: 0 auto;
 }
 
-.closing-lotus-emblem {
+.closing-lamp-emblem {
   margin-bottom: 20px;
 }
 
-.closing-lotus-img {
-  filter: drop-shadow(0 6px 18px var(--color-pink-glow));
+.closing-lamp-img {
+  filter: drop-shadow(0 6px 18px rgba(245, 215, 127, 0.45));
 }
 
 .closing-names {
@@ -2161,7 +2312,7 @@ img {
     justify-content: center;
   }
 
-  .hero-lotus-divider {
+  .hero-lamp-divider {
     margin-left: auto;
     margin-right: auto;
   }
@@ -2271,65 +2422,68 @@ img {
     border-radius: var(--radius-md);
   }
 
-  /* Hanging Lotus on Mobile: Left and Right edges only, scaled and non-overlapping */
-  .hanging-lotus-edge {
+  /* Traditional Hanging Brass Lamps on Mobile: Left and Right edges only, scaled and non-overlapping */
+  .hanging-lamp-edge {
     gap: 4px;
     z-index: 4;
   }
 
-  .hanging-lotus-left {
-    left: 4px;
+  .hanging-lamp-left {
+    left: -8px;
   }
 
-  .hanging-lotus-right {
-    right: 4px;
+  .hanging-lamp-right {
+    right: -8px;
   }
 
-  .hanging-stem {
-    transform: scale(0.5);
+  .hanging-lamp-item {
+    transform: scale(0.55);
     transform-origin: top center;
   }
 
-  .hang-stem-l2,
-  .hang-stem-l3,
-  .hang-stem-r2,
-  .hang-stem-r3 {
-    display: none; /* Keep single clean hanging lotus on each side to prevent visual clutter */
+  .hang-lamp-l2,
+  .hang-lamp-r2 {
+    display: none; /* Keep a single, elegant hanging lamp on each side on mobile to keep center spacious */
   }
 
-  /* Couple pencil drawing proportioned on mobile */
-  .couple-pencil-card {
-    max-width: clamp(190px, 50vw, 240px);
-    padding: 7px;
-    border-radius: 170px 170px 16px 16px;
+  /* Couple photo proportioned on mobile */
+  .couple-photo-card {
+    max-width: clamp(210px, 58vw, 270px);
+    padding: 8px;
+    border-radius: 170px 170px 18px 18px;
     margin-top: 4px;
   }
 
-  .pencil-arch-inner {
-    border-radius: 160px 160px 12px 12px;
-    aspect-ratio: 3 / 4;
+  .photo-arch-frame {
+    border-radius: 160px 160px 14px 14px;
+    aspect-ratio: 2 / 3;
     overflow: hidden;
   }
 
-  .couple-pencil-img {
+  .couple-hero-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 12%;
+    object-position: center 36%;
   }
 
-  .pencil-lotus-accent {
-    transform: scale(0.72);
+  .photo-caption-tag {
+    padding: 4px 12px;
+    font-size: 11px;
+    bottom: 10px;
+  }
+
+  .photo-lamp-accent {
+    transform: scale(0.75);
     bottom: -10px;
   }
 
-  .pencil-lotus-accent.left {
-    left: -12px;
+  .photo-lamp-accent.left {
+    left: -8px;
   }
 
-  .pencil-lotus-accent.right {
-    right: -10px;
-    transform: scaleX(-1) scale(0.72);
+  .photo-lamp-accent.right {
+    right: -8px;
   }
 
   /* Equal Ceremonies Cards */
@@ -2440,7 +2594,7 @@ img {
     margin-top: -3px;
   }
 
-  .hero-lotus-divider {
+  .hero-lamp-divider {
     margin: 10px auto 14px;
     max-width: 280px;
     gap: 10px;
@@ -2469,14 +2623,14 @@ img {
     letter-spacing: 0.12em;
   }
 
-  /* Couple Card on Small Screens */
-  .couple-pencil-card {
-    max-width: clamp(170px, 48vw, 220px);
+  /* Couple Photo Card on Small Screens */
+  .couple-photo-card {
+    max-width: clamp(180px, 52vw, 240px);
     padding: 6px;
   }
 
-  .pencil-arch-inner {
-    aspect-ratio: 3 / 4;
+  .photo-arch-frame {
+    aspect-ratio: 2 / 3;
   }
 
   /* Card and Content Spacing on Small Screens */
@@ -2573,16 +2727,16 @@ img {
     font-size: 22px;
   }
 
-  .couple-pencil-card {
-    max-width: 160px;
+  .couple-photo-card {
+    max-width: 180px;
   }
 
-  .hanging-stem {
-    transform: scale(0.4);
+  .hanging-lamp-item {
+    transform: scale(0.45);
   }
 
-  .hanging-lotus-left { left: 2px; }
-  .hanging-lotus-right { right: 2px; }
+  .hanging-lamp-left { left: -6px; }
+  .hanging-lamp-right { right: -6px; }
 
   .invitation-card {
     padding: 22px 12px;

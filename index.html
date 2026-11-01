@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#164636" />
     
     <!-- Preload Critical Above-The-Fold Assets -->
-    <link rel="preload" as="image" href="/images/pencil-couple-illustration.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/images/couple-photo.webp" type="image/webp" />
     <link rel="preload" as="image" href="/images/hero-banana-leaf.webp" type="image/webp" />
 
     <!-- Open Graph / WhatsApp / Facebook -->
@@ -19,15 +19,15 @@
     <meta property="og:url" content="https://anil-ardra-wedding.vercel.app/" />
     <meta property="og:title" content="Anil Babu &amp; Ardra Meletath | Wedding Invitation" />
     <meta property="og:description" content="Together with their families, Anil Babu &amp; Ardra Meletath invite you to celebrate their wedding on Sunday, 20th December 2026. Guruvayur &amp; Thrissur, Kerala." />
-    <meta property="og:image" content="/images/pencil-couple-illustration.jpg" />
+    <meta property="og:image" content="/images/couple-photo.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Anil Babu &amp; Ardra Meletath | Wedding Invitation" />
     <meta property="twitter:description" content="Wedding invitation of Anil Babu with Ardra Meletath. Sunday, 20th December 2026. Guruvayur &amp; Thrissur, Kerala." />
-    <meta property="twitter:image" content="/images/pencil-couple-illustration.jpg" />
+    <meta property="twitter:image" content="/images/couple-photo.jpg" />
 
-    <!-- Favicon: Delicate Kerala Lotus Blossom (No logo/monogram) -->
+    <!-- Favicon: Sacred Kerala Nilavilakku Temple Lamp (No logo/monogram) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Google Fonts Preconnect -->
@@ -46,27 +46,38 @@
          ======================================== -->
     <div id="invitation-loader" class="invitation-loader" role="status" aria-live="polite" aria-label="Loading sacred wedding invitation for Anil and Ardra">
       <div class="loader-inner">
-        <!-- Blooming Lotus Blossom Icon with breathing halo -->
-        <div class="loader-lotus-wrapper" aria-hidden="true">
-          <svg class="loader-lotus-svg" viewBox="0 0 100 80" width="76" height="60" fill="none">
-            <path d="M50 10 C44 26, 44 48, 50 62 C56 48, 56 26, 50 10 Z" fill="url(#loaderGold)" />
-            <path d="M50 18 C38 30, 26 48, 38 60 C44 56, 48 48, 50 40 Z" fill="url(#loaderPink1)" />
-            <path d="M50 18 C62 30, 74 48, 62 60 C56 56, 52 48, 50 40 Z" fill="url(#loaderPink1)" />
-            <path d="M50 28 C30 40, 16 54, 26 64 C36 64, 44 58, 48 50 Z" fill="url(#loaderPink2)" opacity="0.88" />
-            <path d="M50 28 C70 40, 84 54, 74 64 C64 64, 56 58, 52 50 Z" fill="url(#loaderPink2)" opacity="0.88" />
-            <path d="M24 66 C36 71, 64 71, 76 66 C68 70, 32 70, 24 66 Z" fill="url(#loaderGold)" opacity="0.75" />
+        <!-- Auspicious Kerala Nilavilakku Temple Lamp with glowing flame -->
+        <div class="loader-lamp-wrapper" aria-hidden="true">
+          <svg class="loader-lamp-svg" viewBox="0 0 80 90" width="76" height="85" fill="none">
+            <circle cx="40" cy="24" r="22" fill="url(#loaderFlameGlow)" />
+            <path class="loader-flame-flicker" d="M40 35 Q30 22 40 10 Q50 22 40 35 Z" fill="url(#loaderDeepamFlame)" />
+            <path d="M40 33 Q34 23 40 14 Q46 23 40 33 Z" fill="#FFFFFF" />
+            <line x1="40" y1="36" x2="40" y2="33" stroke="#331A00" stroke-width="1.8" />
+            <path d="M22 36 Q40 33 58 36 Q64 42 56 46 Q40 50 24 46 Q16 42 22 36 Z" fill="url(#loaderBrassGold)" stroke="#3D2507" stroke-width="1" />
+            <ellipse cx="40" cy="36" rx="16" ry="4" fill="#6A420B" />
+            <path d="M26 43 C30 54, 34 58, 40 58 C46 58, 50 54, 54 43 Z" fill="url(#loaderBrassGold)" stroke="#3D2507" stroke-width="0.8" />
+            <rect x="37" y="58" width="6" height="14" rx="2" fill="url(#loaderBrassGold)" />
+            <ellipse cx="40" cy="65" rx="7" ry="3.5" fill="url(#loaderBrassGold)" />
+            <path d="M24 76 C28 72, 34 72, 40 72 C46 72, 52 72, 56 76 Z" fill="url(#loaderBrassGold)" />
+            <ellipse cx="40" cy="78" rx="22" ry="5.5" fill="url(#loaderBrassGold)" stroke="#3D2507" stroke-width="1" />
             <defs>
-              <linearGradient id="loaderGold" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#FFF2CE" />
-                <stop offset="100%" stop-color="#D4AF37" />
+              <radialGradient id="loaderFlameGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FFD700" stop-opacity="0.85" />
+                <stop offset="50%" stop-color="#FF8C00" stop-opacity="0.4" />
+                <stop offset="100%" stop-color="#FF8C00" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="loaderDeepamFlame" x1="50%" y1="100%" x2="50%" y2="0%">
+                <stop offset="0%" stop-color="#D32F2F" />
+                <stop offset="30%" stop-color="#FF8C00" />
+                <stop offset="70%" stop-color="#FFEB3B" />
+                <stop offset="100%" stop-color="#FFFFFF" />
               </linearGradient>
-              <linearGradient id="loaderPink1" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#FDE8EC" />
-                <stop offset="100%" stop-color="#E88298" />
-              </linearGradient>
-              <linearGradient id="loaderPink2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#FFF0F3" />
-                <stop offset="100%" stop-color="#F2A5B5" />
+              <linearGradient id="loaderBrassGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4A3008" />
+                <stop offset="30%" stop-color="#8B651B" />
+                <stop offset="50%" stop-color="#FFF2A8" />
+                <stop offset="70%" stop-color="#D4AF37" />
+                <stop offset="100%" stop-color="#3D2507" />
               </linearGradient>
             </defs>
           </svg>
@@ -92,7 +103,7 @@
       </div>
     </div>
 
-    <!-- Floating Lotus Petals and Golden Particle Sparkles Canvas -->
+    <!-- Floating Sacred Temple Embers and Golden Particle Sparkles Canvas -->
     <canvas id="petals-canvas" aria-hidden="true"></canvas>
 
     <!-- Background Subtle Textures & Ambient Lighting -->
@@ -175,7 +186,7 @@
     <main id="main-content">
       <!-- ========================================
            1. FULL-SCREEN HERO BANNER WITH BANANA LEAF,
-              HANGING LOTUS (LEFT & RIGHT ONLY) & PENCIL ILLUSTRATION
+              TRADITIONAL HANGING BRASS OIL LAMPS (LEFT & RIGHT) & REAL COUPLE PHOTOGRAPH
            ======================================== -->
       <section id="hero" class="hero-section" aria-label="Wedding Hero Banner">
         <!-- Giant Detailed Kerala Banana Leaf Background with subtle depth parallax -->
@@ -184,7 +195,7 @@
             <source srcset="/images/hero-banana-leaf.webp" type="image/webp" />
             <img
               src="/images/hero-banana-leaf.jpg"
-              alt="Lush Kerala green banana leaf with gold trim and lotus blossoms"
+              alt="Lush Kerala green banana leaf background with traditional gold trim"
               class="banana-leaf-hero-img"
               width="1920"
               height="1080"
@@ -194,59 +205,62 @@
           <div class="hero-leaf-overlay"></div>
         </div>
 
-        <!-- HANGING LOTUS FLOWERS: LEFT AND RIGHT EDGES ONLY (CENTER REMAINS CLEAR) -->
-        <!-- Upper Left Floral Installation -->
-        <div class="hanging-lotus-edge hanging-lotus-left" aria-hidden="true">
-          <div class="hanging-stem hang-stem-l1">
-            <img src="/images/hanging-lotus.svg" alt="" class="hang-img" />
+        <!-- TRADITIONAL KERALA HANGING BRASS LAMPS (LEFT AND RIGHT EDGES ONLY) -->
+        <!-- Upper Left Brass Lamps Installation -->
+        <div class="hanging-lamp-edge hanging-lamp-left" aria-hidden="true">
+          <div class="hanging-lamp-item hang-lamp-l1">
+            <img src="/images/hanging-brass-lamp.svg" alt="" class="hang-lamp-img" />
+            <div class="lamp-ambient-glow" aria-hidden="true"></div>
           </div>
-          <div class="hanging-stem hang-stem-l2">
-            <img src="/images/hanging-lotus-bud.svg" alt="" class="hang-img" />
-          </div>
-          <div class="hanging-stem hang-stem-l3">
-            <img src="/images/hanging-lotus.svg" alt="" class="hang-img" />
-          </div>
-        </div>
-
-        <!-- Upper Right Floral Installation -->
-        <div class="hanging-lotus-edge hanging-lotus-right" aria-hidden="true">
-          <div class="hanging-stem hang-stem-r1">
-            <img src="/images/hanging-lotus.svg" alt="" class="hang-img" />
-          </div>
-          <div class="hanging-stem hang-stem-r2">
-            <img src="/images/hanging-lotus-bud.svg" alt="" class="hang-img" />
-          </div>
-          <div class="hanging-stem hang-stem-r3">
-            <img src="/images/hanging-lotus.svg" alt="" class="hang-img" />
+          <div class="hanging-lamp-item hang-lamp-l2">
+            <img src="/images/hanging-brass-lamp-medium.svg" alt="" class="hang-lamp-img" />
+            <div class="lamp-ambient-glow" aria-hidden="true"></div>
           </div>
         </div>
 
-        <!-- Main Hero Composition: Romantic Pencil Couple Drawing & Blended Names -->
+        <!-- Upper Right Brass Lamps Installation -->
+        <div class="hanging-lamp-edge hanging-lamp-right" aria-hidden="true">
+          <div class="hanging-lamp-item hang-lamp-r1">
+            <img src="/images/hanging-brass-lamp.svg" alt="" class="hang-lamp-img" />
+            <div class="lamp-ambient-glow" aria-hidden="true"></div>
+          </div>
+          <div class="hanging-lamp-item hang-lamp-r2">
+            <img src="/images/hanging-brass-lamp-medium.svg" alt="" class="hang-lamp-img" />
+            <div class="lamp-ambient-glow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Main Hero Composition: Authentic Couple Photograph & Blended Names -->
         <div class="hero-content container">
           <div class="hero-composition-grid">
-            <!-- Left: Romantic Graphite Pencil Sketch Illustration of Bride & Groom -->
+            <!-- Left: Authentic Bride & Groom Photograph (Anil Babu & Ardra Meletath) -->
             <div class="hero-couple-col reveal-scale">
-              <div class="couple-pencil-card">
-                <div class="pencil-card-glow" aria-hidden="true"></div>
-                <div class="pencil-arch-inner">
+              <div class="couple-photo-card">
+                <div class="photo-ambient-glow" aria-hidden="true"></div>
+                <div class="photo-arch-frame">
                   <picture>
-                    <source srcset="/images/pencil-couple-illustration.webp" type="image/webp" />
+                    <source srcset="/images/couple-photo.webp" type="image/webp" />
                     <img
-                      src="/images/pencil-couple-illustration.jpg"
-                      alt="Romantic pencil sketch drawing of Kerala bride and groom in traditional wedding attire"
-                      class="couple-pencil-img"
-                      width="440"
-                      height="586"
+                      src="/images/couple-photo.jpg"
+                      alt="Anil Babu and Ardra Meletath"
+                      class="couple-hero-photo"
+                      width="460"
+                      height="690"
                       fetchpriority="high"
                     />
                   </picture>
+                  <div class="photo-glass-rim" aria-hidden="true"></div>
+                  <div class="photo-caption-tag">
+                    <span class="photo-tag-dot"></span>
+                    <span>Anil Babu &amp; Ardra Meletath</span>
+                  </div>
                 </div>
-                <!-- Floral Base Accents with Blooming Lotus Flowers -->
-                <div class="pencil-lotus-accent left" aria-hidden="true">
-                  <img src="/images/lotus-floating.svg" alt="" width="68" height="50" />
+                <!-- Traditional Kerala Brass Deepam Accents -->
+                <div class="photo-lamp-accent left" aria-hidden="true">
+                  <img src="/images/deepam-icon.svg" alt="" width="32" height="38" />
                 </div>
-                <div class="pencil-lotus-accent right" aria-hidden="true">
-                  <img src="/images/lotus-bud.svg" alt="" width="28" height="40" />
+                <div class="photo-lamp-accent right" aria-hidden="true">
+                  <img src="/images/deepam-icon.svg" alt="" width="32" height="38" />
                 </div>
               </div>
             </div>
@@ -259,7 +273,7 @@
               <!-- PROMINENT NAMES: ANIL & ARDRA with Thin Double-Line Ornamental Gold Frame -->
               <div class="hero-names-frame-container reveal-scale">
                 <div class="hero-ornamental-frame">
-                  <!-- Lotus-Inspired Corner Flourishes -->
+                  <!-- Traditional Ornamental Corner Flourishes -->
                   <span class="frame-corner corner-top-left" aria-hidden="true">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
                       <path d="M3 15V3h12M3 3l9 9M7 3c2 4 4 6 9 6M3 7c4 2 6 4 6 9" stroke-linecap="round"/>
@@ -296,11 +310,11 @@
                 </div>
               </div>
 
-              <!-- Kerala Floral Gold Divider -->
-              <div class="hero-lotus-divider reveal-fade-up" aria-hidden="true">
+              <!-- Kerala Traditional Brass Deepam Divider -->
+              <div class="hero-lamp-divider reveal-fade-up" aria-hidden="true">
                 <span class="divider-gold-line"></span>
-                <span class="divider-lotus-crest">
-                  <img src="/images/lotus-art.svg" alt="" width="48" height="38" />
+                <span class="divider-lamp-crest">
+                  <img src="/images/deepam-icon.svg" alt="" width="34" height="42" />
                 </span>
                 <span class="divider-gold-line"></span>
               </div>
@@ -328,7 +342,7 @@
                 <a href="#invitation" class="scroll-link" aria-label="Scroll to view the sacred wedding invitation">
                   <span class="scroll-label">Scroll to Open Sacred Invitation</span>
                   <div class="scroll-arrow" aria-hidden="true">
-                    <img src="/images/lotus-bud.svg" alt="" width="16" height="24" class="scroll-bud-icon" />
+                    <img src="/images/deepam-icon.svg" alt="" width="18" height="24" class="scroll-lamp-icon" />
                   </div>
                 </a>
               </div>
@@ -342,38 +356,60 @@
               (ANIL BABU & ARDRA MELETATH)
            ======================================== -->
       <section id="invitation" class="invitation-section section-padding" aria-label="Official Wedding Invitation">
-        <!-- Floating Lotus Garland Border at Top of Section -->
+        <!-- Traditional Kerala Temple Brass Garland Festoon with Hanging Deepams -->
         <div class="section-garland-wrapper reveal-fade-up" aria-hidden="true">
-          <img src="/images/lotus-border.svg" alt="" class="lotus-garland-img" />
+          <img src="/images/brass-border.svg" alt="" class="brass-garland-img" />
         </div>
 
         <div class="container container-narrow">
           <!-- Animated Kerala Royal Invitation Card -->
           <div class="invitation-card-wrapper reveal-card-unfold">
             <article class="invitation-card">
-              <!-- Botanical Corner Embellishments with Lotus -->
+              <!-- Traditional Kerala Brass Corner Filigree (No Lotus, No Peacock) -->
               <div class="card-corner corner-tl" aria-hidden="true">
-                <img src="/images/lotus-corner.svg" alt="" class="corner-svg" />
+                <img src="/images/brass-corner.svg" alt="" class="corner-svg" />
               </div>
               <div class="card-corner corner-tr" aria-hidden="true">
-                <img src="/images/lotus-corner.svg" alt="" class="corner-svg" />
+                <img src="/images/brass-corner.svg" alt="" class="corner-svg" />
               </div>
               <div class="card-corner corner-bl" aria-hidden="true">
-                <img src="/images/lotus-corner.svg" alt="" class="corner-svg" />
+                <img src="/images/brass-corner.svg" alt="" class="corner-svg" />
               </div>
               <div class="card-corner corner-br" aria-hidden="true">
-                <img src="/images/lotus-corner.svg" alt="" class="corner-svg" />
+                <img src="/images/brass-corner.svg" alt="" class="corner-svg" />
               </div>
 
               <!-- Inner Card Parchment -->
               <div class="card-inner-frame">
-                <!-- Auspicious Floating Lotus Crest -->
+                <!-- Sacred Kerala Nilavilakku Temple Lamp Crest -->
                 <div class="invitation-crest" aria-hidden="true">
-                  <img src="/images/lotus-floating.svg" alt="Blooming Kerala Lotus" class="crest-lotus" width="120" height="90" />
+                  <img src="/images/temple-lamp.svg" alt="Sacred Kerala Nilavilakku" class="crest-lamp" width="100" height="100" />
                 </div>
 
                 <!-- Auspicious Sanskrit Benediction -->
                 <p class="auspicious-sanskrit-tag">|| &nbsp;शुभं भवतु&nbsp; ||</p>
+
+                <!-- Official Couple Wedding Portrait Highlight (Second Placement) -->
+                <div class="invitation-couple-portrait-box reveal-scale">
+                  <div class="invitation-portrait-frame">
+                    <picture>
+                      <source srcset="/images/couple-photo.webp" type="image/webp" />
+                      <img
+                        src="/images/couple-photo.jpg"
+                        alt="Anil Babu &amp; Ardra Meletath"
+                        class="invitation-portrait-img"
+                        width="300"
+                        height="380"
+                        loading="lazy"
+                      />
+                    </picture>
+                    <div class="portrait-caption">
+                      <span class="portrait-lamp-dot" aria-hidden="true"></span>
+                      <span class="portrait-caption-names">Anil Babu &amp; Ardra Meletath</span>
+                    </div>
+                  </div>
+                </div>
+
                 <p class="invitation-greeting-script">Together with our parents and families</p>
                 <p class="invitation-formal-phrase">We request the honor of your gracious presence to celebrate the wedding of</p>
 
@@ -390,9 +426,9 @@
                   <p class="family-residence-line">Villa 17, Sobha Silver Estate, Attore, Thrissur</p>
                 </div>
 
-                <!-- Card Floral Flourish Divider with Lotus Bud -->
+                <!-- Card Traditional Deepam Divider -->
                 <div class="card-flourish-divider" aria-hidden="true">
-                  <img src="/images/lotus-bud.svg" alt="" width="20" height="28" />
+                  <img src="/images/deepam-icon.svg" alt="" width="26" height="32" />
                 </div>
 
                 <!-- EXACT AUSPICIOUS DATE -->
@@ -426,8 +462,8 @@
       <section id="ceremony" class="ceremonies-section section-padding" aria-label="Ceremony and Celebration Details">
         <div class="container">
           <div class="section-header text-center reveal-fade-up">
-            <div class="header-lotus-ornament" aria-hidden="true">
-              <img src="/images/lotus-art.svg" alt="" width="70" height="56" />
+            <div class="header-lamp-ornament" aria-hidden="true">
+              <img src="/images/temple-lamp.svg" alt="" width="60" height="60" />
             </div>
             <span class="section-subtitle">Sacred Rituals &amp; Celebrations</span>
             <h2 class="section-title">WEDDING CEREMONIES</h2>
@@ -443,7 +479,7 @@
               <div class="ceremony-card-inner">
                 <div class="ceremony-top-badge-area">
                   <div class="ceremony-icon-badge" aria-hidden="true">
-                    <img src="/images/lotus-bud.svg" alt="" width="28" height="40" />
+                    <img src="/images/deepam-icon.svg" alt="" width="28" height="34" />
                   </div>
                   <span class="ceremony-tag">Sacred Muhurtham</span>
                 </div>
@@ -487,7 +523,7 @@
               <div class="ceremony-card-inner">
                 <div class="ceremony-top-badge-area">
                   <div class="ceremony-icon-badge" aria-hidden="true">
-                    <img src="/images/lotus-art.svg" alt="" width="36" height="30" />
+                    <img src="/images/deepam-icon.svg" alt="" width="28" height="34" />
                   </div>
                   <span class="ceremony-tag">Celebration &amp; Sadhya</span>
                 </div>
@@ -552,8 +588,8 @@
       <section id="location" class="location-section section-padding" aria-label="Venue Location and Directions">
         <div class="container">
           <div class="section-header text-center reveal-fade-up">
-            <div class="header-lotus-ornament" aria-hidden="true">
-              <img src="/images/lotus-floating.svg" alt="" width="72" height="54" />
+            <div class="header-lamp-ornament" aria-hidden="true">
+              <img src="/images/temple-lamp.svg" alt="" width="60" height="60" />
             </div>
             <span class="section-subtitle">Find Your Way</span>
             <h2 class="section-title">VENUE &amp; DIRECTIONS</h2>
@@ -701,9 +737,9 @@
         <div class="container container-narrow">
           <div class="rsvp-card-wrapper reveal-scale">
             <article class="rsvp-card">
-              <!-- Top Garland Flourish -->
-              <div class="card-lotus-top" aria-hidden="true">
-                <img src="/images/lotus-art.svg" alt="" width="56" height="44" />
+              <!-- Top Garland Flourish with Temple Lamp -->
+              <div class="card-lamp-top" aria-hidden="true">
+                <img src="/images/temple-lamp.svg" alt="" width="56" height="56" />
               </div>
 
               <!-- EXACT DETAILS: Sharing the happiness: Balu, Sanam and Saanvi -->
@@ -715,7 +751,7 @@
               <!-- Traditional Ornamental Line -->
               <div class="gold-ornament-line" aria-hidden="true">
                 <span></span>
-                <img src="/images/lotus-bud.svg" alt="" width="16" height="24" />
+                <img src="/images/deepam-icon.svg" alt="" width="18" height="24" />
                 <span></span>
               </div>
 
@@ -772,8 +808,8 @@
         <div class="container container-narrow">
           <div class="blessings-card reveal-fade-up">
             <div class="blessings-header text-center">
-              <div class="blessings-lotus-icon" aria-hidden="true">
-                <img src="/images/lotus-floating.svg" alt="" width="72" height="54" />
+              <div class="blessings-lamp-icon" aria-hidden="true">
+                <img src="/images/temple-lamp.svg" alt="" width="60" height="60" />
               </div>
               <span class="section-subtitle">Heartfelt Prayers &amp; Wishes</span>
               <h2 class="blessings-title">Send Your Blessings</h2>
@@ -806,7 +842,7 @@
                   <button type="button" class="blessing-chip" data-msg="Heartiest congratulations, Anil Babu &amp; Ardra Meletath! Wishing you both a lifetime of love, joy, and togetherness! ✨">
                     Eternal Joy &amp; Love
                   </button>
-                  <button type="button" class="blessing-chip" data-msg="Dearest Anil Babu &amp; Ardra Meletath, may God's divine grace shower your sacred marriage with peace and happiness. 🌸">
+                  <button type="button" class="blessing-chip" data-msg="Dearest Anil Babu &amp; Ardra Meletath, may God's divine grace shower your sacred marriage with peace and happiness. ✨">
                     Divine Grace &amp; Peace
                   </button>
                   <button type="button" class="blessing-chip" data-msg="Thrilled to celebrate your auspicious wedding, Anil Babu and Ardra Meletath! Warmest prayers for your new journey! 🌿">
@@ -865,9 +901,9 @@
       <section id="closing" class="closing-section section-padding" aria-label="Closing Farewell">
         <div class="container text-center">
           <div class="closing-content reveal-scale">
-            <!-- Floating Blooming Lotus Emblem -->
-            <div class="closing-lotus-emblem" aria-hidden="true">
-              <img src="/images/lotus-floating.svg" alt="" class="closing-lotus-img" width="140" height="105" />
+            <!-- Sacred Kerala Nilavilakku Temple Lamp Emblem -->
+            <div class="closing-lamp-emblem" aria-hidden="true">
+              <img src="/images/temple-lamp.svg" alt="" class="closing-lamp-img" width="100" height="100" />
             </div>
 
             <!-- Couple Names -->
@@ -875,7 +911,7 @@
 
             <div class="closing-ornament-line" aria-hidden="true">
               <span></span>
-              <img src="/images/lotus-bud.svg" alt="" width="18" height="26" />
+              <img src="/images/deepam-icon.svg" alt="" width="18" height="24" />
               <span></span>
             </div>
 
