@@ -4,12 +4,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initYouTubeAudio();
   initInvitationLoader();
   initScrollReveal();
   initParallax();
   initPetalsAndSparklesCanvas();
   initNavigation();
-  initYouTubeAudio();
   initCalendarAction();
   initBlessingsWhatsApp();
   initMapActions();
@@ -540,12 +540,16 @@ function initYouTubeAudio() {
         fs: 0,
         modestbranding: 1,
         playsinline: 1,
-        rel: 0
+        rel: 0,
+        origin: window.location.origin
       },
       events: {
         onReady: (event) => {
           player1Ready = true;
+          // Attempt audible playback immediately when website opens
           try {
+            if (event.target.unMute) event.target.unMute();
+            if (event.target.setVolume) event.target.setVolume(100);
             event.target.playVideo();
           } catch (e) {
             console.log('Autoplay track 1 request initiated', e);
@@ -558,6 +562,8 @@ function initYouTubeAudio() {
 
             if (state === window.YT.PlayerState.PLAYING && !isMuted) {
               updateUI1(true);
+            } else if (state === window.YT.PlayerState.PLAYING && isMuted) {
+              updateUI1(false, false, true);
             } else {
               try {
                 player1.mute();
@@ -567,7 +573,7 @@ function initYouTubeAudio() {
                 updateUI1(false);
               }
             }
-          }, 800);
+          }, 600);
         },
         onStateChange: (event) => {
           if (!player1) return;
