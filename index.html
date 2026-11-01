@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#164636" />
     
     <!-- Preload Critical Above-The-Fold Assets -->
-    <link rel="preload" as="image" href="/images/couple-photo.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/images/hero-couple-photo.webp" type="image/webp" />
     <link rel="preload" as="image" href="/images/hero-banana-leaf.webp" type="image/webp" />
 
     <!-- Open Graph / WhatsApp / Facebook -->
@@ -19,13 +19,13 @@
     <meta property="og:url" content="https://anil-ardra-wedding.vercel.app/" />
     <meta property="og:title" content="Anil Babu &amp; Ardra Meletath | Wedding Invitation" />
     <meta property="og:description" content="Together with their families, Anil Babu &amp; Ardra Meletath invite you to celebrate their wedding on Sunday, 20th December 2026. Guruvayur &amp; Thrissur, Kerala." />
-    <meta property="og:image" content="/images/couple-photo.jpg" />
+    <meta property="og:image" content="/images/hero-couple-photo.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Anil Babu &amp; Ardra Meletath | Wedding Invitation" />
     <meta property="twitter:description" content="Wedding invitation of Anil Babu with Ardra Meletath. Sunday, 20th December 2026. Guruvayur &amp; Thrissur, Kerala." />
-    <meta property="twitter:image" content="/images/couple-photo.jpg" />
+    <meta property="twitter:image" content="/images/hero-couple-photo.jpg" />
 
     <!-- Favicon: Sacred Kerala Nilavilakku Temple Lamp (No logo/monogram) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -84,8 +84,7 @@
           <div class="loader-halo-pulse" aria-hidden="true"></div>
         </div>
 
-        <!-- Sacred Sanskrit Benediction -->
-        <p class="loader-benediction">|| &nbsp;शुभं भवतु&nbsp; ||</p>
+
 
         <!-- Names: ANIL & ARDRA -->
         <h2 class="loader-names">
@@ -111,9 +110,10 @@
     <div class="ambient-glow glow-emerald" aria-hidden="true"></div>
     <div class="ambient-glow glow-coral" aria-hidden="true"></div>
 
-    <!-- Hidden YouTube Audio Player Container -->
+    <!-- Hidden YouTube Audio Player Container for Section 1 and Section 2 -->
     <div id="yt-player-container" class="yt-player-container" aria-hidden="true">
       <div id="yt-player"></div>
+      <div id="yt-player-invitation"></div>
     </div>
 
     <!-- Minimal Floating Navigation (NO LOGO - Only Couple Names) -->
@@ -239,9 +239,9 @@
                 <div class="photo-ambient-glow" aria-hidden="true"></div>
                 <div class="photo-arch-frame">
                   <picture>
-                    <source srcset="/images/couple-photo.webp" type="image/webp" />
+                    <source srcset="/images/hero-couple-photo.webp" type="image/webp" />
                     <img
-                      src="/images/couple-photo.jpg"
+                      src="/images/hero-couple-photo.jpg"
                       alt="Anil Babu and Ardra Meletath"
                       class="couple-hero-photo"
                       width="460"
@@ -386,26 +386,58 @@
                   <img src="/images/temple-lamp.svg" alt="Sacred Kerala Nilavilakku" class="crest-lamp" width="100" height="100" />
                 </div>
 
-                <!-- Auspicious Sanskrit Benediction -->
-                <p class="auspicious-sanskrit-tag">|| &nbsp;शुभं भवतु&nbsp; ||</p>
+                <!-- Dedicated Section 2 Music Player Controller (YouTube Track: UHjaQacm3YE) -->
+                <div class="invitation-music-widget reveal-fade-up">
+                  <button
+                    id="invitation-music-toggle"
+                    class="invitation-music-btn"
+                    type="button"
+                    aria-label="Play Section 2 invitation background music"
+                    aria-pressed="false"
+                  >
+                    <span class="inv-music-icon-wrap" aria-hidden="true">
+                      <svg class="inv-icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <polygon points="6 4 20 12 6 20 6 4"></polygon>
+                      </svg>
+                      <svg class="inv-icon-pause hidden" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <rect x="6" y="4" width="4" height="16"></rect>
+                        <rect x="14" y="4" width="4" height="16"></rect>
+                      </svg>
+                    </span>
+                    <span class="inv-music-meta">
+                      <span class="inv-music-caption">Section 2 Melody</span>
+                      <span class="inv-music-status" id="inv-music-status">Play Invitation Music</span>
+                    </span>
+                    <span class="inv-music-wave" aria-hidden="true">
+                      <span class="inv-bar"></span>
+                      <span class="inv-bar"></span>
+                      <span class="inv-bar"></span>
+                      <span class="inv-bar"></span>
+                    </span>
+                  </button>
+                </div>
 
-                <!-- Official Couple Wedding Portrait Highlight (Second Placement) -->
-                <div class="invitation-couple-portrait-box reveal-scale">
-                  <div class="invitation-portrait-frame">
-                    <picture>
-                      <source srcset="/images/couple-photo.webp" type="image/webp" />
-                      <img
-                        src="/images/couple-photo.jpg"
-                        alt="Anil Babu &amp; Ardra Meletath"
-                        class="invitation-portrait-img"
-                        width="300"
-                        height="380"
-                        loading="lazy"
-                      />
-                    </picture>
-                    <div class="portrait-caption">
-                      <span class="portrait-lamp-dot" aria-hidden="true"></span>
-                      <span class="portrait-caption-names">Anil Babu &amp; Ardra Meletath</span>
+                <!-- Official Couple Portrait Highlight (Second Section: Editorial Wedding Album Style) -->
+                <div class="invitation-couple-album-box reveal-scale">
+                  <div class="invitation-album-frame">
+                    <div class="album-matting">
+                      <picture>
+                        <source srcset="/images/couple-photo.webp" type="image/webp" />
+                        <img
+                          src="/images/couple-photo.jpg"
+                          alt="Anil Babu and Ardra Meletath"
+                          class="invitation-album-img"
+                          width="360"
+                          height="270"
+                          loading="lazy"
+                        />
+                      </picture>
+                      <div class="album-inner-trim" aria-hidden="true"></div>
+                    </div>
+                    <div class="album-caption-plate">
+                      <span class="album-flourish-star" aria-hidden="true">✦</span>
+                      <span class="album-caption-text">Wedding Album • Sacred Serenity</span>
+                      <span class="album-flourish-star" aria-hidden="true">✦</span>
                     </div>
                   </div>
                 </div>

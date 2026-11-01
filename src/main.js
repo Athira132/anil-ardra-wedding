@@ -40,7 +40,7 @@ function initInvitationLoader() {
 
   // Preload & check critical above-the-fold couple photograph
   const criticalImg = new Image();
-  criticalImg.src = '/images/couple-photo.webp';
+  criticalImg.src = '/images/hero-couple-photo.webp';
 
   const imgPromise = new Promise(resolve => {
     if (criticalImg.complete) {
@@ -300,61 +300,152 @@ function initNavigation() {
 }
 
 /* --------------------------------------------------------------------------
-   6. YOUTUBE WEDDING AUDIO PLAYER ENGINE
-   Source: https://youtu.be/vPY_oohGR34 (Sayee Rakshith - Violin)
-   Autoplay with browser compliance, muted fallback, and 1-tap unmute
+   6. DUAL YOUTUBE WEDDING AUDIO PLAYER SYSTEM
+   - Section 1 (Hero): https://youtu.be/vPY_oohGR34 (Sayee Rakshith - Violin)
+   - Section 2 (Sacred Invitation): https://youtube.com/shorts/UHjaQacm3YE (Video ID: UHjaQacm3YE)
+   - Mutually exclusive playback (never play simultaneously)
+   - Discreet, accessible controls for each section
+   - Browser-compliant autoplay handling & scroll-aware switching
    -------------------------------------------------------------------------- */
 function initYouTubeAudio() {
-  const YOUTUBE_VIDEO_ID = 'vPY_oohGR34';
-  const musicToggle = document.getElementById('music-toggle');
-  const musicLabel = document.getElementById('music-label');
-  const iconSoundOff = musicToggle?.querySelector('.icon-sound-off');
-  const iconSoundOn = musicToggle?.querySelector('.icon-sound-on');
+  const TRACK_1_ID = 'vPY_oohGR34';
+  const TRACK_2_ID = 'UHjaQacm3YE';
 
-  let ytPlayer = null;
-  let isReady = false;
+  // Section 1 (Navbar / Hero) Controls
+  const musicToggle1 = document.getElementById('music-toggle');
+  const musicLabel1 = document.getElementById('music-label');
+  const iconSoundOff1 = musicToggle1?.querySelector('.icon-sound-off');
+  const iconSoundOn1 = musicToggle1?.querySelector('.icon-sound-on');
 
-  function updateUIState(playing, loading = false, isMutedOnly = false) {
-    if (!musicToggle) return;
+  // Section 2 (Sacred Invitation) Controls
+  const musicToggle2 = document.getElementById('invitation-music-toggle');
+  const musicLabel2 = document.getElementById('inv-music-status');
+  const iconPlay2 = musicToggle2?.querySelector('.inv-icon-play');
+  const iconPause2 = musicToggle2?.querySelector('.inv-icon-pause');
+
+  let player1 = null;
+  let player2 = null;
+  let player1Ready = false;
+  let player2Ready = false;
+  let userMutedAll = false;
+  let hasUserInteracted = false;
+
+  // Track 1 UI State
+  function updateUI1(playing, loading = false, isMutedOnly = false) {
+    if (!musicToggle1) return;
 
     if (loading) {
-      if (musicLabel) musicLabel.textContent = 'Loading...';
+      if (musicLabel1) musicLabel1.textContent = 'Loading...';
       return;
     }
 
     if (playing) {
-      musicToggle.classList.add('playing');
-      musicToggle.setAttribute('aria-pressed', 'true');
-      musicToggle.setAttribute('aria-label', 'Pause wedding music');
-      if (musicLabel) musicLabel.textContent = 'Pause';
-      iconSoundOff?.classList.add('hidden');
-      iconSoundOn?.classList.remove('hidden');
+      musicToggle1.classList.add('playing');
+      musicToggle1.setAttribute('aria-pressed', 'true');
+      musicToggle1.setAttribute('aria-label', 'Pause opening wedding music');
+      if (musicLabel1) musicLabel1.textContent = 'Pause';
+      iconSoundOff1?.classList.add('hidden');
+      iconSoundOn1?.classList.remove('hidden');
     } else if (isMutedOnly) {
-      musicToggle.classList.remove('playing');
-      musicToggle.setAttribute('aria-pressed', 'false');
-      musicToggle.setAttribute('aria-label', 'Tap to unmute wedding music');
-      if (musicLabel) musicLabel.textContent = 'Unmute';
-      iconSoundOff?.classList.remove('hidden');
-      iconSoundOn?.classList.add('hidden');
+      musicToggle1.classList.remove('playing');
+      musicToggle1.setAttribute('aria-pressed', 'false');
+      musicToggle1.setAttribute('aria-label', 'Tap to unmute opening music');
+      if (musicLabel1) musicLabel1.textContent = 'Unmute';
+      iconSoundOff1?.classList.remove('hidden');
+      iconSoundOn1?.classList.add('hidden');
     } else {
-      musicToggle.classList.remove('playing');
-      musicToggle.setAttribute('aria-pressed', 'false');
-      musicToggle.setAttribute('aria-label', 'Play wedding music');
-      if (musicLabel) musicLabel.textContent = 'Play Music';
-      iconSoundOff?.classList.remove('hidden');
-      iconSoundOn?.classList.add('hidden');
+      musicToggle1.classList.remove('playing');
+      musicToggle1.setAttribute('aria-pressed', 'false');
+      musicToggle1.setAttribute('aria-label', 'Play opening wedding music');
+      if (musicLabel1) musicLabel1.textContent = 'Play Music';
+      iconSoundOff1?.classList.remove('hidden');
+      iconSoundOn1?.classList.add('hidden');
     }
   }
 
-  function createPlayer() {
-    ytPlayer = new window.YT.Player('yt-player', {
+  // Track 2 UI State
+  function updateUI2(playing, loading = false, isMutedOnly = false) {
+    if (!musicToggle2) return;
+
+    if (loading) {
+      if (musicLabel2) musicLabel2.textContent = 'Loading...';
+      return;
+    }
+
+    if (playing) {
+      musicToggle2.classList.add('playing');
+      musicToggle2.setAttribute('aria-pressed', 'true');
+      musicToggle2.setAttribute('aria-label', 'Pause invitation melody');
+      if (musicLabel2) musicLabel2.textContent = 'Pause Music';
+      iconPlay2?.classList.add('hidden');
+      iconPause2?.classList.remove('hidden');
+    } else if (isMutedOnly) {
+      musicToggle2.classList.remove('playing');
+      musicToggle2.setAttribute('aria-pressed', 'false');
+      musicToggle2.setAttribute('aria-label', 'Tap to unmute invitation melody');
+      if (musicLabel2) musicLabel2.textContent = 'Unmute';
+      iconPlay2?.classList.remove('hidden');
+      iconPause2?.classList.add('hidden');
+    } else {
+      musicToggle2.classList.remove('playing');
+      musicToggle2.setAttribute('aria-pressed', 'false');
+      musicToggle2.setAttribute('aria-label', 'Play invitation melody');
+      if (musicLabel2) musicLabel2.textContent = 'Play Music';
+      iconPlay2?.classList.remove('hidden');
+      iconPause2?.classList.add('hidden');
+    }
+  }
+
+  function pausePlayer1() {
+    if (player1 && player1.pauseVideo) {
+      try { player1.pauseVideo(); } catch (e) {}
+    }
+    updateUI1(false);
+  }
+
+  function pausePlayer2() {
+    if (player2 && player2.pauseVideo) {
+      try { player2.pauseVideo(); } catch (e) {}
+    }
+    updateUI2(false);
+  }
+
+  function playPlayer1() {
+    pausePlayer2();
+    if (!player1 || !player1Ready) return;
+    try {
+      if (player1.unMute) player1.unMute();
+      if (player1.setVolume) player1.setVolume(100);
+      player1.playVideo();
+      updateUI1(true);
+    } catch (e) {
+      console.warn('Track 1 play error:', e);
+    }
+  }
+
+  function playPlayer2() {
+    pausePlayer1();
+    if (!player2 || !player2Ready) return;
+    try {
+      if (player2.unMute) player2.unMute();
+      if (player2.setVolume) player2.setVolume(100);
+      player2.playVideo();
+      updateUI2(true);
+    } catch (e) {
+      console.warn('Track 2 play error:', e);
+    }
+  }
+
+  function createPlayers() {
+    // 1. Hero Player
+    player1 = new window.YT.Player('yt-player', {
       height: '100',
       width: '100',
-      videoId: YOUTUBE_VIDEO_ID,
+      videoId: TRACK_1_ID,
       playerVars: {
         autoplay: 1,
         loop: 1,
-        playlist: YOUTUBE_VIDEO_ID,
+        playlist: TRACK_1_ID,
         controls: 0,
         disablekb: 1,
         fs: 0,
@@ -364,57 +455,101 @@ function initYouTubeAudio() {
       },
       events: {
         onReady: (event) => {
-          isReady = true;
-          // Attempt browser-compliant autoplay
+          player1Ready = true;
           try {
             event.target.playVideo();
           } catch (e) {
-            console.log('Autoplay request initiated', e);
+            console.log('Autoplay track 1 request initiated', e);
           }
 
-          // Evaluate autoplay status after brief buffer period
           setTimeout(() => {
-            if (!ytPlayer || !ytPlayer.getPlayerState) return;
-            const state = ytPlayer.getPlayerState();
-            const isMuted = ytPlayer.isMuted ? ytPlayer.isMuted() : false;
+            if (!player1 || !player1.getPlayerState) return;
+            const state = player1.getPlayerState();
+            const isMuted = player1.isMuted ? player1.isMuted() : false;
 
             if (state === window.YT.PlayerState.PLAYING && !isMuted) {
-              // Direct audible autoplay succeeded
-              updateUIState(true);
+              updateUI1(true);
             } else {
-              // Audible autoplay restricted by browser policy: start muted as fallback
               try {
-                ytPlayer.mute();
-                ytPlayer.playVideo();
-                updateUIState(false, false, true);
+                player1.mute();
+                player1.playVideo();
+                updateUI1(false, false, true);
               } catch (err) {
-                console.log('Muted fallback notice:', err);
-                updateUIState(false);
+                updateUI1(false);
               }
             }
           }, 800);
         },
         onStateChange: (event) => {
-          if (!ytPlayer) return;
-          const isMuted = ytPlayer.isMuted ? ytPlayer.isMuted() : false;
+          if (!player1) return;
+          const isMuted = player1.isMuted ? player1.isMuted() : false;
 
           if (event.data === window.YT.PlayerState.PLAYING) {
             if (isMuted) {
-              updateUIState(false, false, true);
+              updateUI1(false, false, true);
             } else {
-              updateUIState(true);
+              // Ensure Player 2 is paused
+              pausePlayer2();
+              updateUI1(true);
             }
           } else if (event.data === window.YT.PlayerState.PAUSED) {
-            updateUIState(false);
+            updateUI1(false);
           } else if (event.data === window.YT.PlayerState.ENDED) {
-            ytPlayer.playVideo();
+            player1.playVideo();
           } else if (event.data === window.YT.PlayerState.BUFFERING) {
-            updateUIState(false, true);
+            updateUI1(false, true);
           }
         },
         onError: (err) => {
-          console.warn('YouTube Player note:', err);
-          updateUIState(false);
+          console.warn('Track 1 player notice:', err);
+          updateUI1(false);
+        }
+      }
+    });
+
+    // 2. Section 2 Invitation Player
+    player2 = new window.YT.Player('yt-player-invitation', {
+      height: '100',
+      width: '100',
+      videoId: TRACK_2_ID,
+      playerVars: {
+        autoplay: 0,
+        loop: 1,
+        playlist: TRACK_2_ID,
+        controls: 0,
+        disablekb: 1,
+        fs: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        rel: 0
+      },
+      events: {
+        onReady: (event) => {
+          player2Ready = true;
+        },
+        onStateChange: (event) => {
+          if (!player2) return;
+          const isMuted = player2.isMuted ? player2.isMuted() : false;
+
+          if (event.data === window.YT.PlayerState.PLAYING) {
+            if (isMuted) {
+              updateUI2(false, false, true);
+            } else {
+              // Ensure Player 1 is paused
+              pausePlayer1();
+              updateUI2(true);
+            }
+          } else if (event.data === window.YT.PlayerState.PAUSED) {
+            updateUI2(false);
+          } else if (event.data === window.YT.PlayerState.ENDED) {
+            player2.playVideo();
+          } else if (event.data === window.YT.PlayerState.BUFFERING) {
+            updateUI2(false, true);
+          }
+        },
+        onError: (err) => {
+          console.warn('Track 2 player notice:', err);
+          updateUI2(false);
         }
       }
     });
@@ -428,48 +563,118 @@ function initYouTubeAudio() {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     window.onYouTubeIframeAPIReady = () => {
-      createPlayer();
+      createPlayers();
     };
   } else {
-    createPlayer();
+    createPlayers();
   }
 
-  // Unobtrusive Music Toggle Button
-  musicToggle?.addEventListener('click', (e) => {
+  // Toggle for Section 1 (Hero)
+  musicToggle1?.addEventListener('click', (e) => {
     e.stopPropagation();
-    if (!isReady || !ytPlayer || !ytPlayer.getPlayerState) {
-      showToast('Connecting wedding music...', '🎵');
+    hasUserInteracted = true;
+
+    if (!player1Ready || !player1 || !player1.getPlayerState) {
+      showToast('Connecting Section 1 music...', '🎵');
       return;
     }
 
-    const state = ytPlayer.getPlayerState();
-    const isMuted = ytPlayer.isMuted ? ytPlayer.isMuted() : false;
+    const state = player1.getPlayerState();
+    const isMuted = player1.isMuted ? player1.isMuted() : false;
 
     if (state === window.YT.PlayerState.PLAYING && !isMuted) {
-      ytPlayer.pauseVideo();
-      updateUIState(false);
-      showToast('Music paused', '⏸');
+      pausePlayer1();
+      userMutedAll = true;
+      showToast('Opening music paused', '⏸');
     } else {
-      // Unmute and play
-      if (ytPlayer.unMute) ytPlayer.unMute();
-      if (ytPlayer.setVolume) ytPlayer.setVolume(100);
-      ytPlayer.playVideo();
-      updateUIState(true);
-      showToast('Playing wedding music ✨', '🎵');
+      userMutedAll = false;
+      playPlayer1();
+      showToast('Playing Opening melody ✨', '🎵');
     }
   });
 
-  // Global first user interaction: seamlessly unmute if currently muted
-  const unmuteOnFirstGesture = () => {
-    if (isReady && ytPlayer) {
-      const isMuted = ytPlayer.isMuted ? ytPlayer.isMuted() : false;
-      const state = ytPlayer.getPlayerState ? ytPlayer.getPlayerState() : null;
+  // Toggle for Section 2 (Sacred Invitation)
+  musicToggle2?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hasUserInteracted = true;
 
-      if (isMuted || state !== window.YT.PlayerState.PLAYING) {
-        if (ytPlayer.unMute) ytPlayer.unMute();
-        if (ytPlayer.setVolume) ytPlayer.setVolume(100);
-        ytPlayer.playVideo();
-        updateUIState(true);
+    if (!player2Ready || !player2 || !player2.getPlayerState) {
+      showToast('Connecting Section 2 music...', '🎵');
+      return;
+    }
+
+    const state = player2.getPlayerState();
+    const isMuted = player2.isMuted ? player2.isMuted() : false;
+
+    if (state === window.YT.PlayerState.PLAYING && !isMuted) {
+      pausePlayer2();
+      userMutedAll = true;
+      showToast('Invitation music paused', '⏸');
+    } else {
+      userMutedAll = false;
+      playPlayer2();
+      showToast('Playing Invitation melody ✨', '🎵');
+    }
+  });
+
+  // Section-Aware Automatic Transition (mutually exclusive)
+  if ('IntersectionObserver' in window) {
+    const invSection = document.getElementById('invitation');
+    const heroSection = document.getElementById('hero');
+
+    if (invSection) {
+      const invObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !userMutedAll) {
+            // When visitor enters Section 2, pause track 1 and play track 2
+            if (player2Ready && player2) {
+              const p1State = player1?.getPlayerState ? player1.getPlayerState() : -1;
+              const p2State = player2.getPlayerState ? player2.getPlayerState() : -1;
+
+              if (p1State === window.YT.PlayerState.PLAYING || (hasUserInteracted && p2State !== window.YT.PlayerState.PLAYING)) {
+                playPlayer2();
+              }
+            }
+          }
+        });
+      }, { threshold: 0.35 });
+
+      invObserver.observe(invSection);
+    }
+
+    if (heroSection) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !userMutedAll) {
+            // When visitor returns to Hero, pause track 2 and resume track 1
+            if (player1Ready && player1) {
+              const p2State = player2?.getPlayerState ? player2.getPlayerState() : -1;
+              if (p2State === window.YT.PlayerState.PLAYING) {
+                playPlayer1();
+              }
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      heroObserver.observe(heroSection);
+    }
+  }
+
+  // Global first user interaction: seamlessly unmute whichever track is currently active
+  const unmuteOnFirstGesture = () => {
+    hasUserInteracted = true;
+    if (userMutedAll) return;
+
+    if (player1Ready && player1) {
+      const isMuted1 = player1.isMuted ? player1.isMuted() : false;
+      const state1 = player1.getPlayerState ? player1.getPlayerState() : null;
+
+      if (isMuted1 || state1 !== window.YT.PlayerState.PLAYING) {
+        if (player1.unMute) player1.unMute();
+        if (player1.setVolume) player1.setVolume(100);
+        player1.playVideo();
+        updateUI1(true);
       }
     }
     document.removeEventListener('click', unmuteOnFirstGesture);

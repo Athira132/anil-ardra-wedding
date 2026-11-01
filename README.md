@@ -51,18 +51,19 @@ RSVP: +91 6238 433 871
 
 ## Opening Loading Screen & Performance
 - **Sacred Ivory Invitation Loader**:
-  - Full-screen loading screen on warm ivory background (`#FAF6EF`) with subtle emerald botanical details, sacred Kerala Nilavilakku lamp with glowing flame, gold progress bar, Sanskrit benediction (`|| शुभं भवतु ||`), and "ANIL & ARDRA".
+  - Full-screen loading screen on warm ivory background (`#FAF6EF`) with subtle emerald botanical details, sacred Kerala Nilavilakku lamp with glowing flame, gold progress bar, and "ANIL & ARDRA".
   - Preloads critical above-the-fold couple photograph and fonts.
   - Strict 1.8s maximum safety timeout prevents visitors from ever being trapped on slow networks.
   - Next-gen WebP imagery and compressed JPEGs reduce total image transfer by ~80% (over 1.7 MB saved).
 
-## Background Music
-- **Source**: YouTube (`vPY_oohGR34` - Sayee Rakshith Violin)
-- **Browser-Compliant Autoplay**:
-  - Requests autoplay on load without asking the visitor to click Play first.
-  - If audible autoplay is restricted by browser policy (common on mobile), automatically falls back to buffered muted playback with an unobtrusive navbar control.
+## Background Music (Dual-Track System)
+- **Section 1 (Hero)**: YouTube (`vPY_oohGR34` - Sayee Rakshith Violin)
+- **Section 2 (Invitation)**: YouTube (`UHjaQacm3YE` - Sacred Invitation Melody)
+- **Browser-Compliant Autoplay & Section-Aware Switching**:
+  - Mutually exclusive playback: the two tracks never play simultaneously.
+  - Discreet, accessible controls for each section.
+  - Automatically transitions between Section 1 and Section 2 tracks as the visitor explores.
   - Seamless 1-tap unmuting on any first touch or tap without blocking prompts or confirmation modals.
-  - Persistent accessible toggle with live equalizer wave indicating confirmed audio playback.
 
 ## Blessings & RSVP (No Backend)
 - WhatsApp blessing button opens conversation with `+91 6238 433 871` pre-filled with:
