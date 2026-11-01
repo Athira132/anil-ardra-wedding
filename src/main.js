@@ -300,9 +300,9 @@ function initNavigation() {
 }
 
 /* --------------------------------------------------------------------------
-   6. DUAL YOUTUBE WEDDING AUDIO PLAYER SYSTEM
-   - Section 1 (Hero): https://youtu.be/vPY_oohGR34 (Sayee Rakshith - Violin)
-   - Section 2 (Sacred Invitation): https://youtube.com/shorts/UHjaQacm3YE (Video ID: UHjaQacm3YE)
+   6. DUAL WEDDING AUDIO PLAYER SYSTEM
+   - Section 1 (Hero): YouTube vPY_oohGR34 (Sayee Rakshith - Violin)
+   - Section 2 (Invitation): YouTube Short UHjaQacm3YE (Video ID: UHjaQacm3YE) with seamless direct stream fallback
    - Mutually exclusive playback (never play simultaneously)
    - Discreet, accessible controls for each section
    - Browser-compliant autoplay handling & scroll-aware switching
@@ -317,7 +317,7 @@ function initYouTubeAudio() {
   const iconSoundOff1 = musicToggle1?.querySelector('.icon-sound-off');
   const iconSoundOn1 = musicToggle1?.querySelector('.icon-sound-on');
 
-  // Section 2 (Sacred Invitation) Controls
+  // Section 2 (Invitation) Controls
   const musicToggle2 = document.getElementById('invitation-music-toggle');
   const musicLabel2 = document.getElementById('inv-music-status');
   const iconPlay2 = musicToggle2?.querySelector('.inv-icon-play');
@@ -327,8 +327,23 @@ function initYouTubeAudio() {
   let player2 = null;
   let player1Ready = false;
   let player2Ready = false;
+  let player2UseAudio = false;
+  let isSection2Active = false;
   let userMutedAll = false;
   let hasUserInteracted = false;
+
+  // High-fidelity native audio fallback for Section 2 (exact track from YouTube Short UHjaQacm3YE)
+  const audio2 = new Audio();
+  audio2.preload = 'auto';
+  audio2.loop = true;
+  audio2.volume = 1.0;
+
+  // Use m4a (AAC) or webm (Opus) depending on browser support
+  if (audio2.canPlayType('audio/mp4; codecs="mp4a.40.2"')) {
+    audio2.src = '/audio/section2-kettimelam.m4a';
+  } else {
+    audio2.src = '/audio/section2-kettimelam.webm';
+  }
 
   // Track 1 UI State
   function updateUI1(playing, loading = false, isMutedOnly = false) {
@@ -363,7 +378,7 @@ function initYouTubeAudio() {
     }
   }
 
-  // Track 2 UI State
+  // Track 2 UI State (Only set to playing when playback has ACTUALLY started)
   function updateUI2(playing, loading = false, isMutedOnly = false) {
     if (!musicToggle2) return;
 
@@ -396,6 +411,16 @@ function initYouTubeAudio() {
     }
   }
 
+  function isSection1Playing() {
+    return player1 && player1.getPlayerState && player1.getPlayerState() === window.YT?.PlayerState?.PLAYING && (player1.isMuted ? !player1.isMuted() : true);
+  }
+
+  function isSection2Playing() {
+    const audioPlaying = audio2 && !audio2.paused && audio2.currentTime > 0;
+    const ytPlaying = player2 && player2.getPlayerState && player2.getPlayerState() === window.YT?.PlayerState?.PLAYING && (player2.isMuted ? !player2.isMuted() : true);
+    return Boolean(audioPlaying || ytPlaying);
+  }
+
   function pausePlayer1() {
     if (player1 && player1.pauseVideo) {
       try { player1.pauseVideo(); } catch (e) {}
@@ -404,14 +429,20 @@ function initYouTubeAudio() {
   }
 
   function pausePlayer2() {
+    isSection2Active = false;
     if (player2 && player2.pauseVideo) {
       try { player2.pauseVideo(); } catch (e) {}
+    }
+    if (audio2 && !audio2.paused) {
+      try { audio2.pause(); } catch (e) {}
     }
     updateUI2(false);
   }
 
   function playPlayer1() {
+    // Strictly pause Section 2
     pausePlayer2();
+    isSection2Active = false;
     if (!player1 || !player1Ready) return;
     try {
       if (player1.unMute) player1.unMute();
@@ -419,25 +450,83 @@ function initYouTubeAudio() {
       player1.playVideo();
       updateUI1(true);
     } catch (e) {
-      console.warn('Track 1 play error:', e);
+      console.warn('Track 1 play notice:', e);
+    }
+  }
+
+  function playAudioTrack2() {
+    // Strictly pause Section 1
+    pausePlayer1();
+    if (!audio2) return;
+    try {
+      audio2.volume = 1.0;
+      audio2.muted = false;
+      const playPromise = audio2.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            pausePlayer1();
+            updateUI2(true);
+          })
+          .catch((err) => {
+            console.log('Track 2 audio autoplay restricted by browser; user can tap to play:', err);
+            updateUI2(false);
+          });
+      }
+    } catch (e) {
+      console.warn('Track 2 audio playback error:', e);
+      updateUI2(false);
     }
   }
 
   function playPlayer2() {
+    // Strictly pause Section 1
     pausePlayer1();
-    if (!player2 || !player2Ready) return;
+    isSection2Active = true;
+    userMutedAll = false;
+
+    // If YouTube embed failed (e.g., error 150) or is not ready, use native audio directly
+    if (player2UseAudio || !player2Ready || !player2) {
+      playAudioTrack2();
+      return;
+    }
+
     try {
       if (player2.unMute) player2.unMute();
       if (player2.setVolume) player2.setVolume(100);
       player2.playVideo();
-      updateUI2(true);
+      // Notice: Do NOT call updateUI2(true) prematurely here.
+      // Wait for onStateChange to confirm PLAYING!
     } catch (e) {
-      console.warn('Track 2 play error:', e);
+      console.warn('Track 2 YouTube error, playing direct audio stream:', e);
+      player2UseAudio = true;
+      playAudioTrack2();
     }
   }
 
+  // Audio element event listeners
+  audio2.addEventListener('playing', () => {
+    pausePlayer1();
+    updateUI2(true);
+  });
+
+  audio2.addEventListener('pause', () => {
+    if (!isSection2Playing()) {
+      updateUI2(false);
+    }
+  });
+
+  audio2.addEventListener('ended', () => {
+    updateUI2(false);
+  });
+
+  audio2.addEventListener('error', (e) => {
+    console.warn('Track 2 native audio element error:', e);
+    updateUI2(false);
+  });
+
   function createPlayers() {
-    // 1. Hero Player
+    // 1. Hero Player (Track 1)
     player1 = new window.YT.Player('yt-player', {
       height: '100',
       width: '100',
@@ -485,19 +574,25 @@ function initYouTubeAudio() {
           const isMuted = player1.isMuted ? player1.isMuted() : false;
 
           if (event.data === window.YT.PlayerState.PLAYING) {
+            if (isSection2Active) {
+              // Section 2 is actively playing; keep Player 1 paused
+              try { player1.pauseVideo(); } catch (e) {}
+              updateUI1(false);
+              return;
+            }
             if (isMuted) {
               updateUI1(false, false, true);
             } else {
-              // Ensure Player 2 is paused
+              // Ensure Player 2 and audio 2 are paused
               pausePlayer2();
               updateUI1(true);
             }
           } else if (event.data === window.YT.PlayerState.PAUSED) {
             updateUI1(false);
           } else if (event.data === window.YT.PlayerState.ENDED) {
-            player1.playVideo();
+            if (!isSection2Active) player1.playVideo();
           } else if (event.data === window.YT.PlayerState.BUFFERING) {
-            updateUI1(false, true);
+            if (!isSection2Active) updateUI1(false, true);
           }
         },
         onError: (err) => {
@@ -507,7 +602,7 @@ function initYouTubeAudio() {
       }
     });
 
-    // 2. Section 2 Invitation Player
+    // 2. Section 2 Invitation Player (Track 2: UHjaQacm3YE)
     player2 = new window.YT.Player('yt-player-invitation', {
       height: '100',
       width: '100',
@@ -521,10 +616,11 @@ function initYouTubeAudio() {
         fs: 0,
         modestbranding: 1,
         playsinline: 1,
-        rel: 0
+        rel: 0,
+        origin: window.location.origin
       },
       events: {
-        onReady: (event) => {
+        onReady: () => {
           player2Ready = true;
         },
         onStateChange: (event) => {
@@ -540,7 +636,9 @@ function initYouTubeAudio() {
               updateUI2(true);
             }
           } else if (event.data === window.YT.PlayerState.PAUSED) {
-            updateUI2(false);
+            if (!isSection2Playing()) {
+              updateUI2(false);
+            }
           } else if (event.data === window.YT.PlayerState.ENDED) {
             player2.playVideo();
           } else if (event.data === window.YT.PlayerState.BUFFERING) {
@@ -548,8 +646,14 @@ function initYouTubeAudio() {
           }
         },
         onError: (err) => {
-          console.warn('Track 2 player notice:', err);
-          updateUI2(false);
+          // Error 150 / 101 means YouTube disallows embedding this video on other domains
+          console.warn('Track 2 YouTube notice (using direct audio stream):', err);
+          player2UseAudio = true;
+          if (isSection2Active && !userMutedAll) {
+            playAudioTrack2();
+          } else {
+            updateUI2(false);
+          }
         }
       }
     });
@@ -579,10 +683,7 @@ function initYouTubeAudio() {
       return;
     }
 
-    const state = player1.getPlayerState();
-    const isMuted = player1.isMuted ? player1.isMuted() : false;
-
-    if (state === window.YT.PlayerState.PLAYING && !isMuted) {
+    if (isSection1Playing()) {
       pausePlayer1();
       userMutedAll = true;
       showToast('Opening music paused', '⏸');
@@ -593,20 +694,12 @@ function initYouTubeAudio() {
     }
   });
 
-  // Toggle for Section 2 (Sacred Invitation)
+  // Toggle for Section 2 (Invitation)
   musicToggle2?.addEventListener('click', (e) => {
     e.stopPropagation();
     hasUserInteracted = true;
 
-    if (!player2Ready || !player2 || !player2.getPlayerState) {
-      showToast('Connecting Section 2 music...', '🎵');
-      return;
-    }
-
-    const state = player2.getPlayerState();
-    const isMuted = player2.isMuted ? player2.isMuted() : false;
-
-    if (state === window.YT.PlayerState.PLAYING && !isMuted) {
+    if (isSection2Playing()) {
       pausePlayer2();
       userMutedAll = true;
       showToast('Invitation music paused', '⏸');
@@ -626,14 +719,9 @@ function initYouTubeAudio() {
       const invObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting && !userMutedAll) {
-            // When visitor enters Section 2, pause track 1 and play track 2
-            if (player2Ready && player2) {
-              const p1State = player1?.getPlayerState ? player1.getPlayerState() : -1;
-              const p2State = player2.getPlayerState ? player2.getPlayerState() : -1;
-
-              if (p1State === window.YT.PlayerState.PLAYING || (hasUserInteracted && p2State !== window.YT.PlayerState.PLAYING)) {
-                playPlayer2();
-              }
+            // When visitor enters Section 2, switch from track 1 to track 2
+            if (isSection1Playing() || (hasUserInteracted && !isSection2Playing())) {
+              playPlayer2();
             }
           }
         });
@@ -646,27 +734,35 @@ function initYouTubeAudio() {
       const heroObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting && !userMutedAll) {
-            // When visitor returns to Hero, pause track 2 and resume track 1
-            if (player1Ready && player1) {
-              const p2State = player2?.getPlayerState ? player2.getPlayerState() : -1;
-              if (p2State === window.YT.PlayerState.PLAYING) {
-                playPlayer1();
-              }
+            // When visitor returns to Hero, switch from track 2 to track 1
+            if (isSection2Playing()) {
+              playPlayer1();
             }
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.35 });
 
       heroObserver.observe(heroSection);
     }
   }
 
   // Global first user interaction: seamlessly unmute whichever track is currently active
-  const unmuteOnFirstGesture = () => {
+  const unmuteOnFirstGesture = (e) => {
     hasUserInteracted = true;
-    if (userMutedAll) return;
+    // If the click originated from one of the explicit music controls, let the control handle it
+    if (e?.target?.closest && (e.target.closest('#music-toggle') || e.target.closest('#invitation-music-toggle'))) {
+      return;
+    }
+    if (userMutedAll || isSection2Active) return;
 
-    if (player1Ready && player1) {
+    // Check if user is currently viewing the invitation section
+    const invSection = document.getElementById('invitation');
+    const invRect = invSection?.getBoundingClientRect();
+    const isAtInvitation = invRect && invRect.top < window.innerHeight * 0.7 && invRect.bottom > 80;
+
+    if (isAtInvitation) {
+      playPlayer2();
+    } else if (player1Ready && player1) {
       const isMuted1 = player1.isMuted ? player1.isMuted() : false;
       const state1 = player1.getPlayerState ? player1.getPlayerState() : null;
 
@@ -677,8 +773,6 @@ function initYouTubeAudio() {
         updateUI1(true);
       }
     }
-    document.removeEventListener('click', unmuteOnFirstGesture);
-    document.removeEventListener('touchstart', unmuteOnFirstGesture);
   };
 
   document.addEventListener('click', unmuteOnFirstGesture, { once: true });
