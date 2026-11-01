@@ -139,9 +139,8 @@
             id="music-toggle"
             class="music-btn"
             type="button"
-            aria-label="Play wedding invitation music"
+            aria-label="Toggle music"
             aria-pressed="false"
-            title="Auspicious Wedding Music (Violin)"
           >
             <!-- Animated Equalizer Sound Wave Bars -->
             <span class="audio-equalizer" aria-hidden="true">
@@ -164,7 +163,6 @@
                 <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
               </svg>
             </span>
-            <span class="music-label" id="music-label">Music</span>
           </button>
 
           <!-- Mobile Hamburger Toggle -->
@@ -382,13 +380,13 @@
                   <img src="/images/temple-lamp.svg" alt="Sacred Kerala Nilavilakku" class="crest-lamp" width="100" height="100" />
                 </div>
 
-                <!-- Dedicated Section 2 Music Player Controller (YouTube Track: UHjaQacm3YE) -->
+                <!-- Audio Player Controller -->
                 <div class="invitation-music-widget reveal-fade-up">
                   <button
                     id="invitation-music-toggle"
                     class="invitation-music-btn"
                     type="button"
-                    aria-label="Play Section 2 invitation background music"
+                    aria-label="Toggle music"
                     aria-pressed="false"
                   >
                     <span class="inv-music-icon-wrap" aria-hidden="true">
@@ -399,10 +397,6 @@
                         <rect x="6" y="4" width="4" height="16"></rect>
                         <rect x="14" y="4" width="4" height="16"></rect>
                       </svg>
-                    </span>
-                    <span class="inv-music-meta">
-                      <span class="inv-music-caption">Section 2 Melody</span>
-                      <span class="inv-music-status" id="inv-music-status">Play Invitation Music</span>
                     </span>
                     <span class="inv-music-wave" aria-hidden="true">
                       <span class="inv-bar"></span>
@@ -949,7 +943,7 @@
       </section>
     </main>
 
-    <!-- Global Toast Notification for Copy & Music status -->
+    <!-- Global Toast Notification for Copy & Blessing status -->
     <div id="toast-notification" class="toast-notification hidden" role="status" aria-live="polite">
       <span class="toast-icon" id="toast-icon">✨</span>
       <span class="toast-message" id="toast-message">Blessing copied to clipboard!</span>

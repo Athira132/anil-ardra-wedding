@@ -313,13 +313,11 @@ function initYouTubeAudio() {
 
   // Section 1 (Navbar / Hero) Controls
   const musicToggle1 = document.getElementById('music-toggle');
-  const musicLabel1 = document.getElementById('music-label');
   const iconSoundOff1 = musicToggle1?.querySelector('.icon-sound-off');
   const iconSoundOn1 = musicToggle1?.querySelector('.icon-sound-on');
 
   // Section 2 (Invitation) Controls
   const musicToggle2 = document.getElementById('invitation-music-toggle');
-  const musicLabel2 = document.getElementById('inv-music-status');
   const iconPlay2 = musicToggle2?.querySelector('.inv-icon-play');
   const iconPause2 = musicToggle2?.querySelector('.inv-icon-pause');
 
@@ -350,29 +348,25 @@ function initYouTubeAudio() {
     if (!musicToggle1) return;
 
     if (loading) {
-      if (musicLabel1) musicLabel1.textContent = 'Loading...';
       return;
     }
 
     if (playing) {
       musicToggle1.classList.add('playing');
       musicToggle1.setAttribute('aria-pressed', 'true');
-      musicToggle1.setAttribute('aria-label', 'Pause opening wedding music');
-      if (musicLabel1) musicLabel1.textContent = 'Pause';
+      musicToggle1.setAttribute('aria-label', 'Pause music');
       iconSoundOff1?.classList.add('hidden');
       iconSoundOn1?.classList.remove('hidden');
     } else if (isMutedOnly) {
       musicToggle1.classList.remove('playing');
       musicToggle1.setAttribute('aria-pressed', 'false');
-      musicToggle1.setAttribute('aria-label', 'Tap to unmute opening music');
-      if (musicLabel1) musicLabel1.textContent = 'Unmute';
+      musicToggle1.setAttribute('aria-label', 'Unmute music');
       iconSoundOff1?.classList.remove('hidden');
       iconSoundOn1?.classList.add('hidden');
     } else {
       musicToggle1.classList.remove('playing');
       musicToggle1.setAttribute('aria-pressed', 'false');
-      musicToggle1.setAttribute('aria-label', 'Play opening wedding music');
-      if (musicLabel1) musicLabel1.textContent = 'Play Music';
+      musicToggle1.setAttribute('aria-label', 'Play music');
       iconSoundOff1?.classList.remove('hidden');
       iconSoundOn1?.classList.add('hidden');
     }
@@ -383,29 +377,25 @@ function initYouTubeAudio() {
     if (!musicToggle2) return;
 
     if (loading) {
-      if (musicLabel2) musicLabel2.textContent = 'Loading...';
       return;
     }
 
     if (playing) {
       musicToggle2.classList.add('playing');
       musicToggle2.setAttribute('aria-pressed', 'true');
-      musicToggle2.setAttribute('aria-label', 'Pause invitation melody');
-      if (musicLabel2) musicLabel2.textContent = 'Pause Music';
+      musicToggle2.setAttribute('aria-label', 'Pause music');
       iconPlay2?.classList.add('hidden');
       iconPause2?.classList.remove('hidden');
     } else if (isMutedOnly) {
       musicToggle2.classList.remove('playing');
       musicToggle2.setAttribute('aria-pressed', 'false');
-      musicToggle2.setAttribute('aria-label', 'Tap to unmute invitation melody');
-      if (musicLabel2) musicLabel2.textContent = 'Unmute';
+      musicToggle2.setAttribute('aria-label', 'Unmute music');
       iconPlay2?.classList.remove('hidden');
       iconPause2?.classList.add('hidden');
     } else {
       musicToggle2.classList.remove('playing');
       musicToggle2.setAttribute('aria-pressed', 'false');
-      musicToggle2.setAttribute('aria-label', 'Play invitation melody');
-      if (musicLabel2) musicLabel2.textContent = 'Play Music';
+      musicToggle2.setAttribute('aria-label', 'Play music');
       iconPlay2?.classList.remove('hidden');
       iconPause2?.classList.add('hidden');
     }
@@ -685,18 +675,15 @@ function initYouTubeAudio() {
     hasUserInteracted = true;
 
     if (!player1Ready || !player1 || !player1.getPlayerState) {
-      showToast('Connecting Section 1 music...', '🎵');
       return;
     }
 
     if (isSection1Playing()) {
       pausePlayer1();
       userMutedAll = true;
-      showToast('Opening music paused', '⏸');
     } else {
       userMutedAll = false;
       playPlayer1();
-      showToast('Playing Opening melody ✨', '🎵');
     }
   });
 
@@ -708,11 +695,9 @@ function initYouTubeAudio() {
     if (isSection2Playing()) {
       pausePlayer2();
       userMutedAll = true;
-      showToast('Invitation music paused', '⏸');
     } else {
       userMutedAll = false;
       playPlayer2();
-      showToast('Playing Invitation melody ✨', '🎵');
     }
   });
 
