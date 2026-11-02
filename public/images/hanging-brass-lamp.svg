@@ -55,126 +55,96 @@
         will-change: opacity, filter;
       }
 
-      .flame-1 { animation: flameBlink1 2.8s ease-in-out infinite; }
-      .flame-2 { animation: flameBlink2 2.3s ease-in-out infinite; }
-      .flame-center { animation: flameBlinkCenter 3.1s ease-in-out infinite; }
-      .flame-4 { animation: flameBlink4 2.5s ease-in-out infinite; }
-      .flame-5 { animation: flameBlink5 2.9s ease-in-out infinite; }
+      .flame-1 { animation: flameGlow1 2.5s ease-in-out infinite alternate; }
+      .flame-2 { animation: flameGlow2 3.1s ease-in-out infinite alternate 0.4s; }
+      .flame-center { animation: flameGlowCenter 2.8s ease-in-out infinite alternate 0.1s; }
+      .flame-4 { animation: flameGlow4 3.4s ease-in-out infinite alternate 0.6s; }
+      .flame-5 { animation: flameGlow5 2.7s ease-in-out infinite alternate 0.2s; }
 
-      .aura-1 { animation: auraBlink1 2.8s ease-in-out infinite; }
-      .aura-2 { animation: auraBlink2 2.3s ease-in-out infinite; }
-      .aura-center { animation: auraBlinkCenter 3.1s ease-in-out infinite; }
-      .aura-4 { animation: auraBlink4 2.5s ease-in-out infinite; }
-      .aura-5 { animation: auraBlink5 2.9s ease-in-out infinite; }
+      .aura-1 { animation: auraGlow1 2.5s ease-in-out infinite alternate; }
+      .aura-2 { animation: auraGlow2 3.1s ease-in-out infinite alternate 0.4s; }
+      .aura-center { animation: auraGlowCenter 2.8s ease-in-out infinite alternate 0.1s; }
+      .aura-4 { animation: auraGlow4 3.4s ease-in-out infinite alternate 0.6s; }
+      .aura-5 { animation: auraGlow5 2.7s ease-in-out infinite alternate 0.2s; }
 
-      @keyframes flameBlink1 {
-        0%, 100% {
+      @keyframes flameGlow1 {
+        0% {
+          opacity: 0.70;
+          filter: drop-shadow(0 0 3px rgba(255, 170, 30, 0.5));
+        }
+        100% {
+          opacity: 1.0;
+          filter: drop-shadow(0 0 8.5px rgba(255, 210, 50, 0.95)) drop-shadow(0 0 2.5px rgba(255, 245, 170, 0.8));
+        }
+      }
+
+      @keyframes flameGlow2 {
+        0% {
           opacity: 0.72;
-          filter: drop-shadow(0 0 3px rgba(255, 175, 30, 0.55));
+          filter: drop-shadow(0 0 3.5px rgba(255, 175, 35, 0.52));
         }
-        38% {
-          opacity: 0.98;
-          filter: drop-shadow(0 0 8px rgba(255, 205, 50, 0.9)) drop-shadow(0 0 2px rgba(255, 240, 160, 0.7));
-        }
-        68% {
-          opacity: 0.82;
-          filter: drop-shadow(0 0 5px rgba(255, 185, 35, 0.65));
-        }
-      }
-
-      @keyframes flameBlink2 {
-        0%, 100% {
-          opacity: 0.75;
-          filter: drop-shadow(0 0 3.5px rgba(255, 180, 35, 0.58));
-        }
-        46% {
+        100% {
           opacity: 1.0;
-          filter: drop-shadow(0 0 9px rgba(255, 215, 55, 0.95)) drop-shadow(0 0 2.5px rgba(255, 245, 170, 0.75));
-        }
-        78% {
-          opacity: 0.78;
-          filter: drop-shadow(0 0 4.5px rgba(255, 180, 30, 0.62));
+          filter: drop-shadow(0 0 9px rgba(255, 215, 55, 0.95)) drop-shadow(0 0 3px rgba(255, 245, 175, 0.82));
         }
       }
 
-      @keyframes flameBlinkCenter {
-        0%, 100% {
-          opacity: 0.76;
-          filter: drop-shadow(0 0 4px rgba(255, 180, 35, 0.6));
-        }
-        32% {
-          opacity: 0.88;
-          filter: drop-shadow(0 0 6px rgba(255, 195, 45, 0.75));
-        }
-        56% {
-          opacity: 1.0;
-          filter: drop-shadow(0 0 10px rgba(255, 220, 60, 0.95)) drop-shadow(0 0 3px rgba(255, 245, 180, 0.8));
-        }
-        82% {
-          opacity: 0.73;
-          filter: drop-shadow(0 0 3.5px rgba(255, 170, 25, 0.55));
-        }
-      }
-
-      @keyframes flameBlink4 {
-        0%, 100% {
+      @keyframes flameGlowCenter {
+        0% {
           opacity: 0.74;
-          filter: drop-shadow(0 0 3.5px rgba(255, 175, 30, 0.56));
+          filter: drop-shadow(0 0 4px rgba(255, 175, 35, 0.55));
         }
-        42% {
-          opacity: 0.97;
-          filter: drop-shadow(0 0 8.5px rgba(255, 210, 50, 0.92)) drop-shadow(0 0 2px rgba(255, 240, 160, 0.7));
-        }
-        70% {
-          opacity: 0.80;
-          filter: drop-shadow(0 0 5px rgba(255, 185, 35, 0.65));
+        100% {
+          opacity: 1.0;
+          filter: drop-shadow(0 0 10px rgba(255, 220, 60, 0.96)) drop-shadow(0 0 3.5px rgba(255, 245, 180, 0.85));
         }
       }
 
-      @keyframes flameBlink5 {
-        0%, 100% {
-          opacity: 0.73;
-          filter: drop-shadow(0 0 3px rgba(255, 175, 30, 0.55));
+      @keyframes flameGlow4 {
+        0% {
+          opacity: 0.71;
+          filter: drop-shadow(0 0 3px rgba(255, 170, 30, 0.5));
         }
-        52% {
-          opacity: 0.99;
-          filter: drop-shadow(0 0 8.5px rgba(255, 210, 55, 0.92)) drop-shadow(0 0 2.5px rgba(255, 245, 165, 0.75));
-        }
-        80% {
-          opacity: 0.81;
-          filter: drop-shadow(0 0 4.5px rgba(255, 180, 30, 0.6));
+        100% {
+          opacity: 0.98;
+          filter: drop-shadow(0 0 8.5px rgba(255, 210, 50, 0.92)) drop-shadow(0 0 2.5px rgba(255, 240, 165, 0.78));
         }
       }
 
-      @keyframes auraBlink1 {
-        0%, 100% { opacity: 0.62; }
-        38% { opacity: 0.96; }
-        68% { opacity: 0.76; }
+      @keyframes flameGlow5 {
+        0% {
+          opacity: 0.70;
+          filter: drop-shadow(0 0 3px rgba(255, 170, 30, 0.5));
+        }
+        100% {
+          opacity: 1.0;
+          filter: drop-shadow(0 0 8.5px rgba(255, 210, 55, 0.94)) drop-shadow(0 0 2.5px rgba(255, 245, 170, 0.8));
+        }
       }
 
-      @keyframes auraBlink2 {
-        0%, 100% { opacity: 0.65; }
-        46% { opacity: 0.98; }
-        78% { opacity: 0.72; }
+      @keyframes auraGlow1 {
+        0% { opacity: 0.55; }
+        100% { opacity: 0.95; }
       }
 
-      @keyframes auraBlinkCenter {
-        0%, 100% { opacity: 0.68; }
-        32% { opacity: 0.82; }
-        56% { opacity: 1.0; }
-        82% { opacity: 0.64; }
+      @keyframes auraGlow2 {
+        0% { opacity: 0.58; }
+        100% { opacity: 0.97; }
       }
 
-      @keyframes auraBlink4 {
-        0%, 100% { opacity: 0.64; }
-        42% { opacity: 0.95; }
-        70% { opacity: 0.74; }
+      @keyframes auraGlowCenter {
+        0% { opacity: 0.60; }
+        100% { opacity: 1.0; }
       }
 
-      @keyframes auraBlink5 {
-        0%, 100% { opacity: 0.63; }
-        52% { opacity: 0.97; }
-        80% { opacity: 0.75; }
+      @keyframes auraGlow4 {
+        0% { opacity: 0.56; }
+        100% { opacity: 0.95; }
+      }
+
+      @keyframes auraGlow5 {
+        0% { opacity: 0.55; }
+        100% { opacity: 0.96; }
       }
 
       @media (prefers-reduced-motion: reduce) {

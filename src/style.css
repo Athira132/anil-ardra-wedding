@@ -2523,28 +2523,48 @@ img {
     border-radius: var(--radius-md);
   }
 
-  /* Traditional Hanging Brass Lamps on Mobile: Left and Right edges only, scaled and non-overlapping */
+  /* Traditional Hanging Brass Lamps on Mobile: Left and Right edges only, fully visible & non-overlapping */
   .hanging-lamp-edge {
-    gap: 4px;
-    z-index: 4;
+    gap: 0;
+    z-index: 5;
   }
 
   .hanging-lamp-left {
-    left: -8px;
+    left: clamp(6px, 2.2vw, 14px);
   }
 
   .hanging-lamp-right {
-    right: -8px;
+    right: clamp(6px, 2.2vw, 14px);
   }
 
   .hanging-lamp-item {
-    transform: scale(0.55);
-    transform-origin: top center;
+    transform: none;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+  }
+
+  .hang-lamp-l1,
+  .hang-lamp-r1 {
+    width: clamp(44px, 12.8vw, 60px);
+    height: auto;
+  }
+
+  .hang-lamp-l1 .hang-lamp-img,
+  .hang-lamp-r1 .hang-lamp-img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .hang-lamp-l2,
   .hang-lamp-r2 {
     display: none; /* Keep a single, elegant hanging lamp on each side on mobile to keep center spacious */
+  }
+
+  .hanging-lamp-edge .lamp-ambient-glow {
+    width: clamp(38px, 11vw, 52px);
+    height: clamp(38px, 11vw, 52px);
+    bottom: 28%;
+    filter: blur(8px);
   }
 
   /* Couple photo proportioned on mobile */
@@ -2838,12 +2858,7 @@ img {
     max-width: 180px;
   }
 
-  .hanging-lamp-item {
-    transform: scale(0.45);
-  }
 
-  .hanging-lamp-left { left: -6px; }
-  .hanging-lamp-right { right: -6px; }
 
   .invitation-card {
     padding: 22px 12px;
