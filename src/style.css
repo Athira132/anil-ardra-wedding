@@ -625,75 +625,94 @@ img {
   pointer-events: none;
   z-index: 5;
   display: flex;
-  gap: 16px;
+  gap: clamp(8px, 1.2vw, 14px);
 }
 
 .hanging-lamp-left {
-  left: 20px;
+  left: clamp(12px, 1.8vw, 24px);
 }
 
 .hanging-lamp-right {
-  right: 20px;
+  right: clamp(12px, 1.8vw, 24px);
 }
 
 .hanging-lamp-item {
   position: relative;
   transform-origin: top center;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.4));
-  transition: transform 0.4s ease;
+  /* Stationary: brass lamps do not swing or move */
 }
 
 .hang-lamp-img {
   width: auto;
+  height: 100%;
+  max-height: 100%;
   display: block;
+  object-fit: contain;
 }
 
-.hang-lamp-l1 {
-  height: 380px;
-  animation: lampSwaySubtle1 8s ease-in-out infinite alternate;
-}
-
-.hang-lamp-l2 {
-  height: 290px;
-  animation: lampSwaySubtle2 9.5s ease-in-out infinite alternate;
-}
-
+.hang-lamp-l1,
 .hang-lamp-r1 {
-  height: 380px;
-  animation: lampSwaySubtle2 8.6s ease-in-out infinite alternate;
+  height: clamp(280px, 34vh, 340px);
 }
 
+.hang-lamp-l2,
 .hang-lamp-r2 {
-  height: 290px;
-  animation: lampSwaySubtle1 10.2s ease-in-out infinite alternate;
+  height: clamp(210px, 26vh, 260px);
 }
 
 .lamp-ambient-glow {
   position: absolute;
-  bottom: 60px;
+  bottom: 22%;
   left: 50%;
   transform: translateX(-50%);
   width: 90px;
   height: 90px;
-  background: radial-gradient(circle, rgba(255, 185, 45, 0.35) 0%, rgba(212, 175, 55, 0.15) 50%, transparent 75%);
-  filter: blur(12px);
+  background: radial-gradient(circle, rgba(255, 195, 50, 0.38) 0%, rgba(212, 165, 45, 0.16) 45%, transparent 72%);
+  filter: blur(14px);
   pointer-events: none;
-  animation: lampAuraPulse 3s ease-in-out infinite alternate;
+  border-radius: 50%;
 }
 
-@keyframes lampSwaySubtle1 {
-  0% { transform: rotate(-1.2deg); }
-  100% { transform: rotate(1.2deg); }
+.hang-lamp-l1 .lamp-ambient-glow {
+  animation: lampAuraPulse1 2.8s ease-in-out infinite alternate;
 }
 
-@keyframes lampSwaySubtle2 {
-  0% { transform: rotate(1deg); }
-  100% { transform: rotate(-1deg); }
+.hang-lamp-l2 .lamp-ambient-glow {
+  animation: lampAuraPulse2 2.3s ease-in-out infinite alternate 0.4s;
 }
 
-@keyframes lampAuraPulse {
-  0% { opacity: 0.75; transform: translateX(-50%) scale(0.95); }
-  100% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+.hang-lamp-r1 .lamp-ambient-glow {
+  animation: lampAuraPulse3 3.1s ease-in-out infinite alternate 0.2s;
+}
+
+.hang-lamp-r2 .lamp-ambient-glow {
+  animation: lampAuraPulse1 2.5s ease-in-out infinite alternate 0.6s;
+}
+
+@keyframes lampAuraPulse1 {
+  0% { opacity: 0.72; transform: translateX(-50%) scale(0.96); }
+  50% { opacity: 0.98; transform: translateX(-50%) scale(1.05); }
+  100% { opacity: 0.8; transform: translateX(-50%) scale(0.98); }
+}
+
+@keyframes lampAuraPulse2 {
+  0% { opacity: 0.76; transform: translateX(-50%) scale(0.98); }
+  60% { opacity: 1; transform: translateX(-50%) scale(1.07); }
+  100% { opacity: 0.75; transform: translateX(-50%) scale(0.95); }
+}
+
+@keyframes lampAuraPulse3 {
+  0% { opacity: 0.74; transform: translateX(-50%) scale(0.95); }
+  40% { opacity: 0.94; transform: translateX(-50%) scale(1.04); }
+  100% { opacity: 0.82; transform: translateX(-50%) scale(1.01); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamp-ambient-glow {
+    animation: none !important;
+    opacity: 0.82 !important;
+  }
 }
 
 /* Main Hero Content Composition */
@@ -705,21 +724,22 @@ img {
 
 .hero-composition-grid {
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
+  grid-template-columns: minmax(290px, 380px) 1.25fr;
   align-items: center;
-  gap: clamp(24px, 4vw, 56px);
+  gap: clamp(24px, 3.5vw, 52px);
 }
 
 /* Left: Authentic Bride & Groom Photograph on Warm Ivory & Gold Card */
 .hero-couple-col {
   display: flex;
   justify-content: center;
+  margin-top: clamp(20px, 3.5vh, 42px); /* Gently moved downward for optimal lamp clearance */
 }
 
 .couple-photo-card {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: clamp(290px, 24vw, 360px);
   border-radius: 220px 220px 24px 24px;
   padding: 10px;
   background: radial-gradient(circle at 50% 30%, #FFFDF9 45%, #FAF4E8 80%, #EDE1C9 100%);
@@ -2398,13 +2418,57 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   15. RESPONSIVE DESIGN (TABLETS & MOBILE VIEWPORTS: 320px - 960px)
+   15. RESPONSIVE DESIGN (TABLETS & MOBILE VIEWPORTS: 320px - 1200px)
    -------------------------------------------------------------------------- */
+@media (min-width: 961px) and (max-width: 1360px) {
+  .hero-content {
+    padding-left: clamp(120px, 11vw, 150px);
+    padding-right: clamp(120px, 11vw, 150px);
+  }
+  .hanging-lamp-left {
+    left: 10px;
+  }
+  .hanging-lamp-right {
+    right: 10px;
+  }
+  .hanging-lamp-edge {
+    gap: 8px;
+  }
+  .hang-lamp-l1,
+  .hang-lamp-r1 {
+    height: 270px;
+  }
+  .hang-lamp-l2,
+  .hang-lamp-r2 {
+    height: 195px;
+  }
+  .hero-composition-grid {
+    grid-template-columns: minmax(260px, 320px) 1.25fr;
+    gap: clamp(20px, 2.5vw, 36px);
+  }
+  .hero-couple-col {
+    margin-top: 36px;
+  }
+  .couple-photo-card {
+    max-width: 310px;
+  }
+}
+
 @media (max-width: 960px) {
   .hero-composition-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 32px;
+    gap: 28px;
+  }
+
+  .hero-couple-col {
+    margin-top: clamp(24px, 4vh, 38px);
+  }
+
+  .couple-photo-card {
+    max-width: clamp(200px, 48vw, 240px);
+    padding: 8px;
+    border-radius: 170px 170px 18px 18px;
   }
 
   .hero-typography-col {
@@ -2530,23 +2594,27 @@ img {
     border-radius: var(--radius-md);
   }
 
-  /* Traditional Hanging Brass Lamps on Mobile: Left and Right edges only, scaled and non-overlapping */
+  /* Traditional Hanging Brass Lamps on Mobile: Left and Right edges only, crisp and non-overlapping */
   .hanging-lamp-edge {
     gap: 4px;
-    z-index: 4;
+    z-index: 5;
   }
 
   .hanging-lamp-left {
-    left: -8px;
+    left: 8px;
   }
 
   .hanging-lamp-right {
-    right: -8px;
+    right: 8px;
   }
 
   .hanging-lamp-item {
-    transform: scale(0.55);
-    transform-origin: top center;
+    transform: none; /* Crisp layout without scale distortion */
+  }
+
+  .hang-lamp-l1,
+  .hang-lamp-r1 {
+    height: clamp(170px, 22vh, 205px);
   }
 
   .hang-lamp-l2,
@@ -2554,12 +2622,15 @@ img {
     display: none; /* Keep a single, elegant hanging lamp on each side on mobile to keep center spacious */
   }
 
-  /* Couple photo proportioned on mobile */
+  /* Couple photo proportioned and moved downward on mobile */
+  .hero-couple-col {
+    margin-top: clamp(22px, 3.8vh, 36px);
+  }
+
   .couple-photo-card {
-    max-width: clamp(210px, 58vw, 270px);
+    max-width: clamp(195px, 48vw, 235px);
     padding: 8px;
     border-radius: 170px 170px 18px 18px;
-    margin-top: 4px;
   }
 
   .photo-arch-frame {
@@ -2651,11 +2722,28 @@ img {
 
 @media (max-width: 480px) {
   .hero-section {
-    padding-top: clamp(74px, 11vh, 86px);
-    padding-bottom: 36px;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-top: clamp(82px, 11vh, 96px);
+    padding-bottom: 34px;
+    padding-left: 12px;
+    padding-right: 12px;
     min-height: 100svh;
+  }
+
+  .hanging-lamp-left {
+    left: 6px;
+  }
+
+  .hanging-lamp-right {
+    right: 6px;
+  }
+
+  .hang-lamp-l1,
+  .hang-lamp-r1 {
+    height: clamp(155px, 20vh, 185px);
+  }
+
+  .hero-couple-col {
+    margin-top: clamp(18px, 3vh, 28px);
   }
 
   .hero-composition-grid {
@@ -2733,7 +2821,7 @@ img {
 
   /* Couple Photo Card on Small Screens */
   .couple-photo-card {
-    max-width: clamp(180px, 52vw, 240px);
+    max-width: clamp(180px, 46vw, 215px);
     padding: 6px;
   }
 
@@ -2818,9 +2906,9 @@ img {
 /* Specific refinement for ultra-narrow phones (320px - 360px e.g. iPhone SE / Galaxy Fold) */
 @media (max-width: 360px) {
   .hero-section {
-    padding-top: 70px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-top: 74px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .hero-ornamental-frame {
@@ -2841,16 +2929,25 @@ img {
     font-size: 22px;
   }
 
+  .hero-couple-col {
+    margin-top: 14px;
+  }
+
   .couple-photo-card {
-    max-width: 180px;
+    max-width: 170px;
   }
 
   .hanging-lamp-item {
-    transform: scale(0.45);
+    transform: none;
   }
 
-  .hanging-lamp-left { left: -6px; }
-  .hanging-lamp-right { right: -6px; }
+  .hang-lamp-l1,
+  .hang-lamp-r1 {
+    height: 145px;
+  }
+
+  .hanging-lamp-left { left: 4px; }
+  .hanging-lamp-right { right: 4px; }
 
   .invitation-card {
     padding: 22px 12px;
