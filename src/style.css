@@ -649,28 +649,28 @@ img {
 }
 
 .hang-lamp-l1 {
-  height: 380px;
+  height: 420px;
 }
 
 .hang-lamp-l2 {
-  height: 290px;
+  height: 320px;
 }
 
 .hang-lamp-r1 {
-  height: 380px;
+  height: 420px;
 }
 
 .hang-lamp-r2 {
-  height: 290px;
+  height: 320px;
 }
 
 .lamp-ambient-glow {
   position: absolute;
-  bottom: 60px;
+  bottom: 35px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   background: radial-gradient(circle, rgba(255, 185, 45, 0.35) 0%, rgba(212, 175, 55, 0.15) 50%, transparent 75%);
   filter: blur(12px);
   pointer-events: none;
@@ -2544,7 +2544,7 @@ img {
 
   .hang-lamp-l1,
   .hang-lamp-r1 {
-    width: clamp(44px, 12.8vw, 60px);
+    width: clamp(48px, 13.8vw, 65px);
     height: auto;
   }
 
@@ -2561,10 +2561,10 @@ img {
   }
 
   .hanging-lamp-edge .lamp-ambient-glow {
-    width: clamp(38px, 11vw, 52px);
-    height: clamp(38px, 11vw, 52px);
-    bottom: 28%;
-    filter: blur(8px);
+    width: clamp(42px, 12vw, 56px);
+    height: clamp(42px, 12vw, 56px);
+    bottom: 22%;
+    filter: blur(9px);
   }
 
   /* Couple photo proportioned on mobile */

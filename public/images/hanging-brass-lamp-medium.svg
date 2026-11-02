@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 440" width="160" height="440" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 440" width="168" height="462" fill="none">
   <defs>
     <linearGradient id="brassChainM" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#4E3510" />
@@ -140,7 +140,7 @@
     </style>
   </defs>
 
-  <!-- Chain (6 links) -->
+  <!-- Chain (Extended length - 9 links) -->
   <g id="chainM" stroke="#3D2507" stroke-width="0.8">
     <ellipse cx="80" cy="14" rx="4" ry="12" fill="url(#brassChainM)" />
     <ellipse cx="80" cy="14" rx="1.8" ry="7" fill="#1B0F03" />
@@ -154,72 +154,81 @@
     <ellipse cx="80" cy="86" rx="1.8" ry="7" fill="#1B0F03" />
     <ellipse cx="80" cy="104" rx="3.6" ry="11" fill="url(#brassChainM)" />
     <ellipse cx="80" cy="104" rx="1.6" ry="6" fill="#1B0F03" />
+    <ellipse cx="80" cy="122" rx="4" ry="12" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="122" rx="1.8" ry="7" fill="#1B0F03" />
+    <ellipse cx="80" cy="140" rx="3.6" ry="11" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="140" rx="1.6" ry="6" fill="#1B0F03" />
+    <ellipse cx="80" cy="158" rx="4" ry="12" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="158" rx="1.8" ry="7" fill="#1B0F03" />
   </g>
 
-  <!-- Crown Ring & Mount -->
-  <circle cx="80" cy="122" r="7" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="1.2" />
-  <circle cx="80" cy="122" r="3.5" fill="#1B0F03" />
-  <path d="M74 129 L86 129 L84 138 L76 138 Z" fill="url(#brassGoldM)" />
-  <ellipse cx="80" cy="148" rx="20" ry="7" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
+  <!-- Lamp Body Assembly (Shifted downward by extended chain) -->
+  <g id="lamp-body-assembly-m" transform="translate(0, 54)">
+    <!-- Crown Ring & Mount -->
+    <circle cx="80" cy="122" r="7" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="1.2" />
+    <circle cx="80" cy="122" r="3.5" fill="#1B0F03" />
+    <path d="M74 129 L86 129 L84 138 L76 138 Z" fill="url(#brassGoldM)" />
+    <ellipse cx="80" cy="148" rx="20" ry="7" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
 
-  <!-- Stem -->
-  <ellipse cx="80" cy="164" rx="9" ry="7" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="0.8" />
-  <path d="M72 175 C69 184, 68 193, 80 198 C92 193, 91 184, 88 175 Z" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="0.8" />
-  <rect x="73" y="198" width="14" height="5" rx="1.5" fill="url(#brassGoldM)" />
-  <path d="M75 203 L85 203 L87 212 L73 212 Z" fill="url(#brassGoldM)" />
+    <!-- Stem -->
+    <ellipse cx="80" cy="164" rx="9" ry="7" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="0.8" />
+    <path d="M72 175 C69 184, 68 193, 80 198 C92 193, 91 184, 88 175 Z" fill="url(#brassGoldM)" stroke="#4A3008" stroke-width="0.8" />
+    <rect x="73" y="198" width="14" height="5" rx="1.5" fill="url(#brassGoldM)" />
+    <path d="M75 203 L85 203 L87 212 L73 212 Z" fill="url(#brassGoldM)" />
 
-  <!-- Oil Dish -->
-  <path d="M26 224 Q80 213 134 224 Q141 231 130 236 Q80 245 30 236 Q20 231 26 224 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="1" />
-  <ellipse cx="80" cy="226" rx="48" ry="9" fill="url(#brassGoldM)" />
-  <ellipse cx="80" cy="227" rx="42" ry="6" fill="#6E4A10" opacity="0.85" />
-  <path d="M30 233 C34 251, 52 263, 80 263 C108 263, 126 251, 130 233 C120 242, 95 246, 80 246 C65 246, 40 242, 30 233 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
+    <!-- Oil Dish -->
+    <path d="M26 224 Q80 213 134 224 Q141 231 130 236 Q80 245 30 236 Q20 231 26 224 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="1" />
+    <ellipse cx="80" cy="226" rx="48" ry="9" fill="url(#brassGoldM)" />
+    <ellipse cx="80" cy="227" rx="42" ry="6" fill="#6E4A10" opacity="0.85" />
+    <path d="M30 233 C34 251, 52 263, 80 263 C108 263, 126 251, 130 233 C120 242, 95 246, 80 246 C65 246, 40 242, 30 233 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
 
-  <!-- Wick Spouts -->
-  <path d="M24 223 Q18 225 17 227 Q22 230 28 228 Z" fill="url(#brassGoldM)" />
-  <path d="M47 231 Q41 234 39 237 Q46 238 51 235 Z" fill="url(#brassGoldM)" />
-  <path d="M76 238 Q80 242 80 243 Q84 242 84 238 Z" fill="url(#brassGoldM)" />
-  <path d="M109 235 Q114 238 121 237 Q119 234 113 231 Z" fill="url(#brassGoldM)" />
-  <path d="M132 228 Q138 230 143 227 Q142 225 136 223 Z" fill="url(#brassGoldM)" />
+    <!-- Wick Spouts -->
+    <path d="M24 223 Q18 225 17 227 Q22 230 28 228 Z" fill="url(#brassGoldM)" />
+    <path d="M47 231 Q41 234 39 237 Q46 238 51 235 Z" fill="url(#brassGoldM)" />
+    <path d="M76 238 Q80 242 80 243 Q84 242 84 238 Z" fill="url(#brassGoldM)" />
+    <path d="M109 235 Q114 238 121 237 Q119 234 113 231 Z" fill="url(#brassGoldM)" />
+    <path d="M132 228 Q138 230 143 227 Q142 225 136 223 Z" fill="url(#brassGoldM)" />
 
-  <!-- Ambient Glow -->
-  <circle class="lamp-aura aura-m1" cx="17" cy="217" r="18" fill="url(#flameGlowM)" opacity="0.85" />
-  <circle class="lamp-aura aura-m2" cx="41" cy="225" r="20" fill="url(#flameGlowM)" opacity="0.9" />
-  <circle class="lamp-aura aura-mcenter" cx="80" cy="230" r="22" fill="url(#flameGlowM)" opacity="0.95" />
-  <circle class="lamp-aura aura-m4" cx="119" cy="225" r="20" fill="url(#flameGlowM)" opacity="0.9" />
-  <circle class="lamp-aura aura-m5" cx="143" cy="217" r="18" fill="url(#flameGlowM)" opacity="0.85" />
+    <!-- Ambient Glow -->
+    <circle class="lamp-aura aura-m1" cx="17" cy="217" r="18" fill="url(#flameGlowM)" opacity="0.85" />
+    <circle class="lamp-aura aura-m2" cx="41" cy="225" r="20" fill="url(#flameGlowM)" opacity="0.9" />
+    <circle class="lamp-aura aura-mcenter" cx="80" cy="230" r="22" fill="url(#flameGlowM)" opacity="0.95" />
+    <circle class="lamp-aura aura-m4" cx="119" cy="225" r="20" fill="url(#flameGlowM)" opacity="0.9" />
+    <circle class="lamp-aura aura-m5" cx="143" cy="217" r="18" fill="url(#flameGlowM)" opacity="0.85" />
 
-  <!-- Flames -->
-  <g class="lamp-flame flame-m1">
-    <path d="M17 226 Q11 217 17 208 Q23 217 17 226 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
-    <path d="M17 225 Q13 219 17 212 Q21 219 17 225 Z" fill="#FFFFF0" />
+    <!-- Flames -->
+    <g class="lamp-flame flame-m1">
+      <path d="M17 226 Q11 217 17 208 Q23 217 17 226 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+      <path d="M17 225 Q13 219 17 212 Q21 219 17 225 Z" fill="#FFFFF0" />
+    </g>
+
+    <g class="lamp-flame flame-m2">
+      <path d="M41 235 Q34 224 41 214 Q48 224 41 235 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+      <path d="M41 234 Q36 226 41 218 Q46 226 41 234 Z" fill="#FFFFF0" />
+    </g>
+
+    <g class="lamp-flame flame-mcenter">
+      <path d="M80 240 Q71 227 80 214 Q89 227 80 240 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+      <path d="M80 238 Q74 229 80 220 Q86 229 80 238 Z" fill="#FFFFF0" />
+    </g>
+
+    <g class="lamp-flame flame-m4">
+      <path d="M119 235 Q112 224 119 214 Q126 224 119 235 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+      <path d="M119 234 Q114 226 119 218 Q124 226 119 234 Z" fill="#FFFFF0" />
+    </g>
+
+    <g class="lamp-flame flame-m5">
+      <path d="M143 226 Q137 217 143 208 Q149 217 143 226 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
+      <path d="M143 225 Q139 219 143 212 Q147 219 143 225 Z" fill="#FFFFF0" />
+    </g>
+
+    <!-- Bottom Mani -->
+    <ellipse cx="80" cy="266" rx="5" ry="2.5" fill="url(#brassGoldM)" />
+    <ellipse cx="80" cy="273" rx="2.5" ry="5" fill="url(#brassChainM)" />
+    <ellipse cx="80" cy="281" rx="2.5" ry="5" fill="url(#brassChainM)" />
+    <path d="M75 288 Q80 286 85 288 L87 296 C90 304, 91 308, 91 311 Q80 313 69 311 C69 308, 70 304, 73 296 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
+    <ellipse cx="80" cy="311" rx="11" ry="3" fill="url(#brassGoldM)" />
+    <circle cx="80" cy="317" r="3" fill="url(#brassGoldM)" />
+    <path d="M78.5 320 L81.5 320 L80 326 Z" fill="url(#brassGoldM)" />
   </g>
-
-  <g class="lamp-flame flame-m2">
-    <path d="M41 235 Q34 224 41 214 Q48 224 41 235 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
-    <path d="M41 234 Q36 226 41 218 Q46 226 41 234 Z" fill="#FFFFF0" />
-  </g>
-
-  <g class="lamp-flame flame-mcenter">
-    <path d="M80 240 Q71 227 80 214 Q89 227 80 240 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
-    <path d="M80 238 Q74 229 80 220 Q86 229 80 238 Z" fill="#FFFFF0" />
-  </g>
-
-  <g class="lamp-flame flame-m4">
-    <path d="M119 235 Q112 224 119 214 Q126 224 119 235 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
-    <path d="M119 234 Q114 226 119 218 Q124 226 119 234 Z" fill="#FFFFF0" />
-  </g>
-
-  <g class="lamp-flame flame-m5">
-    <path d="M143 226 Q137 217 143 208 Q149 217 143 226 Z" fill="url(#flameGradM)" filter="url(#lampGlowM)" />
-    <path d="M143 225 Q139 219 143 212 Q147 219 143 225 Z" fill="#FFFFF0" />
-  </g>
-
-  <!-- Bottom Mani -->
-  <ellipse cx="80" cy="266" rx="5" ry="2.5" fill="url(#brassGoldM)" />
-  <ellipse cx="80" cy="273" rx="2.5" ry="5" fill="url(#brassChainM)" />
-  <ellipse cx="80" cy="281" rx="2.5" ry="5" fill="url(#brassChainM)" />
-  <path d="M75 288 Q80 286 85 288 L87 296 C90 304, 91 308, 91 311 Q80 313 69 311 C69 308, 70 304, 73 296 Z" fill="url(#brassGoldM)" stroke="#3D2507" stroke-width="0.8" />
-  <ellipse cx="80" cy="311" rx="11" ry="3" fill="url(#brassGoldM)" />
-  <circle cx="80" cy="317" r="3" fill="url(#brassGoldM)" />
-  <path d="M78.5 320 L81.5 320 L80 326 Z" fill="url(#brassGoldM)" />
 </svg>
