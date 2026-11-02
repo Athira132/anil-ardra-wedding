@@ -663,55 +663,69 @@ img {
 
 .lamp-ambient-glow {
   position: absolute;
-  bottom: 22%;
+  bottom: 26%;
   left: 50%;
   transform: translateX(-50%);
   width: 90px;
   height: 90px;
-  background: radial-gradient(circle, rgba(255, 195, 50, 0.38) 0%, rgba(212, 165, 45, 0.16) 45%, transparent 72%);
+  background: radial-gradient(circle, rgba(255, 195, 50, 0.45) 0%, rgba(212, 165, 45, 0.20) 45%, transparent 72%);
   filter: blur(14px);
   pointer-events: none;
   border-radius: 50%;
 }
 
 .hang-lamp-l1 .lamp-ambient-glow {
-  animation: lampAuraPulse1 2.8s ease-in-out infinite alternate;
+  animation: lampAuraFlicker1 2.6s ease-in-out infinite 0s;
 }
 
 .hang-lamp-l2 .lamp-ambient-glow {
-  animation: lampAuraPulse2 2.3s ease-in-out infinite alternate 0.4s;
+  animation: lampAuraFlicker2 3.1s ease-in-out infinite 0.7s;
 }
 
 .hang-lamp-r1 .lamp-ambient-glow {
-  animation: lampAuraPulse3 3.1s ease-in-out infinite alternate 0.2s;
+  animation: lampAuraFlicker3 2.9s ease-in-out infinite 1.3s;
 }
 
 .hang-lamp-r2 .lamp-ambient-glow {
-  animation: lampAuraPulse1 2.5s ease-in-out infinite alternate 0.6s;
+  animation: lampAuraFlicker4 3.4s ease-in-out infinite 0.4s;
 }
 
-@keyframes lampAuraPulse1 {
-  0% { opacity: 0.72; transform: translateX(-50%) scale(0.96); }
-  50% { opacity: 0.98; transform: translateX(-50%) scale(1.05); }
-  100% { opacity: 0.8; transform: translateX(-50%) scale(0.98); }
+@keyframes lampAuraFlicker1 {
+  0%, 100% { opacity: 0.65; transform: translateX(-50%) scale(1); }
+  26% { opacity: 0.88; transform: translateX(-50%) scale(1.12); }
+  52% { opacity: 0.44; transform: translateX(-50%) scale(0.90); }
+  76% { opacity: 0.82; transform: translateX(-50%) scale(1.06); }
+  88% { opacity: 0.52; transform: translateX(-50%) scale(0.93); }
 }
 
-@keyframes lampAuraPulse2 {
-  0% { opacity: 0.76; transform: translateX(-50%) scale(0.98); }
-  60% { opacity: 1; transform: translateX(-50%) scale(1.07); }
-  100% { opacity: 0.75; transform: translateX(-50%) scale(0.95); }
+@keyframes lampAuraFlicker2 {
+  0%, 100% { opacity: 0.68; transform: translateX(-50%) scale(1); }
+  22% { opacity: 0.42; transform: translateX(-50%) scale(0.90); }
+  50% { opacity: 0.88; transform: translateX(-50%) scale(1.12); }
+  74% { opacity: 0.50; transform: translateX(-50%) scale(0.92); }
+  90% { opacity: 0.82; transform: translateX(-50%) scale(1.06); }
 }
 
-@keyframes lampAuraPulse3 {
-  0% { opacity: 0.74; transform: translateX(-50%) scale(0.95); }
-  40% { opacity: 0.94; transform: translateX(-50%) scale(1.04); }
-  100% { opacity: 0.82; transform: translateX(-50%) scale(1.01); }
+@keyframes lampAuraFlicker3 {
+  0%, 100% { opacity: 0.66; transform: translateX(-50%) scale(1); }
+  28% { opacity: 0.88; transform: translateX(-50%) scale(1.12); }
+  50% { opacity: 0.44; transform: translateX(-50%) scale(0.90); }
+  72% { opacity: 0.84; transform: translateX(-50%) scale(1.08); }
+  86% { opacity: 0.52; transform: translateX(-50%) scale(0.92); }
+}
+
+@keyframes lampAuraFlicker4 {
+  0%, 100% { opacity: 0.67; transform: translateX(-50%) scale(1); }
+  24% { opacity: 0.43; transform: translateX(-50%) scale(0.90); }
+  50% { opacity: 0.86; transform: translateX(-50%) scale(1.11); }
+  74% { opacity: 0.50; transform: translateX(-50%) scale(0.92); }
+  88% { opacity: 0.85; transform: translateX(-50%) scale(1.08); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .lamp-ambient-glow {
     animation: none !important;
-    opacity: 0.82 !important;
+    opacity: 0.72 !important;
   }
 }
 
